@@ -8,8 +8,12 @@ export default function Register() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const registrar = async (formData) => {
-        dispatch(registerUser(formData, navigate))
+       await dispatch(registerUser(formData, navigate))
+        let prueba= JSON.stringify(formData)
+    console.log("registro2",prueba);
     }
+    
+    
     return (
         <>
             <div>
@@ -41,7 +45,7 @@ export default function Register() {
                     required: "La contraseña no puedes estar vacía",
                     pattern: {
                         message: "La constraseña debe contener mayúscula, minúscula, número y símbolo",
-                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/
+                        value:/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
                     }
                 })} placeholder="Constraseña"/>
                 {errors.password && <>

@@ -15,7 +15,7 @@ export default function Register() {
         <div className='c-register-container'>
             <div className='c-register-logo'/>
             <div className='c-register-title'>
-                <hp>¡Hola! para continuar, crea tu cuenta</hp>
+                <p>¡Hola! para continuar, crea tu cuenta</p>
             </div>
             <div className='c-register-form'>
                 <form onSubmit={handleSubmit(registrar)}>
@@ -47,8 +47,8 @@ export default function Register() {
                         {errors.password.type === "required" && <p>{errors.password.message}</p>}
                         {errors.password.type === "pattern" && <p>{errors.password.message}</p>}
                     </>}
+                    <button>Registrarse</button>
                 </form>
-                <button>Registrarse</button>
             </div>
         </div>
         

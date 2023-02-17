@@ -14,9 +14,12 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
 };
 export const registerUser = (formData, navigate) => async (dispatch) => {
   dispatch({ type: "register_user" });
+  
   try {
-    const result = await API.post("/users/register", formData);
+    const result = await API.post("/users/register",JSON.stringify(formData));
     dispatch({ type: "register_user_ok", payload: result.data });
+    console.log('esto result', result.data);
+
     navigate("/login");
   } catch (error) {
     console.log(error);

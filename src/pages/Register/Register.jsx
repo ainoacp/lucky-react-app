@@ -1,16 +1,21 @@
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../redux/auth/auth.actions';
 
+
 export default function Register() {
     const { register, handleSubmit, formState:{errors} } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    // let url=
     const registrar = async (formData) => {
        await dispatch(registerUser(formData, navigate))
         let prueba= JSON.stringify(formData)
+
     console.log("registro2",prueba);
+    // console.log("registro url",REACT_APP_BACK_URL);
     }
     
     

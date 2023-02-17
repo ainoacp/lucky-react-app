@@ -4,6 +4,7 @@ import title from "../../assets/Primarios/logo/tituloLucky.png";
 
 import "./LandingPage.scss";
 import Slider from "../../components/SliderComp/Slider";
+import CarrousselPage from "../CarrousselPage/CarrousselPage";
 
 
 const LandingPage = () => {
@@ -27,7 +28,7 @@ const LandingPage = () => {
           <img className="c-landing__title" src={title} alt="title" />
         </div>
       ) : (
-        <Slider />
+        <CarrousselPage />
       )}
     </>
   );

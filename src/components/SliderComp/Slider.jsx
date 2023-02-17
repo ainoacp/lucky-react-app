@@ -17,7 +17,7 @@ const Slider = () => {
   }, []);
 
   return (
-        <div className="swiper-pagination"></div>
+        <div className="swiper-pagination" />
   );
 };
 

@@ -9,12 +9,10 @@ import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
-import Slider from "../src/components/SliderComp/Slider"
-import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
-
 
 function App() {
 

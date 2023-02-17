@@ -1,16 +1,20 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PasswordButton from '../../components/PasswordButton/PasswordButton';
 import { loginUser } from '../../redux/auth/auth.actions';
 import './Login.scss';
 
 export default function Login() {
     const {register, handleSubmit, formState:{errors} } = useForm()
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
     const loguear = async (formData) => {
         dispatch(loginUser(formData, navigate));
     }
+
     return(
         <div className='c-login-container'>
             <div className='c-login-logo'/>
@@ -32,7 +36,7 @@ export default function Login() {
                             {errors.email.type === "pattern" && <p>{errors.email.message}</p>}
                         </>}
                         <div className='c-login-form_input-password'>
-                            <input type="password" {...register('password', {
+                            <input type={passwordShown ? "text" : "pasword"} {...register('password', {
                                 required: "La contraseña no puedes estar vacía",
                                 pattern: {
                                     message: "La constraseña debe contener mayúscula, minúscula, número y símbolo",
@@ -43,7 +47,7 @@ export default function Login() {
                                 {errors.password.type === "required" && <p>{errors.password.message}</p>}
                                 {errors.password.type === "pattern" && <p>{errors.password.message}</p>}
                             </>}
-                            <button/>
+                            <PasswordButton />
                         </div>
                         <button>¿Has olvidado tu contraseña?</button>
                     </div>

@@ -24,6 +24,11 @@
     
 }
 
+.usu{
+    width: 24px;
+    height: 21px;
+}
+
 .home{
  display: flex;
  width: 24px;
@@ -49,6 +54,8 @@
  display: flex;    
  width: 24px;
  height: 24px;
+ border-radius: 50%;
+ border: 2px solid orange;
  text-decoration: none;
 }
 

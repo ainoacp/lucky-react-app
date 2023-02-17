@@ -36,7 +36,7 @@ export default function Login() {
                             {errors.email.type === "pattern" && <p>{errors.email.message}</p>}
                         </>}
                         <div className='c-login-form_input-password'>
-                            <input type={passwordShown ? "text" : "pasword"} {...register('password', {
+                            <input type="password" {...register('password', {
                                 required: "La contraseña no puedes estar vacía",
                                 pattern: {
                                     message: "La constraseña debe contener mayúscula, minúscula, número y símbolo",

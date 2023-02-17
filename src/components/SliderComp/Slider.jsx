@@ -23,7 +23,7 @@ const Slider = () => {
 
   return (
     <>
-      <Link to="/home">
+      <Link to="/start">
         <img src={Cross} alt="cross" className="x" />
       </Link>
       <div className="c-slider swiper">

@@ -1,19 +1,31 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import PasswordButton from '../../components/PasswordButton/PasswordButton';
 import { loginUser } from '../../redux/auth/auth.actions';
-import './Login.scss';
+import './LoginPage.scss';
 
-export default function Login() {
-    const {register, handleSubmit, formState:{errors} } = useForm()
+export default function LoginPage() {
+    const {register, handleSubmit, formState:{errors} } = useForm();
+
+    const [passwordType, setPasswordType] = useState("password");
     
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
     const loguear = async (formData) => {
         dispatch(loginUser(formData, navigate));
-    }
+    };
+
+    const togglePassword = () => {
+        if(passwordType==="password")
+        {
+        setPasswordType("text")
+        return;
+        }
+        setPasswordType("password")
+    };
 
     return(
         <div className='c-login-container'>
@@ -36,7 +48,7 @@ export default function Login() {
                             {errors.email.type === "pattern" && <p>{errors.email.message}</p>}
                         </>}
                         <div className='c-login-form_input-password'>
-                            <input type="password" {...register('password', {
+                            <input type={passwordType} {...register('password', {
                                 required: "La contraseña no puedes estar vacía",
                                 pattern: {
                                     message: "La constraseña debe contener mayúscula, minúscula, número y símbolo",
@@ -47,13 +59,13 @@ export default function Login() {
                                 {errors.password.type === "required" && <p>{errors.password.message}</p>}
                                 {errors.password.type === "pattern" && <p>{errors.password.message}</p>}
                             </>}
-                            <PasswordButton />
+                            <PasswordButton toggle={togglePassword} />
                         </div>
                         <button>¿Has olvidado tu contraseña?</button>
                     </div>
                     <div className='c-login-form_button'>
-                        <button className='c-login-form_button-blue'>Iniciar sesión</button>
-                        <button className='c-login-form_button-white'>Crear cuenta</button>
+                        <NavLink to="/home" className='c-login-form_button-blue'>Iniciar sesión</NavLink>
+                        <NavLink to="/register" className='c-login-form_button-white'>Crear cuenta</NavLink>
                     </div>
                 </form>
             </div>

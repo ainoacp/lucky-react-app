@@ -1,0 +1,31 @@
+
+.container-profile{
+
+    display: flex;  
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    width: 100%;
+    height: auto;
+   
+   
+    
+}
+
+.profile-picture{
+    display: flex;  
+    width: 71px;
+    height: 71px;
+    border: 4px solid #01748E;
+    border-radius: 50%;
+}
+
+.box{
+    display: flex;  
+    border: 1px solid rgb(189, 210, 214);
+    border-radius: 3px;
+    margin: 3px;
+    width: 375px;
+    height: 51px;
+}

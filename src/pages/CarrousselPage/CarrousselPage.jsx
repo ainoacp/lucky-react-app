@@ -30,7 +30,9 @@ return (
             <img className="c-slider__img" src={SlideP3} alt="slide3" />
             <h3 className="c-slider__title c-slider__title--first">Si eres una asociación sube a tus peludos para darles más difusión</h3>
           </div>
-        </div><Slider/></div>
+        </div>
+        <Slider/>
+      </div>
     </>
   );
 };

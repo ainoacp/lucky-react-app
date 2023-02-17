@@ -10,6 +10,7 @@ export default function Register() {
     const navigate = useNavigate();
     const registrar = async (formData) => {
         dispatch(registerUser(formData, navigate))
+        
     }
     return (
         <div className='c-register-container'>

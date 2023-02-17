@@ -5,7 +5,6 @@ import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import LandingPage from "../src/pages/LandingPage/LandingPage";
 import Slider from "../src/components/SliderComp/Slider"
-import HomePage from './pages/HomePage/HomePage';
 import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
@@ -33,7 +32,6 @@ function App() {
       <Route path='/home' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
       <Route path='/register' element={<Register />}/>
-      <Route path='/?' element={<HomePage />}/>
       <Route path='/map' element={<MapPage />}/>
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>

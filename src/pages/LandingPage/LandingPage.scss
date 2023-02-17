@@ -1,0 +1,21 @@
+.c-landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 375px;
+  height: 667px;
+  
+  &__logo {
+    margin: 0 auto;
+    width: 50%;
+    max-width: 187.5px; // mitad del ancho de .c-landing
+  }
+  
+  &__title {
+    margin-top: 15%; // ajustado para que esté centrado verticalmente
+    width: 70%; // ajustado para que se ajuste al ancho de .c-landing
+    max-width: 262.5px; // 70% del ancho de .c-landing
+  }
+}

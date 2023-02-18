@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
+import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
+      <Route path='/animalDetails' element={<AnimalDetail />}/>
     </Routes>
       
   );

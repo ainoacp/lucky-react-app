@@ -1,17 +1,51 @@
+*{
+    margin: 0;
+    text-decoration: none;
+}
+
 .c{
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    .c-slider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 38vh;
+        
+        .swiper-slide {
+          margin: 0px;
+          
+        }
+      
+    }
+
    &__image{
     z-index: 1;
-    img{
+    position: absolute;
+
+        &--arrow{
+        position:absolute;
+        z-index: 2;
+        margin: 20px 0 0 25px;
+
+            &-p{
+            font-size:35px;
+            color: rgb(250, 156, 147);
+           
+            }
+        }
+
+        img{
+        position: absolute;
         width: 375px;
-        height: 230px;
+        height: 250px;
+        }
     }
-    
-   }
 
    &__whitebox{
         z-index:2;
@@ -19,6 +53,15 @@
         align-self: center;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding:0 10px;
+        position: absolute;
+        top: 33%;
+        border-radius: 4%;
+        width: 60%;
+        
+        // height: 38vh;
         
         &--genre{
             

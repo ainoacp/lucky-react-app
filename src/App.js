@@ -9,11 +9,10 @@ import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
-import Slider from "../src/components/SliderComp/Slider"
-
 
 function App() {
 
@@ -29,7 +28,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/slider" element={<Slider />} />
+      <Route path="/carroussel" element={<CarrousselPage />} />
       <Route path='/start' element={<StartPage />}/>
       <Route path='/login' element={<LoginPage />}/>
       <Route path='/register' element={<RegisterPage />}/>

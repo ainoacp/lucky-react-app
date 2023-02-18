@@ -10,8 +10,8 @@ export default function CharactersSearcher({ search }) {
     return (
         <div className="form-container">
             <form className="form">
+                <input type="text" onChange={change} placeholder="Buscar"/>
                 <img alt="lupa" src={Lupa}/>
-                <input type="text" onChange={change} placeholder="Buscar..."/>
             </form>
         </div>
     )

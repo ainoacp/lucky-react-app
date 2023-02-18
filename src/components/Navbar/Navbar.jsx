@@ -15,14 +15,13 @@ const Navbar = () => {
     <>
     <div className='container'>  
      <nav className='navbar'>
-          <Link to='/' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
+          <Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
           <Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
           <Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
           <Link to='/profile' className='profile'>
-                    <div className='profilePicture'><img src={usu} className='usu' alt='profile ' />
-                    </div>
+            <div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div>
           </Link>
-          <Link to='/plus' className='plus'><a className='plus' >...</a></Link>  
+          <Link to='/plus' className='plus'><p className='plus' >...</p></Link>  
       </nav>
     </div>
     </>

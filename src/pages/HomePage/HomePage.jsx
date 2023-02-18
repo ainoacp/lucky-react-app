@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import Slider from '../../components/SliderComp/Slider'
+import { Link } from 'react-router-dom';
+import Slider from '../../components/SliderComp/Slider';
 import './HomePage.scss';
 import "swiper/css";
 import SlideP1 from "../../assets/Primarios/perfil/estado-de-adopcion/mascota@3x.png";
@@ -39,7 +39,7 @@ export default function HomePage() {
                             </div>
                         </Link>
                     </div>
-                    <Slider/>
+                    <Slider />
                 </div>
             </header>
             <body className='c-home-body'>

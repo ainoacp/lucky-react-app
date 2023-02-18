@@ -18,53 +18,53 @@ const ProfilePage = () => {
               <div className='profile-picture'><img src={usu}className='picture-profile'  alt=""/></div>
               
               <div className='container-start'>
-                  <div className='box'>
+                  <a href="#" className='box'>
                       <div className='box-start'><img src={iconprofil} className='picture-main'  alt="m"/>Mi perfil</div>
                       <img src={icono} className='ico'  alt="m"/>
-                  </div>   
+                  </a>   
                   
-                  <div className='box'>
+                  <a href="#"  className='box'>
                       <div className='box-start'>
                             <img src={iconandress} className='picture-main' alt="d"/>Direcciones
                       </div>
                         <img src={icono} className='ico'  alt="m"/>
-                  </div>
+                  </a>
 
-                  <div className='box'>
+                  <a href="#"  className='box'>
                       <div className='box-start'>
                         <img src={iconfavor} className='picture-main' alt="f"/>Favoritos
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
-                  </div>
+                  </a>
 
-                  <div className='box'> 
+                  <a href="#"  className='box'> 
                         <div className='box-start'>
                             <img src={iconnotf} className='picture-main' alt="n"/>Notificaciones
                         </div>  
                         <img src={icono} className='ico'  alt="m"/>
-                  </div>
+                  </a>
             </div>
               <div className='container-end'>
-                  <div className='box'>
+                  <a href="#"  className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>
                         <img src={icono} className='ico'  alt="m"/>
-                  </div>
+                  </a>
 
-                  <div className='box'>
+                  <a href="#"  className='box'>
                       <div className='box-start'>
                           <img src={iconspons} className='picture-main' alt="ap"/>Apadrinar
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
-                    </div>
+                    </a>
 
-                  <div className='box'>
+                  <a href="#"  className='box'>
                         <div className='box-start'>
                             <img src={icondonat} className='picture-main' alt="d"/>Donar
                         </div>
                             <img src={icono} className='ico'  alt="m"/>
-                    </div>
+                    </a>
               </div>
       </div>
       <Navbar></Navbar>

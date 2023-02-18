@@ -2,9 +2,8 @@
 .container-profile{
     display: flex;  
     align-items: center;
-    justify-content: space-between;
-    flex-direction: column; 
-   
+    justify-content: space-evenly;
+    flex-direction: column;  
     width: 100%;
     height: 615px;   
 }
@@ -16,7 +15,7 @@
     height: 71px;
     border: 4px solid #01748E;
     border-radius: 50%;
-    margin:70px 0px 20px 0px;
+    margin:70px 0px 10px 0px;
 }
 
 .picture-profile{
@@ -41,7 +40,7 @@
     justify-content: flex-end;
     flex-direction: column;      
     width: 100%;  
-    margin-bottom: 40px;  
+    margin-bottom: 0px;  
 }
 
 
@@ -56,8 +55,17 @@
     width: 90%;
     height: 45px;
     margin-top: 5px;
+    text-decoration: none;
+    color: rgb(1, 116, 142);
     
+    &:hover{
+        color: orange;
+  }
 }
+
+
+
+
 .box-start{
     display:flex; 
     justify-items: start;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import iconHome from '../../assets/Primarios/nav-bar/home/home.png';
 import iconUbi from '../../assets/Primarios/nav-bar/ubicaciones/locate.png';
 import iconAdop from '../../assets/Primarios/nav-bar/adopcion/mascota.png';
-import iconMain from '../../assets/Primarios/nav-bar/menu/mS.png';
+//import iconMain from '../../assets/Primarios/nav-bar/menu/desactive.png';  <img className='icon' alt=''/>
 //import iconPict from '../../assets/Primarios/nav-bar/home/home.png';
 import  usu from '../../assets/usuario/neutro-50.png'
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className='profilePicture'><img src={usu} className='usu' alt='profile ' />
                     </div>
           </Link>
-          <Link to='/plus' className='plus'><img src={iconMain} className='icon' alt='...'/></Link>
+          <Link to='/plus' className='plus'><a className='plus' >...</a></Link>  
       </nav>
     </div>
     </>

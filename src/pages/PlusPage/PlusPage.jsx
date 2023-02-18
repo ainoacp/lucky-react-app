@@ -17,53 +17,53 @@ const PlusPage = () => {
           
           <div className='container-start'>
           
-              <div className='box'>
+              <a href="#"  className='box'>
               <div className='box-start'>
                 <img src={iconAsoc} className='picture-main'  alt="A"/>Asociaciones protectoras
                 </div>
                     <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
 
               
-              <div className='box'>
+              <a href="#"  className='box'>
                  <div className='box-start'>
                     <img src={iconEve} className='picture-main' alt="E"/>Eventos
                     </div>
                     <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
              
-              <div className='box'>
+              <a href="#"  className='box'>
               <div className='box-start'>
                     <img src={iconCur} className='picture-main' alt="C"/>Curiosidades
                     </div>
                     <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
 
               
-              <div className='box'>
+              <a href="#"  className='box'>
               <div className='box-start'>
                     <img src={iconHelp} className='picture-main' alt="Ay"/>Ayuda
                     </div>
                     <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
 
               
-              <div className='box'>
+              <a href="#"  className='box'>
               <div className='box-start'>
                     <img src={iconSetup} className='picture-main' alt="C"/>Configuración
                     </div>
                     <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
           </div>
 
           <div className='container-end'>
 
-            <div className='box'>
+            <a href="#"  className='box'>
                 <div className='box-start'>                            
                   <img src= {iconClose}className='picture-main' alt="Cl"/>Cerrar sesión
               </div>
                    <img src={icono} className='ico'  alt="m"/>
-              </div>
+              </a>
           
 
           </div>

@@ -44,8 +44,6 @@ const AnimalDetail = () => {
     return <Link to={<HomePage />} />
   }
 
-
-
   return (<>
 
     {/* // Pop Up here: */}

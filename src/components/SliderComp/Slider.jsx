@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Swiper, { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+
 import "./Slider.scss";
 
 const Slider = () => {

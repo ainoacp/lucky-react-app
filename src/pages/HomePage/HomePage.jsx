@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Slider from '../../components/SliderComp/Slider';
 import './HomePage.scss';
 import "swiper/css";
+import axios from "axios";
 import SlideP1 from "../../assets/Primarios/perfil/estado-de-adopcion/mascota@3x.png";
 import SlideP2 from "../../assets/Primarios/perfil/apadrinar/apadrina@3x.png";
 import SlideP3 from "../../assets/Primarios/perfil/donar/donar@3x.png";
@@ -10,15 +11,27 @@ import new2 from '../../assets/Primarios/perfil/novedades/new2/uli1Copy.png';
 import new3 from '../../assets/Primarios/perfil/novedades/new3/uli1Copy.png';
 import Navbar from '../../components/Navbar/Navbar';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
 
     const {user} = useSelector((state) => state.auth)
 
+    const [users, setUsers] = useState([])
+
+    const getUsers = async () => {
+        const res = await axios.get("http://localhost:5001/users");
+        console.log(res.data);
+        setUsers(res.data);
+    }
+    useEffect(() => {
+        getUsers();
+    }, [])
+
     return (
         <div className='c-home-container'>
             <header className='c-home-header'>
-                <p className='c-home-header_title'>¡Hola {user?.name}!</p>
+                <p className='c-home-header_title'>¡Hola {users[0]?.name || "Usuario"}!</p>
                 <div className="c-slider swiper">
                     <div className="swiper-wrapper">
                         <Link to="/sponsoring" className="swiper-slide">

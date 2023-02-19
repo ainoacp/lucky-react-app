@@ -10,6 +10,9 @@ import iconspons from '../../assets/Primarios/perfil/apadrinar/apadrina.png';
 import icondonat from '../../assets/Primarios/perfil/donar/donar.png'; 
 import icono from '../../assets//Primarios/arrow/arrow.png'
 import  usu from '../../assets/usuario/neutro-50.png'
+import { Link } from 'react-router-dom';
+
+
 const ProfilePage = () => {
   
   return (
@@ -45,12 +48,13 @@ const ProfilePage = () => {
                   </a>
             </div>
               <div className='container-end'>
-                  <a href="#"  className='box'>
+
+                   <Link to='/status' className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>
-                        <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                        <img src={icono} className='ico'  alt="m"/>                
+                  </Link> 
 
                   <a href="#"  className='box'>
                       <div className='box-start'>

@@ -1,11 +1,12 @@
 
+
 .container-profile{
     display: flex;  
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;  
-    width: 100%;
-    height: 615px;   
+    width: 100vw;
+    height: 90vh;
 }
 
 
@@ -83,4 +84,5 @@
 .ico{
     display: flex;
     justify-content: end;
+    margin: 10px;
 }

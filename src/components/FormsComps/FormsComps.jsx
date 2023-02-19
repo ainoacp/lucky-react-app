@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import "./FormComponentsStyle.scss";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import { useState } from "react";
 export default function FomsComponents() {
   const { register, handleSubmit } = useForm();
-  const schema = Yup;
+  // const schema = Yup;
 
   function btonSubmit(e) {
     e.preventDefault();

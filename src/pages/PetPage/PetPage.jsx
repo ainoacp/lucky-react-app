@@ -47,7 +47,7 @@ export default function PetPage() {
     setFilterAnimals(newAnimals);
   }
 
-  // const getAnimal = async () => {
+  // const getAnimal = async (animal) => {
   // const res = await axios.get(`http://localhost:5001/animals/${id}`);
   // console.log(res.data);
   // // console.log(res.data[0].especie[0])
@@ -73,7 +73,7 @@ export default function PetPage() {
     // getAnimal();
     getUsers();
     // getUser();
-  }, [] )
+  }, [id] )
 
   return (
     <div className="c-pet-container">
@@ -98,6 +98,10 @@ export default function PetPage() {
                 ))}
               </div>
             ))}
+              {/* <Link to="/animals/{id}" className="swiper-slide">
+                <img src={animal.image} alt={animal._id} />
+                <p>{animal.especie[0]}</p>
+              </Link> */}
           </div>
           <Slider />
         </div>

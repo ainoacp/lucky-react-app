@@ -29,18 +29,37 @@ function App() {
   return (
 
     <Routes>
+
+      {/* <Route index element={<LandingPage />}>
+        <Route path='info' element={<CarrousselPage />} />
+        <Route path='start' element={<StartPage />}/>
+      </Route>
+
+      <Route path='/login' element={<LoginPage />}/>
+      <Route path='/register' element={<RegisterPage />}/>
+
+      <Route path='/home' element={<AuthComponent component={<HomePage />} /> }>
+        <Route path=':id' element={<AuthComponent component={<HomePage />} /> }/>
+        <Route path='map' element={<AuthComponent component={<MapPage />}/> }/>
+        <Route path='pets' element={<AuthComponent component={<PetPage />}/> }>
+          <Route path='detail' element={<AuthComponent component={<AnimalDetail />}/> }/>
+        </Route>
+        <Route path='options' element={<AuthComponent component={<ProfilePage />}/> }/>
+        <Route path='more' element={<AuthComponent component={<PlusPage />}/> }/>
+      </Route> */}
+
       <Route path="/" element={<LandingPage />} />
-      <Route path="/carroussel" element={<CarrousselPage />} />
+      <Route path="/info" element={<CarrousselPage />} />
       <Route path='/start' element={<StartPage />}/>
       <Route path='/login' element={<LoginPage />}/>
       <Route path='/register' element={<RegisterPage />}/>
-      <Route path='/users/home' element={<AuthComponent component={<HomePage />} /> }/>
-      <Route path='/users/:id/home' element={<AuthComponent component={<HomePage />} /> }/>
+      <Route path='/home' element={<HomePage />}/>
       <Route path='/map' element={<MapPage />}/>
-      <Route path='/users/:id/pet' element={<PetPage />}/>
-      <Route path='/users/:id/profile' element={<ProfilePage />}/>
-      <Route path='/users/:id/plus' element={<PlusPage />}/>
-      <Route path='/animals/:id/detail' element={<AnimalDetail />}/>
+      <Route path='/pet' element={<PetPage />}/>
+      <Route path='/profile' element={<ProfilePage />}/>
+      <Route path='/plus' element={<PlusPage />}/>
+      <Route path='/animalDetails' element={<AnimalDetail />}/>
+
     </Routes>
       
   );

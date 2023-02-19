@@ -10,61 +10,65 @@ import iconspons from '../../assets/Primarios/perfil/apadrinar/apadrina.png';
 import icondonat from '../../assets/Primarios/perfil/donar/donar.png'; 
 import icono from '../../assets//Primarios/arrow/arrow.png'
 import  usu from '../../assets/usuario/neutro-50.png'
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 const ProfilePage = () => {
+
+  const {user} = useSelector((state) => state.auth)
   
   return (
     <>
       <div className='container-profile'>
-              <div className='profile-picture'><img src={usu}className='picture-profile'  alt=""/></div>
+              <div className='profile-picture'><img src={user.image || usu}className='picture-profile'  alt=""/></div>
               
               <div className='container-start'>
-                  <a href="#" className='box'>
+                  <NavLink to="/home" className='box'>
                       <div className='box-start'><img src={iconprofil} className='picture-main'  alt="m"/>Mi perfil</div>
                       <img src={icono} className='ico'  alt="m"/>
-                  </a>   
+                  </NavLink>   
                   
-                  <a href="#"  className='box'>
+                  <NavLink to="/map"  className='box'>
                       <div className='box-start'>
                             <img src={iconandress} className='picture-main' alt="d"/>Direcciones
                       </div>
                         <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                  </NavLink>
 
-                  <a href="#"  className='box'>
+                  <NavLink to="/pets/fav"  className='box'>
                       <div className='box-start'>
                         <img src={iconfavor} className='picture-main' alt="f"/>Favoritos
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                  </NavLink>
 
-                  <a href="#"  className='box'> 
+                  <NavLink to="/notifications"  className='box'> 
                         <div className='box-start'>
                             <img src={iconnotf} className='picture-main' alt="n"/>Notificaciones
                         </div>  
                         <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                  </NavLink>
             </div>
               <div className='container-end'>
-                  <a href="#"  className='box'>
+                  <NavLink to="/adoptionState"  className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>
                         <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                  </NavLink>
 
-                  <a href="#"  className='box'>
+                  <NavLink to="/sponsoring"  className='box'>
                       <div className='box-start'>
                           <img src={iconspons} className='picture-main' alt="ap"/>Apadrinar
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
-                    </a>
+                    </NavLink>
 
-                  <a href="#"  className='box'>
+                  <NavLink href="/donate"  className='box'>
                         <div className='box-start'>
                             <img src={icondonat} className='picture-main' alt="d"/>Donar
                         </div>
                             <img src={icono} className='ico'  alt="m"/>
-                    </a>
+                    </NavLink>
               </div>
       </div>
       <Navbar></Navbar>

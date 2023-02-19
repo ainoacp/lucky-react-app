@@ -3,7 +3,6 @@ import logo from "../../assets/Primarios/logo/group29.png";
 import title from "../../assets/Primarios/logo/tituloLucky.png";
 
 import "./LandingPage.scss";
-import Slider from "../../components/SliderComp/Slider";
 import CarrousselPage from "../CarrousselPage/CarrousselPage";
 
 

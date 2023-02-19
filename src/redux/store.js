@@ -6,11 +6,13 @@ import authReducer from './auth/auth.reducer';
 
 const reducer = combineReducers({
     auth: authReducer,
-    // characters: charactersReducer,
+    // users: usersReducer,
     // plantes: planetsReducer,
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-
+//esto es un almacén para utilizarlo en el index.js a través de un provider
 
 export default store;
+
+//esto depende de las acciones 

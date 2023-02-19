@@ -16,40 +16,39 @@ import "./PetPage.scss";
 
 export default function PetPage() {
 
-  let { nombre } = useParams();
+  // let { nombre } = useParams();
 
   const [animals, setAnimals] = useState([])
-  const [animal, setAnimal] = useState([])
-  const [filteredAnimals, setFilteredAnimals] = useState([])
+  // const [animal, setAnimal] = useState([])
+  const [filteredAnimals, setFilterAnimals] = useState([])
   
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals`);
     const resFiltered = res.data;
     console.log(resFiltered);
     setAnimals(resFiltered);
-    setFilteredAnimals(resFiltered);
+    setFilterAnimals(resFiltered);
   }
 
-  const getAnimal = async () => {
-    const res = await axios.get(`http://localhost:5001/animals/${nombre}`);
-    console.log(res.data);
-    setAnimal(res.data)
-  }
+  // const getAnimal = async () => {
+  //   const res = await axios.get(`http://localhost:5001/animals/${nombre}`);
+  //   console.log(res.data);
+  //   setAnimal(res.data)
+  // }
 
   const filterAnimals = async (searchText) => {
-    let newAnimals = animals.filter((animal) =>
-      animal.especie.toLowerCase().includes(searchText.toLowerCase()))
-      setFilteredAnimals(newAnimals);
+    let newAnimals = animals.filter(
+      (animal) => 
+        animal.name.toLowerCase().includes(searchText.toLowerCase()) 
+        // animal.ciudad.toLowerCase().includes(searchText.toLowerCase()) ||
+        // animal.especie[0].toLowerCase().includes(searchText.toLowerCase()) ||
+        // animal.sexo.toLowerCase().includes(searchText.toLowerCase()) ||
+        // animal.tamaño.toLowerCase().includes(searchText.toLowerCase()) ||
+        // animal.ubicacion.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilterAnimals(newAnimals);
   }
-
-  const addAnimal = () => {
-
-  }
-
-  useEffect(() => {
-    getAnimals('');
-    getAnimal();
-  }, [nombre])
+  useEffect(() => {getAnimals('')}, [])
 
   return (
     <div className="c-pet-container">
@@ -59,22 +58,22 @@ export default function PetPage() {
         </div>
         <div className='c-pet-header_title'>
           <p>Mis mascotas</p>
-          <ButtonAdd add={addAnimal}/>
+          <ButtonAdd />
         </div>
         <p>Accede al perfil de tu mascotas</p>
         <div className="c-slider swiper">
           <div className="swiper-wrapper">
             <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={animal[0]?.especie[0] || Print} alt="slide" />
-              <p>{animal[0]?.nombre || "Animal"}</p>
+              <img className="c-slider_img" src={Print} alt="slide" />
+              <p>Animal</p>
             </Link>
             <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={animal.especie || Print} alt="slide" />
-              <p>{animal.nombre || "Animal"}</p>
+              <img className="c-slider_img" src={Print} alt="slide" />
+              <p>Animal</p>
             </Link>
             <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={animal.especie || Print} alt="slide" />
-              <p>{animal.nombre || "Animal"}</p>
+              <img className="c-slider_img" src={Print} alt="slide" />
+              <p>Animal</p>
             </Link>
           </div>
           <Slider />
@@ -82,10 +81,10 @@ export default function PetPage() {
       </header>
       <div className='c-pet-body'>
         <div className='line'/>
-        <div className='c-pet-button'>
+        <Link to="/adoptionState" className='c-pet-button'>
           <p>Estado de la adopción</p>
-          <Link to="/adoptionState"><img src={Icon} alt="icon" /></Link>
-        </div>
+          <img src={Icon} alt="icon" />
+        </Link>
         <div className='c-pet-adoption'>
           <div className='c-pet-adoption_title'>
             <p>Animales en adopción</p>

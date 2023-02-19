@@ -1,17 +1,14 @@
+import { Link } from 'react-router-dom';
 import Add from '../../assets/Primarios/filtros-animales-menus/mas/mS.png';
 import "./ButtonAdd.scss";
 
-export default function ButtonAdd({ add }) {
+export default function ButtonAdd() {
 
-    const change = (e) => {
-        console.log(e.target.value)
-        add(e.target.value)
-    }
     return (
         <div className="button-container">
-            <button onClick={change}>
+            <Link to="/adoptionForm">
             <img src={Add} alt="add"/>
-            </button>
+            </Link>
         </div>
     )
 }

@@ -5,10 +5,10 @@ const INITIAL_STATE = {
   isLoading: false,
 };
 
-export default function authReducer (state = INITIAL_STATE, action) {
+const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "login_user":
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true }; 
     case "login_user_ok":
       return {
         ...state,
@@ -50,3 +50,5 @@ export default function authReducer (state = INITIAL_STATE, action) {
     }
   }
 };
+
+export default authReducer;

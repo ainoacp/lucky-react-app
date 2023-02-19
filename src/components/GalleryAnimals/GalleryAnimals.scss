@@ -20,36 +20,7 @@
                 border-top-left-radius: 2%;
                 border-top-right-radius: 2%;
             }
-            .fav-button {
-                display: inline-block;
-
-                position: relative;
-                bottom: 198px;
-                left: 292px;
-
-                background-image: url('../../assets/Primarios/perfil/favoritos/favoritosRelleno/favoritosRelleno.png');
-                background-color: transparent;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                
-                border: none;
-
-                width: 30px;
-                height: 30px;
-            }
-            .fav-button.active {
-                background-image: url('../../assets/Primarios/perfil/favoritos/corazones-office/corazones-40.png');
-                background-color: transparent;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                
-                border: none;
-
-                width: 30px;
-                height: 30px;
-            }
+        
         }
         a {
             display: flex;

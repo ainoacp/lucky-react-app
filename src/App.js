@@ -38,7 +38,7 @@ function App() {
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
-      <Route path='/animalDetails' element={<AnimalDetail />}/>
+      <Route path='/animals/:id' element={<AnimalDetail />}/>
     </Routes>
       
   );

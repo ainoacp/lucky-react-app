@@ -96,15 +96,14 @@
 }
 
 .c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .swiper-pagination{
         position:absolute;
         height:47px;
     }
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     .c-slider {
         display: flex;
@@ -237,17 +236,30 @@
 
             &--title{
 
+                display: flex;
+
                 p{
                 padding:5px;
                 font-weight: 600;
                 color: rgb(1 116 142)
-                }             
+                }  
+                
+                span{
+                    padding:5px;
+                    font-weight: 600;
+                    color: rgb(1 116 142)
+                }
+                img{
+                    margin-top:5px;
+                    height: 25px;
+                }
+
             }
 
             &--text{
 
                 p{
-                    padding: 0 5px 5px 5px;
+                    padding: 0 5px 15px 5px;
                 }
             }
 

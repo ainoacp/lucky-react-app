@@ -68,8 +68,11 @@ export default function FomsComponents() {
             {...register("city")}
           />
           <div>
-            <input type="checkbox" {...register("conditions")} />
-            <label>Acepto los términos y condiciones de la adopción </label>
+            <input type="checkbox" id="check" {...register("conditions")} />
+            <label for="check" className="check-label">
+              <spam className="checked-bton">X</spam> Acepto los términos y
+              condiciones de la adopción{" "}
+            </label>
           </div>
           <button className="btn-foms">continuar</button>
         </form>
@@ -84,25 +87,31 @@ export default function FomsComponents() {
               <p>¿Tienes alguna otra mascota?</p>
             </div>
             <div>
-              <div>
+              <div className="laber-radio">
                 <input
-                  className="datos-input"
+                  className="datos-input-radio"
                   type="radio"
                   value="si"
                   name="si"
+                  id="p1si"
                   {...register("pets")}
                 />
-                <label>si</label>
+                <label className="pets-label" for="p1si">
+                  <spam className="radio-bton"></spam>si
+                </label>
               </div>
               <div>
                 <input
-                  className="datos-input"
+                  className="datos-input-radio"
                   type="radio"
                   value="no"
                   name="si"
+                  id="p1no"
                   {...register("pets")}
                 />
-                <label>no</label>
+                <label className="pets-label" for="p1no">
+                  <spam className="radio-bton"></spam>no
+                </label>
               </div>
             </div>
           </div>
@@ -113,6 +122,7 @@ export default function FomsComponents() {
             {...register("which")}
           />
           <input
+            className="datos-input"
             type="text"
             placeholder="¿Se lleva bien con otros animales?"
             {...register("petfrienly")}
@@ -168,18 +178,25 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p1"
+                      id="p2si"
                       {...register("rental")}
                     />
-                    <label>si</label>
+                    <label for="p2si">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       name="p1"
                       value="no"
+                      id="p2no"
                       {...register("rental")}
                     />
-                    <label>no</label>
+
+                    <label for="p2no">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -193,18 +210,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p2"
+                      id="p3si"
                       {...register("casero")}
                     />
-                    <label>si</label>
+                    <label for="p3si">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p2"
+                      id="p3no"
                       {...register("casero")}
                     />
-                    <label>no</label>
+                    <label for="p3no">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -219,18 +242,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p3"
+                      id="p4si"
                       {...register("removal")}
                     />
-                    <label>si</label>
+                    <label for="p4si">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p3"
+                      id="p4no"
                       {...register("removal")}
                     />
-                    <label>no</label>
+                    <label for="p4no">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -245,18 +274,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p4"
+                      id="p5si"
                       {...register("garden")}
                     />
-                    <label>si</label>
+                    <label for="p5si">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p4"
+                      id="p5n"
                       {...register("garden")}
                     />
-                    <label>no</label>
+                    <label for="p5n">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -270,18 +305,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p5"
+                      id="p6s"
                       {...register("people")}
                     />
-                    <label>si</label>
+                    <label for="p6s">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p5"
+                      id="p6n"
                       {...register("people")}
                     />
-                    <label>no</label>
+                    <label for="p6n">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -295,18 +336,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p6"
+                      id="p7s"
                       {...register("agreement")}
                     />
-                    <label>si</label>
+                    <label for="p7s">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p6"
+                      id="p7n"
                       {...register("agreement")}
                     />
-                    <label>no</label>
+                    <label for="p7n">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -320,18 +367,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p7"
+                      id="p8s"
                       {...register("visit")}
                     />
-                    <label>si</label>
+                    <label for="p8s">
+                      <spam className="radio-bton"></spam>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p7"
+                      id="p8n"
                       {...register("visit")}
                     />
-                    <label>no</label>
+                    <label for="p8n">
+                      <spam className="radio-bton"></spam>no
+                    </label>
                   </div>
                 </div>
               </div>

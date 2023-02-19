@@ -97,7 +97,7 @@ const AnimalDetail = () => {
 
         <div className="c__navbar--data2">
           <div className='c__navbar--data2--title'><span>Personalidad</span></div>
-          <div>
+          <div className='c__navbar--data2--personality'>
           {animals.length>0 &&<span>{animals[0].personalidad}</span>}
           </div>
         </div>

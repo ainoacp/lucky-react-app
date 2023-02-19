@@ -215,6 +215,16 @@
                 color: rgb(1 116 142)
                 }
             }
+
+            &--personality{
+                background-color: rgb(1 116 142);
+                border-radius: 20px;
+                span{
+                    text-align: center;
+                    color:white;
+                }
+                
+            }
         }
 
         &--data3{

@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     token && dispatch(checkSession(token, navigate))
-  }, [])
+  },[])
 
   return (
 

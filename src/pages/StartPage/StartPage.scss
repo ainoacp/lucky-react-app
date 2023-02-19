@@ -1,4 +1,4 @@
-.c-home-container{
+.c-start-container{
     background-image: url('../../assets/Primarios/register-login/fondo/fondo@3x.png');
     background-size: cover;
     background-position: center;
@@ -14,16 +14,16 @@
 
     font-family: 'Barlow', sans-serif;
 
-    .c-home-title{
+    .c-start-title{
         color: rgb(14, 54, 61);
         font-size: 20px;
         font-weight: 500;
         
-        margin: 0;
+        margin-bottom: 16px;
     }
-    .c-home-buttons{
+    .c-start-buttons{
         display: grid;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         
         a{
             font-size: 16px;
@@ -44,7 +44,7 @@
             align-items: center;
         }
 
-        button{
+        .button{
             background-color: transparent;
             border: none;
             
@@ -53,6 +53,7 @@
 
             color: rgb(14 54 61);
 
+            height: 10px;
             margin: 5px;
         }
 

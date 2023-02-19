@@ -1,19 +1,24 @@
 import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import Home from './pages/Home/Home';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import StartPage from './pages/StartPage/StartPage';
+import HomePage from './pages/HomePage/HomePage';
 import LandingPage from "../src/pages/LandingPage/LandingPage";
-import Slider from "../src/components/SliderComp/Slider"
 import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
+<<<<<<< HEAD
 import FormsPage from './pages/FormsPage/FormsPage';
 
+=======
+import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
+>>>>>>> dev
 
 function App() {
 
@@ -29,15 +34,17 @@ function App() {
 
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/slider" element={<Slider />} />
-      <Route path='/home' element={<Home />}/>
-      <Route path='/login' element={<Login />}/>
-      <Route path='/register' element={<Register />}/>
+      <Route path="/carroussel" element={<CarrousselPage />} />
+      <Route path='/start' element={<StartPage />}/>
+      <Route path='/login' element={<LoginPage />}/>
+      <Route path='/register' element={<RegisterPage />}/>
+      <Route path='/home' element={<HomePage />}/>
       <Route path='/map' element={<MapPage />}/>
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
       <Route path='/forms' element={<FormsPage />}/>
+      <Route path='/animalDetails' element={<AnimalDetail />}/>
     </Routes>
       
   );

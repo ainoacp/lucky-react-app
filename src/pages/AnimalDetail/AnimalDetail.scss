@@ -1,0 +1,55 @@
+.c{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+   &__image{
+    z-index: 1;
+    img{
+        width: 375px;
+        height: 230px;
+    }
+    
+   }
+
+   &__whitebox{
+        z-index:2;
+        background-color: white;
+        align-self: center;
+        display: flex;
+        flex-direction: row;
+        
+        &--genre{
+            
+            img{
+                width: 15px;
+                margin: 4px 6px 6px 13px;
+            }
+        }
+
+        &--namecity{
+            display: flex;
+            margin: 4px 6px 6px 13px;
+            justify-content: center;
+            flex-direction: column;
+        }
+   }
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        &--container{
+            padding: 10px;
+
+          
+        }
+        
+        button{
+            padding:10px;
+        }
+    }
+
+    
+}

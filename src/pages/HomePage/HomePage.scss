@@ -1,0 +1,141 @@
+// @import 'path/to/swiper.me.css';
+
+.c-home-container {
+    font-family: 'Barlow', sans-serif;
+
+    .c-home-header {
+        max-height: 50vh;
+
+        .c-home-header_title {
+            font-size: 25px;
+            font-weight: 500;
+            color: rgb(1 116 142);
+
+            margin: 20px;
+            margin-top: 80px;
+        }
+
+        .c-slider {
+            height: 20vh;
+
+            .swiper-wrapper {
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-content: space-between;
+
+                .swiper-slide {
+                    display: flex;
+                    align-items: center;
+                    
+                    background-color: rgb(189 210 214);
+                    background-image: url('../../assets/Primarios/perfil/novedades/icons8-huella-de-gato-30.png');
+                    border-radius: 5px;
+                    font-family: 'Barlow', sans-serif;
+                    text-decoration: none;
+
+                    height: 61px;
+                    max-width: 274px;
+                    margin: 5px;
+                    padding: 5px;
+
+                    &-active {
+                        box-shadow: 4px 4px 8px rgba(1, 116, 142, 0.881);
+
+                        height: 70px;
+                        max-width: 274px;
+                    }
+
+                    .c-slider_img {
+                        width: 48px;
+                        height: 48px;
+                        margin: 20px;
+                    }
+                    
+                    div {
+                        
+                        h5 {
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: rgb(1 116 142);
+      
+                        }
+                        p {
+                            font-size: 10px;
+                            font-weight: 300;
+                            color: black;
+
+                            margin: 10px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .c-home-body {
+        display: grid;
+    
+        margin-bottom: 20px;
+        
+        .line{
+            display: flex;
+    
+            border-top: 1px solid rgba(189, 210, 214, 0.583);
+            
+            width: 90vw;
+            margin: 15px 20px;
+    
+            align-self: center;
+            
+        }
+    
+        &_title {
+            margin: 10px 20px;
+    
+            font-size: 16px;
+            font-weight: 500;
+            color: rgb(1 116 142);
+        }
+    
+        &_news {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+    
+            a{
+                text-decoration: none;
+            }
+    
+            .c-home-body_new {
+                display: grid;
+    
+                border: 2px solid rgb(250 156 147);
+                border-radius: 5px;
+    
+                margin: 10px;
+    
+                img{
+                    margin: 0;
+                    // min-width: 333px;
+    
+                    // background-size: cover;
+                    // background-position: center;
+                }
+                p{
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-align: center;
+    
+                    background-color: rgb(250 156 147);
+                    color: white;
+    
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+

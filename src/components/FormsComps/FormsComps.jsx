@@ -1,10 +1,24 @@
 import { useForm } from "react-hook-form";
 import "./FormComponentsStyle.scss";
-import * as Yup from "yup";
-import { useState } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { useRef, useState } from "react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { registerForm } from '../../redux/auth/auth.actions';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 export default function FomsComponents() {
   const { register, handleSubmit } = useForm();
-  const schema = Yup;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const registrar = async (formData) => {
+      dispatch(registerForm(formData, navigate))
+      console.log(JSON.stringify( formData));
+  }
+
 
   function btonSubmit(e) {
     e.preventDefault();
@@ -12,16 +26,25 @@ export default function FomsComponents() {
   const submit = (datos) => {
     console.log(datos);
   };
-  const [radioValue, setReadioValue] = useState("");
 
-  const changeRatio = (e) => {
-    setReadioValue(...e.target.value);
-    console.log("este es el target", e.target);
-  };
+  // const prevRef = useRef(null);
+  // const nextRef = useRef(null);
+  const swiper = useSwiper();
 
   return (
+    
     <div>
-      <div className="box-datosPersonales">
+    <Swiper
+    pagination={{
+      type: "progressbar",
+      
+      clickable: true,
+    }}
+    navigation={false}
+    modules={[Pagination, Navigation]}
+    className="mySwiper"
+  >
+     <SwiperSlide> <div className="box-datosPersonales">
         <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
           <h2 className="tittle-forms">Tus Datos</h2>
           <input
@@ -74,10 +97,11 @@ export default function FomsComponents() {
               condiciones de la adopción{" "}
             </label>
           </div>
-          <button className="btn-foms">continuar</button>
+         
         </form>
-      </div>
-      <div className="box-datosPersonales">
+        <button className="btn-next"  >continuar</button>
+      </div></SwiperSlide>
+      <SwiperSlide><div className="box-datosPersonales">
         <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
           <h2 className="tittle-forms">Sobre Las Mascolas</h2>
 
@@ -149,9 +173,12 @@ export default function FomsComponents() {
           </div>
           <input className="datos-input" type="text" {...register("food")} />
 
-          <button className="btn-foms">continuar</button>
+          
         </form>
-
+        <button className="btn-next">continuar</button>
+</div>
+</SwiperSlide>
+ <SwiperSlide>
         <div className="box-datosPersonales">
           <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
             <h2 className="tittle-forms">Familia y hogar</h2>
@@ -306,7 +333,7 @@ export default function FomsComponents() {
                       value="si"
                       name="p5"
                       id="p6s"
-                      {...register("people")}
+                      {...register("family")}
                     />
                     <label for="p6s">
                       <spam className="radio-bton"></spam>si
@@ -318,7 +345,7 @@ export default function FomsComponents() {
                       value="no"
                       name="p5"
                       id="p6n"
-                      {...register("people")}
+                      {...register("family")}
                     />
                     <label for="p6n">
                       <spam className="radio-bton"></spam>no
@@ -393,7 +420,9 @@ export default function FomsComponents() {
             <button className="btn-foms">continuar</button>
           </form>
         </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
+    
   );
 }

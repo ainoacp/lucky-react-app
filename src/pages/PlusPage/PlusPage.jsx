@@ -7,7 +7,7 @@ import iconCur from '../../assets/Primarios/mas-plus/curiosidades/blogCopy.png';
 import iconHelp from '../../assets/Primarios/mas-plus/ayuda/ayuda.png';
 import iconSetup from '../../assets/Primarios/mas-plus/configuracion/confi.png';
 import iconClose from '../../assets/Primarios/mas-plus/cerrar-Seccion/salir.png';
-import icono from '../../assets/iconline-2px/icons8->-24.png'
+import icono from '../../assets/iconArrow/icons8->-24 right.png'
 
 const PlusPage = () => {
 

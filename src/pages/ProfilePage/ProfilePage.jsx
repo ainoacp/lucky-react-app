@@ -8,8 +8,11 @@ import iconnotf from '../../assets/Primarios/perfil/notificaciones/notification.
 import iconstatu from '../../assets/Primarios/perfil/estado-de-adopcion/mascota.png';    
 import iconspons from '../../assets/Primarios/perfil/apadrinar/apadrina.png';    
 import icondonat from '../../assets/Primarios/perfil/donar/donar.png'; 
-import icono from '../../assets/iconline-2px/icons8->-24.png'
+import icono from '../../assets/iconArrow/icons8->-24 right.png'
 import  usu from '../../assets/usuario/neutro-50.png'
+import { Link } from 'react-router-dom';
+
+
 const ProfilePage = () => {
   
   return (
@@ -45,12 +48,13 @@ const ProfilePage = () => {
                   </a>
             </div>
               <div className='container-end'>
-                  <a href="#"  className='box'>
+
+                   <Link to='/status' className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>
-                        <img src={icono} className='ico'  alt="m"/>
-                  </a>
+                        <img src={icono} className='ico'  alt="m"/>                
+                  </Link> 
 
                   <a href="#"  className='box'>
                       <div className='box-start'>

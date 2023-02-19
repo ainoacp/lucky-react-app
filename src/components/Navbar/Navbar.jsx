@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className='profilePicture'><img src={usu} className='usu' alt='profile ' />
                     </div>
           </Link>
-          <Link to='/plus' className='plus'><a className='plus' >...</a></Link>  
+          <Link to='/plus' className='plus'>...</Link>  
       </nav>
     </div>
     </>

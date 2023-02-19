@@ -11,26 +11,28 @@ import new2 from '../../assets/Primarios/perfil/novedades/new2/uli1Copy.png';
 import new3 from '../../assets/Primarios/perfil/novedades/new3/uli1Copy.png';
 import Navbar from '../../components/Navbar/Navbar';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 export default function HomePage() {
 
     // let { nombre } = useParams();
+    const {user} = useSelector((state) => state.auth)
 
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
 
-    const getUsers = async () => {
-        const res = await axios.get("http://localhost:5001/users");
-        console.log(res.data);
-        setUsers(res.data);
-    }
-    useEffect(() => {
-        getUsers();
-    }, [])
+    // const getUsers = async () => {
+    //     const res = await axios.get("http://localhost:5001/users");
+    //     console.log(res.data);
+    //     setUsers(res.data);
+    // }
+    // useEffect(() => {
+    //     getUsers();
+    // }, [])
 
     return (
         <div className='c-home-container'>
             <header className='c-home-header'>
-                <p className='c-home-header_title'>¡Hola {users[0]?.name || "Usuario"}!</p>
+                <p className='c-home-header_title'>¡Hola {user?.name || "Usuario"}!</p>
                 <div className="c-slider swiper">
                     <div className="swiper-wrapper">
                         <Link to="/sponsoring" className="swiper-slide">

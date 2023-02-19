@@ -64,7 +64,7 @@ export default function LoginPage() {
                         <button>¿Has olvidado tu contraseña?</button>
                     </div>
                     <div className='c-login-form_button'>
-                        <NavLink to="/home" className='c-login-form_button-blue'>Iniciar sesión</NavLink>
+                        <NavLink to={`/users/id/home`} className='c-login-form_button-blue'><button>Iniciar sesión</button></NavLink>
                         <NavLink to="/register" className='c-login-form_button-white'>Crear cuenta</NavLink>
                     </div>
                 </form>

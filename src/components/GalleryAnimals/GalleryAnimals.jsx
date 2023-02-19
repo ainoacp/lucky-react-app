@@ -14,7 +14,7 @@ export default function GalleryAnimals({ animals }, props) {
                     <img className="c-animal-card_img-profile" src={animal.image || animal.imagenes[0] || 'https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg'} alt={animal.name}/>
                     <button className={`fav-button ${active?"active":""}`} onClick={() => setActive(!active)}></button>
                 </div>
-                <Link to={`/animals/${animal.nombre}`}>
+                <Link to={`/animalDetails/${animal.nombre}`}>
                     <p>{animal.nombre}</p>
                     <div className="location">
                         <p>{animal.ciudad}</p>

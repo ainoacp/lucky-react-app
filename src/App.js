@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
 import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
+import AuthComponent from './components/AuthComponent'
 
 function App() {
 
@@ -33,12 +34,13 @@ function App() {
       <Route path='/start' element={<StartPage />}/>
       <Route path='/login' element={<LoginPage />}/>
       <Route path='/register' element={<RegisterPage />}/>
-      <Route path='/home' element={<HomePage />}/>
+      <Route path='/users/home' element={<AuthComponent component={<HomePage />} /> }/>
+      <Route path='/users/:id/home' element={<AuthComponent component={<HomePage />} /> }/>
       <Route path='/map' element={<MapPage />}/>
-      <Route path='/pet' element={<PetPage />}/>
-      <Route path='/profile' element={<ProfilePage />}/>
-      <Route path='/plus' element={<PlusPage />}/>
-      <Route path='/animalDetails' element={<AnimalDetail />}/>
+      <Route path='/users/:id/pet' element={<PetPage />}/>
+      <Route path='/users/:id/profile' element={<ProfilePage />}/>
+      <Route path='/users/:id/plus' element={<PlusPage />}/>
+      <Route path='/animals/:id/detail' element={<AnimalDetail />}/>
     </Routes>
       
   );

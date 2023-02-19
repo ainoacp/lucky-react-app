@@ -10,15 +10,11 @@ import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
+import FormsPage from './pages/FormsPage/FormsPage';
+import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
-<<<<<<< HEAD
-import FormsPage from './pages/FormsPage/FormsPage';
-
-=======
-import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
->>>>>>> dev
 
 function App() {
 
@@ -28,7 +24,7 @@ function App() {
 
   useEffect(() => {
     token && dispatch(checkSession(token, navigate))
-  },[])
+  }, [])
 
   return (
 

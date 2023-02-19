@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import './Home.scss';
+import './StartPage.scss';
 
-export default function Home() {
+export default function StartPage() {
 
     return (
-        <div className="c-home-container">
-            <div className="c-home-title">
+        <div className="c-start-container">
+            <div className="c-start-title">
                 <p>¿Cómo quieres entrar?</p>
             </div>
-            <div className="c-home-buttons">
+            <div className="c-start-buttons">
                 <NavLink to="/register">Usuario</NavLink>
                 <NavLink to="/register">Asociación</NavLink>
-                <button>Registrarse en otro momento</button>
+                <NavLink to="/login" className="button">Ya estoy registrado</NavLink>
             </div>
         </div>
     )

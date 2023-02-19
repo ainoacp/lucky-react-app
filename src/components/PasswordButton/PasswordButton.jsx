@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-export default function PasswordButton() {
+export default function PasswordButton( {toggle} ) {
 
-    const [passwordShown, setPasswordShown] = useState(false);
-
-    const togglePassword = () => {
-        setPasswordShown(!passwordShown);
-    };
+    const change = (e) => {
+        toggle(e.target.value);
+    }
 
     return (
-        <button onClick={togglePassword}/>
+        <button onClick={change}/>
     )
 }

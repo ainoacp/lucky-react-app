@@ -1,0 +1,57 @@
+.box-datosPersonales{
+display: flex;
+flex-direction: column;
+width: 100%;
+justify-content: center;
+align-items: center;
+// height: 100vh;
+}
+.fom-datosPersonales{
+    display: flex;
+flex-direction: column;
+width: 90%;
+gap: 15px;
+}
+.tittle-forms{
+    display: flex;
+    justify-content: flex-start;
+    color: #01748E;
+}
+.datos-input{
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid rgb(189 210 214);
+}
+.btn-foms{
+    padding: 15px;
+    background-color: #EC9B94;
+    border-radius: 4px;
+    color:white;
+    border: #EC9B94 1px solid ;
+}
+.box-family-home{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.radio-question{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
+}
+.radio-selection{
+    display: flex;
+    // flex-direction: end;
+    justify-content: end;
+    gap: 5px;
+    width: 50%;
+
+}
+.radio-selection-position{
+    display: flex;
+    flex-direction: column;
+}
+.question-p{
+width: 50%;
+}

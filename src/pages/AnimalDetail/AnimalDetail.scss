@@ -182,24 +182,81 @@
             }
         }
         
-       
-   }
+    }
+
+   &__nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width:100%;
+        padding-top: 20px;
+
+        //swiper nuevo nabvarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+        &--button{
+            background-color: transparent;
+            color: grey;
+            width:100%;
+            font-size: 16px;
+            border: none;
+            padding: 20px 0 15px 0;
+        }
+
+        &--button2{
+            background-color: transparent;
+            color: rgb(1 116 142);
+            width:100%;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-bottom: 2px solid;
+            border-color: rgb(250 156 147);
+            padding: 20px 0 15px 0;
+
+        }
+
+        &--body{
+            .swiper-pagination{
+                position:absolute;
+                height:10px;
+                // height:372px;
+            }
+    
+            .c-slider {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 56vh;
+            
+                .swiper-slide {
+              margin: 0px;
+              
+                }
+          
+            }
+        }
+    }
 
     &__navbar{
-    padding-top: 50px;
+        padding-top: 0px;
+
+
 
         &--data1{
             display: flex;
             flex-direction: column;
-            margin: 0px 14px;
+            margin: 10px 14px;
 
             &--line{
-            display:flex;
-            padding: 5px 0;
-            flex-direction: row;
-            justify-content: space-between;
+                display:flex;
+                padding: 5px 0;
+                flex-direction: row;
+                justify-content: space-between;
+
                 img{
-                padding-right: 4px;
+                    padding-right: 4px;
                 }
             }
         }
@@ -228,7 +285,7 @@
 
         &--data3{
             width: 95%;
-            margin: 10px;
+            margin: 20px 10px 10px 10px;
             border-style: solid;
             border-width: thin;
             border-radius: 4pt ;

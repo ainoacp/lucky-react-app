@@ -10,6 +10,7 @@ import help from '../../assets/Secundarios/usuario/ayuda/ayuda.png';
 import './AnimalDetail.scss';
 import { Link } from 'react-router-dom';
 import Slider from '../../components/SliderComp/Slider';
+import SliderClick from '../../components/SliderClick/SliderClick'
 import HomePage from '../HomePage/HomePage';
 
 const AnimalDetail = () => {
@@ -17,6 +18,11 @@ const AnimalDetail = () => {
   const URL = "http://localhost:5001/animals"
   const [animals, setAnimals] = useState([]);
   const [popUp, setPopUp] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(true).toogle(false);
+  };
 
   const openPopUp = () => {
     setPopUp(true);
@@ -92,75 +98,102 @@ const AnimalDetail = () => {
 
     {/* //Navbar Datos */}
 
-    <button onClick=""> Datos </button>
-    <button onClick=""> Salud </button>
-    <button onClick=""> Adopción </button>
+    <div className='c__nav'>
+      <button className={isActive === false ? 'c__nav--button' : 'c__nav--button2' } 
+      onClick={handleClick}>Datos</button>
+      <button className='c__nav--button'>Salud</button>
+      <button className='c__nav--button'>Adopción</button>
+    </div>
 
-      <div className="c__navbar">
+    <div className="c__nav--body">
+    <div className="c-slider swiper">
+      <div className="swiper-wrapper">
+        <div className="swiper-slide">
 
-        <div className='c__navbar--data1'>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Especie</span></div> <div><span>{animal.especie}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Fecha de nacimiento</span></div> <div><span>{animal.fechaDeNacimiento}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Sexo</span></div> <div><span>{animal.sexo}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Tamaño</span></div> <div><span>{animal.tamaño}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Peso</span></div> <div><span>{animal.peso}</span></div> </div>
-        </div>
+          <div className="c__navbar">
 
-        <div className="c__navbar--data2">
-          <div className='c__navbar--data2--title'><span>Personalidad</span></div>
-          <div className='c__navbar--data2--personality'>
-          <span>{animal.personalidad[index]}</span>
+            <div className='c__navbar--data1'>
+              <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Especie</span></div> <div><span>{animal.especie}</span></div> </div>
+              <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Fecha de nacimiento</span></div> <div><span>{animal.fechaDeNacimiento}</span></div> </div>
+              <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Sexo</span></div> <div><span>{animal.sexo}</span></div> </div>
+              <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Tamaño</span></div> <div><span>{animal.tamaño}</span></div> </div>
+              <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Peso</span></div> <div><span>{animal.peso}</span></div> </div>
+            </div>
+
+            <div className="c__navbar--data2">
+              <div className='c__navbar--data2--title'><span>Personalidad</span></div>
+              <div className='c__navbar--data2--personality'>
+                <span>{animal.personalidad[index]}</span>
+              </div>
+            </div>
+
+            <div className="c__navbar--data3">
+              <div className='c__navbar--data3--title'><p>Historia</p></div>
+              <div className='c__navbar--data3--text'>
+                <p>{animal.historia}</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="c__navbar--data3">
-          <div className='c__navbar--data3--title'><p>Historia</p></div>
-          <div className='c__navbar--data3--text'>
-          <p>{animal.historia}</p>
+        <div className="swiper-slide">
+
+          <div className='c__navbar--data1'> 
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Vacunado</span></div> <div><span>{animal.vacunado}</span></div> </div>
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Desparasitado</span></div> <div><span>{animal.desparasitado}</span></div> </div>
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Sano</span></div> <div><span>{animal.sano}</span></div> </div>
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Esterilizado</span></div> <div><span>{animal.esterilizado}</span></div> </div>
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Identificado</span></div> <div><span>{animal.identificado}</span></div> </div>
+            <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Microchip</span></div> <div><span>{animal.microchip}</span></div> </div>
+          </div>
+
+          <div className="c__navbar--data3">
+            <div className='c__navbar--data3--title'><p>Tienes que saber que</p></div>
+            <div className='c__navbar--data3--text'>
+              <p>{animal.aSaber}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="swiper-slide">
+
+          <div className="c__navbar--data3">
+            <div className='c__navbar--data3--title'><p>Requisitos adopción</p></div>
+            <div className='c__navbar--data3--text'>
+              <p>{animal.requisitosAdopcion}</p>
+            </div>
+          </div>
+
+          <div className="c__navbar--data3">
+            <div className='c__navbar--data3--title'><span>Tasa de adopción</span> <img src={help} alt=""/></div>
+            <div className='c__navbar--data3--text'>
+              <p>{animal.tasaAdopcion}€</p>
+            </div>
+          </div>
+
+          <div className="c__navbar--data3">
+            <div className='c__navbar--data3--title'><p>¿Se envía a otra ciudad?</p></div>
+            <div className='c__navbar--data3--text'>
+              <p>{animal.seEnvia}</p>
+            </div>
           </div>
         </div>
+
       </div>
+      <Slider/>
+    </div>
+    </div>
+
+      
 
       {/* //Navbar Salud */}
 
-      <div className='c__navbar--data1'> 
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Vacunado</span></div> <div><span>{animal.vacunado}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Desparasitado</span></div> <div><span>{animal.desparasitado}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Sano</span></div> <div><span>{animal.sano}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Esterilizado</span></div> <div><span>{animal.esterilizado}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Identificado</span></div> <div><span>{animal.identificado}</span></div> </div>
-          <div className="c__navbar--data1--line"> <div><img src={paw} alt=""/> <span>Microchip</span></div> <div><span>{animal.microchip}</span></div> </div>
-      </div>
-
-        <div className="c__navbar--data3">
-          <div className='c__navbar--data3--title'><p>Tienes que saber que</p></div>
-          <div className='c__navbar--data3--text'>
-          <p>{animal.aSaber}</p>
-          </div>
-        </div>
+      
 
         {/* //Navbar Salud */}
 
-        <div className="c__navbar--data3">
-          <div className='c__navbar--data3--title'><p>Requisitos adopción</p></div>
-          <div className='c__navbar--data3--text'>
-          <p>{animal.requisitosAdopcion}</p>
-          </div>
-        </div>
-
-        <div className="c__navbar--data3">
-          <div className='c__navbar--data3--title'><span>Tasa de adopción</span> <img src={help} alt=""/></div>
-          <div className='c__navbar--data3--text'>
-          <p>{animal.tasaAdopcion}€</p>
-          </div>
-        </div>
-
-        <div className="c__navbar--data3">
-          <div className='c__navbar--data3--title'><p>¿Se envía a otra ciudad?</p></div>
-          <div className='c__navbar--data3--text'>
-          <p>{animal.seEnvia}</p>
-          </div>
-        </div>
+        
 
         {/* // Botones Main */}
 

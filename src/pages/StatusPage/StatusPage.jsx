@@ -15,10 +15,10 @@ const StatusPages = () => {
 
             <div>Poner buscador aqui</div>
 
-            <Link to='#' className='filter' alt='filtros'></Link>
+            <a onClick={() => cambiarEstadoFilter(!estadoFilter)} href className='filter' alt='filtros'></a>
         </div>
 
-        <a onClick={() => cambiarEstadoFilter(!estadoFilter)} href className='container-boxStatus'>
+        <a  href className='container-boxStatus'>
 
               <div className='box-nameStatus'>
                       <p className='textname'>Adopción de Blue</p>

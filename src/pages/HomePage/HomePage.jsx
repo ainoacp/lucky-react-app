@@ -10,11 +10,12 @@ import new1 from '../../assets/Primarios/perfil/novedades/new1/uli1Copy.png';
 import new2 from '../../assets/Primarios/perfil/novedades/new2/uli1Copy.png';
 import new3 from '../../assets/Primarios/perfil/novedades/new3/uli1Copy.png';
 import Navbar from '../../components/Navbar/Navbar';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 export default function HomePage() {
 
-    // let { nombre } = useParams();
+    const {user} = useSelector((state) => state.auth)
 
     const [users, setUsers] = useState([])
 

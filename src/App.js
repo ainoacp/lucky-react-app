@@ -40,9 +40,11 @@ function App() {
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
+      <Route path='/animals/:id' element={<AnimalDetail />}/>
       <Route path='/status' element={<StatusPage />}/>
       <Route path='/forms' element={<FormsPage />}/>
-      <Route path='/animalDetails' element={<AnimalDetail />}/>
+
+
     </Routes>
       
   );

@@ -12,6 +12,7 @@ import icono from '../../assets//Primarios/arrow/arrow.png'
 import  usu from '../../assets/usuario/neutro-50.png'
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 const ProfilePage = () => {
 
   const {user} = useSelector((state) => state.auth)
@@ -55,7 +56,6 @@ const ProfilePage = () => {
                         </div>
                         <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
-
                   <NavLink to="/sponsoring"  className='box'>
                       <div className='box-start'>
                           <img src={iconspons} className='picture-main' alt="ap"/>Apadrinar

@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 export default function HomePage() {
 
     const {user} = useSelector((state) => state.auth)
-
+    
     return (
         <div className='c-home-container'>
         <p>{user?._id}</p>

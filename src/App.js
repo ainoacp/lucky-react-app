@@ -9,12 +9,15 @@ import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import StatusPage from './pages/StatusPage/StatusPage';
 import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
+import FormsPage from './pages/FormsPage/FormsPage';
+import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
 import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
-import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
 import AuthComponent from './components/AuthComponent'
+
 
 function App() {
 
@@ -24,7 +27,7 @@ function App() {
 
   useEffect(() => {
     token && dispatch(checkSession(token, navigate))
-  }, [])
+  },[])
 
   return (
 
@@ -58,7 +61,9 @@ function App() {
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
-      <Route path='/animalDetails' element={<AnimalDetail />}/>
+      <Route path='/animals/:id' element={<AnimalDetail />}/>
+      <Route path='/status' element={<StatusPage />}/>
+      <Route path='/forms' element={<FormsPage />}/>
 
     </Routes>
       

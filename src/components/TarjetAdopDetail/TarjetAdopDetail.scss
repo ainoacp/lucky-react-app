@@ -1,0 +1,54 @@
+
+
+
+
+.container-boxStatus{
+    display:flex;
+    flex-direction: column;
+    
+    border: 1px solid rgb(189, 210, 214);
+    border-radius: 3px;
+    
+    width: 90%;
+    height: 25%;
+    margin-top: 10px;
+    text-decoration: none;
+    color: rgb(1, 116, 142);
+}
+////////////////////////////////////
+.box-nameStatus{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   
+   margin: 12px 5px 0px 10px;
+
+}
+
+.textname{
+ display: flex;
+ font-size: 16px;
+ text-decoration:solid;
+ color:rgb(1, 116, 142) ;
+}
+
+.box-process{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.data-status{
+    display: flex;  
+    margin-right: 5px;
+}
+
+.estado{
+    display: flex;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 13, 0);
+    border: 4px solid rgb(255, 13, 0);
+    border-radius: 50%;
+      
+}

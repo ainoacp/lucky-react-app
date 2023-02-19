@@ -9,6 +9,7 @@ import MapPage from './pages/MapPage/MapPage';
 import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import StatusPage from './pages/StatusPage/StatusPage';
 import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
 import FormsPage from './pages/FormsPage/FormsPage';
 import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
@@ -39,6 +40,7 @@ function App() {
       <Route path='/pet' element={<PetPage />}/>
       <Route path='/profile' element={<ProfilePage />}/>
       <Route path='/plus' element={<PlusPage />}/>
+      <Route path='/status' element={<StatusPage />}/>
       <Route path='/forms' element={<FormsPage />}/>
       <Route path='/animalDetails' element={<AnimalDetail />}/>
     </Routes>

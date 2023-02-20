@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import './FavButton.scss'
 
 export default function FavButton({animal}) {

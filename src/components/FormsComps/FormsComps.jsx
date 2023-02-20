@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { useRef, useState } from "react";
-import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+// import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { registerForm } from '../../redux/auth/auth.actions';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import './FormComponentsStyle.scss'
+// import { useRef } from "react";
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function FomsComponents() {
   const { register, handleSubmit } = useForm();
@@ -24,10 +27,7 @@ export default function FomsComponents() {
   const submit = (datos) => {
     console.log(datos);
   };
-
-  // const prevRef = useRef(null);
-  // const nextRef = useRef(null);
-  const swiper = useSwiper();
+  
 
   return (
     
@@ -35,11 +35,12 @@ export default function FomsComponents() {
     <Swiper
     pagination={{
       type: "progressbar",
-      
       clickable: true,
     }}
-    navigation={false}
-    modules={[Pagination, Navigation]}
+    navigation={{   
+      nextEl: ".next"
+        }}
+    // modules={[Pagination, Navigation]}
     className="mySwiper"
   >
      <SwiperSlide> <div className="box-datosPersonales">
@@ -90,14 +91,14 @@ export default function FomsComponents() {
           />
           <div>
             <input type="checkbox" id="check" {...register("conditions")} />
-            <label for="check" className="check-label">
+            <label htmlFor="check" className="check-label">
               <span className="checked-bton">X</span> Acepto los términos y
               condiciones de la adopción{" "}
             </label>
           </div>
          
         </form>
-        <button className="btn-next"  >continuar</button>
+        <button className="btn-next next" >continuar</button>
       </div></SwiperSlide>
       <SwiperSlide><div className="box-datosPersonales">
         <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
@@ -118,7 +119,7 @@ export default function FomsComponents() {
                   id="p1si"
                   {...register("pets")}
                 />
-                <label className="pets-label" for="p1si">
+                <label className="pets-label" htmlFor="p1si">
                   <span className="radio-bton"></span>si
                 </label>
               </div>
@@ -131,7 +132,7 @@ export default function FomsComponents() {
                   id="p1no"
                   {...register("pets")}
                 />
-                <label className="pets-label" for="p1no">
+                <label className="pets-label" htmlFor="p1no">
                   <span className="radio-bton"></span>no
                 </label>
               </div>
@@ -173,7 +174,7 @@ export default function FomsComponents() {
 
           
         </form>
-        <button className="btn-next">continuar</button>
+        <button className="btn-next next" >continuar</button>
 </div>
 </SwiperSlide>
  <SwiperSlide>
@@ -206,7 +207,7 @@ export default function FomsComponents() {
                       id="p2si"
                       {...register("rental")}
                     />
-                    <label for="p2si">
+                    <label htmlFor="p2si">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -219,7 +220,7 @@ export default function FomsComponents() {
                       {...register("rental")}
                     />
 
-                    <label for="p2no">
+                    <label htmlFor="p2no">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -238,7 +239,7 @@ export default function FomsComponents() {
                       id="p3si"
                       {...register("casero")}
                     />
-                    <label for="p3si">
+                    <label htmlFor="p3si">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -250,7 +251,7 @@ export default function FomsComponents() {
                       id="p3no"
                       {...register("casero")}
                     />
-                    <label for="p3no">
+                    <label htmlFor="p3no">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -270,7 +271,7 @@ export default function FomsComponents() {
                       id="p4si"
                       {...register("removal")}
                     />
-                    <label for="p4si">
+                    <label htmlFor="p4si">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -282,7 +283,7 @@ export default function FomsComponents() {
                       id="p4no"
                       {...register("removal")}
                     />
-                    <label for="p4no">
+                    <label htmlFor="p4no">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -302,7 +303,7 @@ export default function FomsComponents() {
                       id="p5si"
                       {...register("garden")}
                     />
-                    <label for="p5si">
+                    <label htmlFor="p5si">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -314,7 +315,7 @@ export default function FomsComponents() {
                       id="p5n"
                       {...register("garden")}
                     />
-                    <label for="p5n">
+                    <label htmlFor="p5n">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -333,7 +334,7 @@ export default function FomsComponents() {
                       id="p6s"
                       {...register("family")}
                     />
-                    <label for="p6s">
+                    <label htmlFor="p6s">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -345,7 +346,7 @@ export default function FomsComponents() {
                       id="p6n"
                       {...register("family")}
                     />
-                    <label for="p6n">
+                    <label htmlFor="p6n">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -364,7 +365,7 @@ export default function FomsComponents() {
                       id="p7s"
                       {...register("agreement")}
                     />
-                    <label for="p7s">
+                    <label htmlFor="p7s">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -376,7 +377,7 @@ export default function FomsComponents() {
                       id="p7n"
                       {...register("agreement")}
                     />
-                    <label for="p7n">
+                    <label htmlFor="p7n">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>
@@ -395,7 +396,7 @@ export default function FomsComponents() {
                       id="p8s"
                       {...register("visit")}
                     />
-                    <label for="p8s">
+                    <label htmlFor="p8s">
                       <span className="radio-bton"></span>si
                     </label>
                   </div>
@@ -407,7 +408,7 @@ export default function FomsComponents() {
                       id="p8n"
                       {...register("visit")}
                     />
-                    <label for="p8n">
+                    <label htmlFor="p8n">
                       <span className="radio-bton"></span>no
                     </label>
                   </div>

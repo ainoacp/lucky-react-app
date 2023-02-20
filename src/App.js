@@ -49,13 +49,23 @@ function App() {
               element={<AuthComponent component={<AnimalDetail />} />}
             />
           </Route>
-          <Route
-            path="options"
-            element={<AuthComponent component={<ProfilePage />} />}
-          />
+          <Route path="options">
+            <Route index element={<AuthComponent component={<ProfilePage />} />} />
+            <Route path="adoptionStatus">
+              <Route index element={<AuthComponent component={<StatusPage />} />} />
+              <Route  
+                path="status" 
+                element={<AuthComponent component={<StatusAdopPage />} />}
+              />
+              </Route>
+          </Route>
           <Route
             path="more"
             element={<AuthComponent component={<PlusPage />} />}
+          />
+          <Route
+            path="adoptionForm"
+            element={<AuthComponent component={<FormsPage />} />}
           />
           <Route
             path=":id"

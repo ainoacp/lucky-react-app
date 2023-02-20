@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 export default function PetPage() {
 
   const {user} = useSelector((state) => state.auth)
-  let { id } = useParams();
+  // let { id } = useParams();
 
   const [animals, setAnimals] = useState([])
   // const [animal, setAnimal] = useState([])
@@ -39,7 +39,7 @@ export default function PetPage() {
       (animal) => 
         animal.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ciudad.toLowerCase().includes(searchText.toLowerCase()) ||
-        animal.especie[0].toLowerCase().includes(searchText.toLowerCase()) ||
+        animal.especie.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.sexo.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.tamaño.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ubicacion.toLowerCase().includes(searchText.toLowerCase())
@@ -71,24 +71,8 @@ export default function PetPage() {
           <ButtonAdd />
         </div>
         <p>Accede al perfil de tu mascotas</p>
-        <div className="c-slider swiper">
-          <div className="swiper-wrapper">
-            <MyPetIcon user={user} />
-            {/* {users?.map((user) => (
-              <div key={user.id}>
-                {user?.pets?.map((pet) => (
-                  <Link to="/animals/{id}" className="swiper-slide" key={pet.id}>
-                    <p>{pet}</p>
-                  </Link>
-                ))}
-              </div>
-            ))} */}
-              {/* <Link to="/animals/{id}" className="swiper-slide">
-                <img src={animal.image} alt={animal._id} />
-                <p>{animal.especie[0]}</p>
-              </Link> */}
-          </div>
-          <Slider />
+        <div>
+        <MyPetIcon user={user} />
         </div>
       </header>
       <div className='c-pet-body'>

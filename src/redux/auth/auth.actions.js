@@ -6,6 +6,7 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
   try {
     const result = await API.post("/users/login", formData);
     localStorage.setItem("token", result.data.token);
+    localStorage.setItem("user", JSON.stringify(result.data.myUser));
     dispatch({ type: "login_user_ok", payload: result.data });
     navigate("/lucky/home"); //aqui hay que poner la pagina del perfil
   } catch (error) {
@@ -36,6 +37,7 @@ export const checkSession = (token, navigate) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: "checksession_user_ko", payload: error.message});
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate(["/lucky/login"]);
   }
 };
@@ -59,7 +61,7 @@ export const logout = (navigate) => async (dispatch) => {
 export const registerForm = (formData) => async (dispatch) => {
   dispatch({ type: "register_form" });
   try {
-    const result = await API.post("/form/register", formData);
+    const result = await API.post("/form/register", JSON.stringify(formData));
     dispatch({ type: "register_forms_ok", payload: result.data });
     
   } catch (error) {

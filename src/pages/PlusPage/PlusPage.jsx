@@ -16,7 +16,7 @@ const PlusPage = () => {
     <>
       <div className="container-profile">
         <div className="container-start">
-          <NavLink to="/shelters" className="box">
+          <NavLink to="/lucky/shelters" className="box">
             <div className="box-start">
               <img src={iconAsoc} className="picture-main" alt="A" />
               Asociaciones protectoras
@@ -24,7 +24,7 @@ const PlusPage = () => {
             <img src={icono} className="ico" alt="m" />
           </NavLink>
 
-          <NavLink to="/events" className="box">
+          <NavLink to="/lucky/events" className="box">
             <div className="box-start">
               <img src={iconEve} className="picture-main" alt="E" />
               Eventos
@@ -32,7 +32,7 @@ const PlusPage = () => {
             <img src={icono} className="ico" alt="m" />
           </NavLink>
 
-          <NavLink to="/curiosities" className="box">
+          <NavLink to="/lucky/curiosities" className="box">
             <div className="box-start">
               <img src={iconCur} className="picture-main" alt="C" />
               Curiosidades
@@ -40,7 +40,7 @@ const PlusPage = () => {
             <img src={icono} className="ico" alt="m" />
           </NavLink>
 
-          <NavLink href="/help" className="box">
+          <NavLink href="/lucky/help" className="box">
             <div className="box-start">
               <img src={iconHelp} className="picture-main" alt="Ay" />
               Ayuda
@@ -48,7 +48,7 @@ const PlusPage = () => {
             <img src={icono} className="ico" alt="m" />
           </NavLink>
 
-          <NavLink to="/configuration" className="box">
+          <NavLink to="/lucky/configuration" className="box">
             <div className="box-start">
               <img src={iconSetup} className="picture-main" alt="C" />
               Configuración

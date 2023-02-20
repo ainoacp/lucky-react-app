@@ -1,12 +1,11 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useState } from "react";
-
 import './FavButton.scss'
 
 export default function FavButton({animal}) {
-
-    // const {f} = useContext(FavContext);
-    
-    // const [fav, setFav] = useContext(FavContext);
+    const {user} = useSelector((state) => state.auth)
+ 
     // const [isFav, setIsFav] = useState(false);
 
     const [fav, setFav] = useState(false);
@@ -25,9 +24,18 @@ export default function FavButton({animal}) {
     setActive(!active);
     }
 
+    function handleFavClick2() {
+        //     const newFavs = isFav
+        //     ? fav.filter((fav) => fav !== animal._id)
+        //     : [...fav, animal._id];
+        // setFav(newFavs);
+        setFav(!fav);
+        setActive(!active);
+        }
+
     return (
         <div>
-            <button className={`fav-button ${active?"active":""}`} onClick={handleFavClick}/>
+            <button className={`fav-button ${active?"active":""}`} onClick={handleFavClick} />
         </div>
     );
 }

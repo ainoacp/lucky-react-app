@@ -21,6 +21,15 @@ const AnimalDetail = () => {
   const [popUp, setPopUp] = useState(false);
   const [toggleState, setToggleState] = useState(1);
 
+  const boolToWord = (bool) => {
+    if (bool=== true){
+      return 'Si'
+    } else {
+      return 'No'
+    }
+    
+  }
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -43,8 +52,6 @@ const AnimalDetail = () => {
   const navigateTo = () => {
     return <Link to={<HomePage />} />
   }
-
-
 
   return (<>
 
@@ -154,12 +161,12 @@ const AnimalDetail = () => {
 
             <div className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='c__navbar--data1'>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Vacunado</span></div> <div><span>{animal.vacunado}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Desparasitado</span></div> <div><span>{animal.desparasitado}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sano</span></div> <div><span>{animal.sano}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Esterilizado</span></div> <div><span>{animal.esterilizado}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Identificado</span></div> <div><span>{animal.identificado}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Microchip</span></div> <div><span>{animal.microchip}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Vacunado</span></div> <div><span>{boolToWord(animal.vacunado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Desparasitado</span></div> <div><span>{boolToWord(animal.desparasitado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sano</span></div> <div><span>{boolToWord(animal.sano)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Esterilizado</span></div> <div><span>{boolToWord(animal.esterilizado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Identificado</span></div> <div><span>{boolToWord(animal.identificado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Microchip</span></div> <div><span>{boolToWord(animal.microchip)}</span></div> </div>
               </div>
 
               <div className="c__navbar--data3">

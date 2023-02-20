@@ -6,7 +6,7 @@ export default function ButtonAdd() {
 
     return (
         <div className="button-container">
-            <Link to="/adoptionForm">
+            <Link to="/luccky/home/adoptionForm">
             <img src={Add} alt="add"/>
             </Link>
         </div>

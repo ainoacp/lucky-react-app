@@ -64,7 +64,7 @@ function App() {
             element={<AuthComponent component={<PlusPage />} />}
           />
           <Route
-            path="forms"
+            path="adoptionForm"
             element={<AuthComponent component={<FormsPage />} />}
           />
           <Route

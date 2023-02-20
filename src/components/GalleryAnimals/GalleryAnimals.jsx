@@ -4,7 +4,7 @@ import './GalleryAnimals.scss'
 import React from "react";
 import FavButton from "../FavButton/FavButton";
 
-export default function GalleryAnimals({ animals }, props) {
+export default function GalleryAnimals({ animals }) {
 
     return (
         <div className="c-animals-gallery">

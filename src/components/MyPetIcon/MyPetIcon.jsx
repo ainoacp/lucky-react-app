@@ -16,7 +16,7 @@ import aveIco from '../../assets/Primarios/filtros-animales-menus/animales/ave/a
 import Slider from "../SliderComp/Slider";
 
 
-export default function MyPetIcon({user, animal}) {
+export default function MyPetIcon({user}) {
 
     // const getIcon = (animal) => {
     //     if (animal.especie[0] === 'Perro') {

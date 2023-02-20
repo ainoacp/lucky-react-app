@@ -12,7 +12,7 @@ export default function CarrousselPage() {
 
 return (
     <>
-      <Link to="/start">
+      <Link to="/lucky/start">
         <img src={Cross} alt="cross" className="x" />
       </Link>
       <div className="c-slider swiper">

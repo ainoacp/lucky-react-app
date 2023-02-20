@@ -47,7 +47,7 @@ const AnimalDetail = () => {
     setAnimals(res.data)
   }
 
-  useEffect(() => getAnimals(), [])
+  useEffect(() => {getAnimals()}, [])
 
   const navigateTo = () => {
     return <Link to={<HomePage />} />

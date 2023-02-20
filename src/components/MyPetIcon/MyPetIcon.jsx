@@ -51,7 +51,7 @@ export default function MyPetIcon({user}) {
             <div className="c-slider swiper" key= {index}>
                 <div className="swiper-wrapper">
                     <Link to="/animals/{id}" className="swiper-slide">
-                        <IconDisplay type={pet.especie[0]}/>
+                        <IconDisplay type={pet.especie}/>
                         <p>{pet.nombre}</p>
                     </Link>
                 </div>

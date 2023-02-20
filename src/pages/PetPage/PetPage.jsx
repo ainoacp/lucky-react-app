@@ -103,7 +103,7 @@ export default function PetPage() {
             <Link to="/filter"><img src={Filter} alt="filter"/></Link>
           </div>
           <div className='c-pet-adoption_gallery'>
-            <GalleryAnimals animals={filteredAnimals} />
+           <GalleryAnimals animals={filteredAnimals}/>
           </div>
         </div>
       </div>

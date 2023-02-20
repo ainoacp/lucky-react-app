@@ -42,12 +42,10 @@ function App() {
             path="map"
             element={<AuthComponent component={<MapPage />} />}
           />
-          <Route
-            path="pets"
-            element={<AuthComponent component={<PetPage />} />}
-          >
+          <Route path="pets">
+            <Route index element={<AuthComponent component={<PetPage />} />} />
             <Route
-              path="detail"
+              path=":id"
               element={<AuthComponent component={<AnimalDetail />} />}
             />
           </Route>

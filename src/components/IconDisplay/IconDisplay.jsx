@@ -10,20 +10,22 @@ import anfibioIco from '../../assets/Primarios/filtros-animales-menus/animales/a
 import aracIco from '../../assets/Primarios/filtros-animales-menus/animales/aracnidos-o-insectos/aracnidos-insectos.png';
 import aveIco from '../../assets/Primarios/filtros-animales-menus/animales/ave/ave.png';
 import Default from '../../assets/Primarios/filtros-animales-menus/animales/perro/perrop.png';
+import { useSelector } from 'react-redux';
 
 export default function IconDisplay({ type }) {
+
     const iconMap = {
-        "Perro": {perroIco},
-        "Gato": {gatoIco},
-        "Conejo": {conejoIco},
-        "Cobaya": {cobayaIco},
-        "Pequeño Mamífero": {pMamIco},
-        "Hurón": {huronIco},
-        "Pez": {pezIco},
-        "Reptil": {reptilIco},
-        "Anfibio": {anfibioIco},
-        "Arácnido o Insecto": {aracIco},
-        "Ave": {aveIco}
+        "Perro": perroIco,
+        "Gato": gatoIco,
+        "Conejo": conejoIco,
+        "Cobaya": cobayaIco,
+        "Pequeño Mamífero": pMamIco,
+        "Hurón": huronIco,
+        "Pez": pezIco,
+        "Reptil": reptilIco,
+        "Anfibio": anfibioIco,
+        "Arácnido o Insecto": aracIco,
+        "Ave": aveIco
     }
 
     const icon = iconMap[type];

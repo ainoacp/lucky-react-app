@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import Slider from '../../components/SliderComp/Slider';
 import './HomePage.scss';
 import "swiper/css";
-import SlideP1 from "../../assets/Primarios/perfil/estado-de-adopcion/mascota@3x.png";
-import SlideP2 from "../../assets/Primarios/perfil/apadrinar/apadrina@3x.png";
-import SlideP3 from "../../assets/Primarios/perfil/donar/donar@3x.png";
+import SlideP1 from "../../assets/Primarios/perfil/estado-de-adopcion/mascota@2x.png";
+import SlideP2 from "../../assets/Primarios/perfil/apadrinar/apadrina@2x.png";
+import SlideP3 from "../../assets/Primarios/perfil/donar/donar@2x.png";
 import new1 from '../../assets/Primarios/perfil/novedades/new1/uli1Copy.png';
 import new2 from '../../assets/Primarios/perfil/novedades/new2/uli1Copy.png';
 import new3 from '../../assets/Primarios/perfil/novedades/new3/uli1Copy.png';
@@ -21,21 +21,21 @@ export default function HomePage() {
                 <p className='c-home-header_title'>¡Hola {user?.name || 'User'}!</p>
                 <div className="c-slider swiper">
                     <div className="swiper-wrapper">
-                        <Link to="/sponsoring" className="swiper-slide">
+                        <Link to="/lucky/home/options/sponsoring" className="swiper-slide">
                             <img className="c-slider_img" src={SlideP2} alt="slide2" />
                             <div>
                                 <h5>Apadrina un animal</h5>
                                 <p>Si no puedes adoptar ayuda a alguno de nuestros animales</p>
                             </div>
                         </Link>
-                        <Link to="/adoptionState" className="swiper-slide">
+                        <Link to="/lucky/home/options/adoptionStatus" className="swiper-slide">
                                 <img className="c-slider_img" src={SlideP1} alt="slide1" />
                                 <div>
                                     <h5>Estado de la adopción</h5>
                                     <p>Revisa el proceso de tus adopciones en curso</p>
                                 </div>
                         </Link>
-                        <Link to="/donate" className="swiper-slide">
+                        <Link to="/lucky/home/options/donate" className="swiper-slide">
                             <img className="c-slider_img" src={SlideP3} alt="slide3" />
                             <div>
                                 <h5>Dona y ayuda</h5>

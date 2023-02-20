@@ -23,19 +23,10 @@ export default function FavButton({animal}) {
     setActive(!active);
     }
 
-    function handleFavClick2() {
-        //     const newFavs = isFav
-        //     ? fav.filter((fav) => fav !== animal._id)
-        //     : [...fav, animal._id];
-        // setFav(newFavs);
-        setFav(!fav);
-        setActive(!active);
-        }
-
     return (
-        <div>
+        <>
             <button className={`fav-button ${active?"active":""}`} onClick={handleFavClick} />
-        </div>
+        </>
     );
 }
 

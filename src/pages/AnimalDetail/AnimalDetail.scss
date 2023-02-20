@@ -295,16 +295,26 @@
                 color: rgb(1 116 142)
                 }
             }
+            &--father{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
 
-            &--personality{
-                background-color: rgb(1 116 142);
-                border-radius: 20px;
-                span{
+                &--personality{
+                    background-color: rgb(1, 116, 142);
+                    border-radius: 20px;
+                    display: flex;
                     text-align: center;
-                    color:white;
+                    margin: 2px;
+                    span{
+                        text-align: center;
+                        color:white;
+                        padding: 1px 15px;
+                    }
+                    
                 }
-                
             }
+           
         }
 
         &--data3{

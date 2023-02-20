@@ -5,8 +5,6 @@ export const FavContext = React.createContext();
 
 export default function FavoriteProvider({ children }) {
 
-    
-    
     const [favorites, setFavorites] = useState([]);
     
     useEffect(() => {

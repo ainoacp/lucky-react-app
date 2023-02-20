@@ -7,7 +7,7 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
     const result = await API.post("/users/login", formData);
     localStorage.setItem("token", result.data.token);
     dispatch({ type: "login_user_ok", payload: result.data });
-    navigate("/home"); //aqui hay que poner la pagina del perfil
+    navigate("/lucky/home"); //aqui hay que poner la pagina del perfil
   } catch (error) {
     dispatch({ type: "login_user_ko", payload: error.message });
   }
@@ -17,7 +17,7 @@ export const registerUser = (formData, navigate) => async (dispatch) => {
   try {
     const result = await API.post("/users/register", formData);
     dispatch({ type: "register_user_ok", payload: result.data });
-    navigate("/login");
+    navigate("/lucky/login");
   } catch (error) {
     console.log(error);
     dispatch({ type: "register_user_ko", payload: error.message });
@@ -32,11 +32,11 @@ export const checkSession = (token, navigate) => async (dispatch) => {
       type: "checksession_user_ok",
       payload: { user: result.data, token: token },
     });
-    navigate(["/home"]);
+    navigate(["/lucky/home"]);
   } catch (error) {
     dispatch({ type: "checksession_user_ko", payload: error.message});
     localStorage.removeItem("token");
-    navigate(["/login"]);
+    navigate(["/lucky/login"]);
   }
 };
 //esta función es para cuando se recarga la página asegurarse de que 
@@ -50,10 +50,10 @@ export const logout = (navigate) => async (dispatch) => {
       type: "logout_user_ok"
     });    
     localStorage.removeItem("token");
-    navigate(["/login"]);
+    navigate(["/lucky/login"]);
   } catch (error) {
     dispatch({ type: "logout_user_ko", payload: error.message});
-    navigate(["/"]);
+    navigate(["/lucky/start"]);
   }
 };
 export const registerForm = (formData) => async (dispatch) => {

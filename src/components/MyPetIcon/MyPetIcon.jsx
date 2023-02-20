@@ -17,38 +17,38 @@ import aveIco from '../../assets/Primarios/filtros-animales-menus/animales/ave/a
 
 export default function MyPetIcon({user, animal}) {
 
-    const getIcon = (animal) => {
-        if (animal.especie[0] === 'Perro') {
-            return {perroIco}
-        } else if (animal.especie[0] === 'Gato') {
-            return {gatoIco}
-        } else if (animal.especie[0] === 'Conejo') {
-            return {conejoIco}
-        } else if (animal.especie[0] === 'Cobaya') {
-            return {cobayaIco}
-        } else if (animal.especie[0] === 'Pequeño mamífero') {
-            return {pMamIco}
-        } else if (animal.especie[0] === 'Hurón') {
-            return {huronIco}
-        } else if (animal.especie[0] === 'Pez') {
-            return {pezIco}
-        } else if (animal.especie[0] === 'Reptil') {
-            return {reptilIco}
-        } else if (animal.especie[0] === 'Anfibio') {
-            return {anfibioIco}
-        } else if (animal.especie[0] === 'Arácnido o insecto') {
-            return {aracIco}
-        } else if (animal.especie[0] === 'Ave') {
-            console.log(animal.especie[0], "esto es el icono de la especie")
-            return {aveIco}
-        } 
-    }
+    // const getIcon = (animal) => {
+    //     if (animal.especie[0] === 'Perro') {
+    //         return {perroIco}
+    //     } else if (animal.especie[0] === 'Gato') {
+    //         return {gatoIco}
+    //     } else if (animal.especie[0] === 'Conejo') {
+    //         return {conejoIco}
+    //     } else if (animal.especie[0] === 'Cobaya') {
+    //         return {cobayaIco}
+    //     } else if (animal.especie[0] === 'Pequeño mamífero') {
+    //         return {pMamIco}
+    //     } else if (animal.especie[0] === 'Hurón') {
+    //         return {huronIco}
+    //     } else if (animal.especie[0] === 'Pez') {
+    //         return {pezIco}
+    //     } else if (animal.especie[0] === 'Reptil') {
+    //         return {reptilIco}
+    //     } else if (animal.especie[0] === 'Anfibio') {
+    //         return {anfibioIco}
+    //     } else if (animal.especie[0] === 'Arácnido o insecto') {
+    //         return {aracIco}
+    //     } else if (animal.especie[0] === 'Ave') {
+    //         console.log(animal.especie[0], "esto es el icono de la especie")
+    //         return {aveIco}
+    //     } 
+    // }
     
     return (
         <div className="c-pet-icon">
             {user?.pets?.map((pet, index) => (
                 <Link key= {index} to="/animals/{id}" className="swiper-slide">
-                    <IconDisplay type="Hurón"/>
+                    <IconDisplay type={pet.especie[0]}/>
                     <p>{pet.nombre}</p>
                 </Link>
             ))}

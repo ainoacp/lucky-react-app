@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { checkSession } from "./redux/auth/auth.actions";
 import { useEffect } from "react";
 import AuthComponent from "./components/AuthComponent";
+import FavPetsPage from "./pages/FavPetsPage/FavPetsPage";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -57,7 +58,11 @@ function App() {
                 path="status" 
                 element={<AuthComponent component={<StatusAdopPage />} />}
               />
-              </Route>
+            </Route>
+            <Route 
+              path="favPets"
+              element={<AuthComponent component={<FavPetsPage />} />}
+            />
           </Route>
           <Route
             path="more"

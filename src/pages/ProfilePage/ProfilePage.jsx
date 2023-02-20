@@ -20,7 +20,7 @@ const ProfilePage = () => {
   return (
     <>
       <div className='container-profile'>
-              <div className='profile-picture'><img src={usu}className='picture-profile'  alt=""/></div>
+              <div className='profile-picture'><img src={user.image || usu}className='picture-profile'  alt=""/></div>
               
               <div className='container-start'>
                   <NavLink to="/lucky/home" className='box'>

@@ -10,7 +10,8 @@ import  usu from '../../assets/usuario/neutro-50.png'
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const { token } = useSelector((state) => state.auth)
+  // const { token } = useSelector((state) => state.auth)
+  const {user} = useSelector((state) => state.auth)
 
   return (
     <>
@@ -24,7 +25,7 @@ const Navbar = () => {
       <Link to='/lucky/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
       <Link to='/lucky/home/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
       <Link to='/lucky/home/pets' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
-      <Link to='/lucky/home/options' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>
+      <Link to='/lucky/home/options' className='profile'><div className='profilePicture'><img src={user.image || usu} className='usu' alt='profile ' /></div></Link>
       <Link to='/lucky/home/more' className='plus'><p className='plus' >...</p></Link>
       </nav>
     </div>

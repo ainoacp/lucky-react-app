@@ -9,7 +9,7 @@ const ButtonReturn = () => {
         
             <Link to='/profile' className='return'></Link>
 
-            <div>Poner buscador aqui</div>      
+                 
     </div>
   )
 }

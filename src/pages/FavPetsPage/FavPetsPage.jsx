@@ -1,12 +1,37 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import GalleryAnimals from "../../components/GalleryAnimals/GalleryAnimals";
+import Filter from '../../assets/Primarios/filtros-animales-menus/filter-bton/filtros.png';
+import './FavPetsPage.scss';
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function FavPetsPage() {
 
     const {user} = useSelector((state) => state.auth)
 
+    // const [favPets, setFavPets] = useState([]);
+
+    // const handleFavPets = () => {
+    //     favPets = {user.favPets}
+    //     setFavPets(prevFavPets => [...prevFavPets, newFavPets]);
+    // }
+
+    let favPets = user.favPets
+
     return (
-        <div key={user._id}>
-            <img src={user.favPets[0].imagenes[0] || user.favPets[0].image} />
-        </div>
+        <>
+            <div className="c-favPets-container">
+                <div className='c-favPets_title'>
+                    <p>Animales favoritos</p>
+                    <Link to="/lucky/home/pets/filter"><img src={Filter} alt="filter"/></Link>
+                </div>
+                <div className='c-favPets_gallery'>
+                    <GalleryAnimals animals={favPets} />
+                </div>
+            </div>
+            <Navbar/>
+        </>
+        
     )
 }

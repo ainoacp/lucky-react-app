@@ -58,6 +58,7 @@ export const logout = (navigate) => async (dispatch) => {
     navigate(["/lucky/start"]);
   }
 };
+
 export const registerForm = (formData) => async (dispatch) => {
   dispatch({ type: "register_form" });
   try {
@@ -67,5 +68,17 @@ export const registerForm = (formData) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch({ type: "register_form_ko", payload: error.message });
+  }
+};
+
+export const registerFav = (favData) => async (dispatch) => {
+  dispatch({ type: "register_fav" });
+  try {
+    const result = await API.post("/users/addfav", favData);
+    dispatch({ type: "register_fav_ok", payload: result.data });
+    
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "register_fav_ko", payload: error.message });
   }
 };

@@ -45,6 +45,18 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case "logout_user_ko":
       return { ...state, isLoading: false, error: action.payload };
 
+    case "register_fav":
+      return { ...state, isFav: true};
+    case "register_fav_ok":
+      return { 
+        ...state, 
+        isFav: false,
+        user: action.payload.user,
+      }
+    case "register_fav_ko":
+      return { ...state, isLoading: false, error: action.payload };
+      
+
     default: {
       return state;
     }

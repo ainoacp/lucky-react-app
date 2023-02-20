@@ -7,7 +7,7 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
     const result = await API.post("/users/login", formData);
     localStorage.setItem("token", result.data.token);
     dispatch({ type: "login_user_ok", payload: result.data });
-    navigate("/"); //aqui hay que poner la pagina del perfil
+    navigate("/home"); //aqui hay que poner la pagina del perfil
   } catch (error) {
     dispatch({ type: "login_user_ko", payload: error.message });
   }
@@ -32,14 +32,16 @@ export const checkSession = (token, navigate) => async (dispatch) => {
       type: "checksession_user_ok",
       payload: { user: result.data, token: token },
     });
-    navigate(["/"]);
+    navigate(["/home"]);
   } catch (error) {
     dispatch({ type: "checksession_user_ko", payload: error.message});
     localStorage.removeItem("token");
     navigate(["/login"]);
   }
 };
-
+//esta función es para cuando se recarga la página asegurarse de que 
+//el token es valido con la persona que está logueada y recarga los 
+//datos del usuario
 
 export const logout = (navigate) => async (dispatch) => {
   dispatch({ type: "logout_user" });

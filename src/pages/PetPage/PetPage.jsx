@@ -11,16 +11,20 @@ import Navbar from '../../components/Navbar/Navbar';
 import ButtonAdd from '../../components/ButtonAdd/ButtonAdd';
 import "swiper/css";
 import "./PetPage.scss";
+import MyPetIcon from '../../components/MyPetIcon/MyPetIcon';
 
 
 
 export default function PetPage() {
 
-  // let { nombre } = useParams();
+  let { id } = useParams();
 
   const [animals, setAnimals] = useState([])
-  // const [animal, setAnimal] = useState([])
+  const [animal, setAnimal] = useState([])
   const [filteredAnimals, setFilterAnimals] = useState([])
+
+  const [users, setUsers] = useState([])
+  const [user, setUser] = useState([])
   
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals`);
@@ -29,12 +33,6 @@ export default function PetPage() {
     setAnimals(resFiltered);
     setFilterAnimals(resFiltered);
   }
-
-  // const getAnimal = async () => {
-  //   const res = await axios.get(`http://localhost:5001/animals/${nombre}`);
-  //   console.log(res.data);
-  //   setAnimal(res.data)
-  // }
 
   const filterAnimals = async (searchText) => {
     let newAnimals = animals.filter(
@@ -48,7 +46,34 @@ export default function PetPage() {
     );
     setFilterAnimals(newAnimals);
   }
-  useEffect(() => {getAnimals('')}, [])
+
+  // const getAnimal = async (animal) => {
+  // const res = await axios.get(`http://localhost:5001/animals/${id}`);
+  // console.log(res.data);
+  // // console.log(res.data[0].especie[0])
+  // setAnimal(res.data);
+  // }
+
+  const getUsers = async () => {
+      const res = await axios.get(`http://localhost:5001/users`);
+      console.log(res.data);
+      // console.log(res.data[0].pets)
+      setUsers(res.data);
+  }
+
+//   const getUser = async () => {
+//     const res = await axios.get(`http://localhost:5001/users/${id}`);
+//     console.log(res.data);
+//     setUser(res.data);
+//     getAnimal(res.data);
+// }
+      
+  useEffect(() => {
+    getAnimals('');
+    // getAnimal();
+    getUsers();
+    // getUser();
+  }, [id] )
 
   return (
     <div className="c-pet-container">
@@ -63,18 +88,20 @@ export default function PetPage() {
         <p>Accede al perfil de tu mascotas</p>
         <div className="c-slider swiper">
           <div className="swiper-wrapper">
-            <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={Print} alt="slide" />
-              <p>Animal</p>
-            </Link>
-            <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={Print} alt="slide" />
-              <p>Animal</p>
-            </Link>
-            <Link to="/profilepet/pet{id}" className="swiper-slide">
-              <img className="c-slider_img" src={Print} alt="slide" />
-              <p>Animal</p>
-            </Link>
+            {/* <MyPetIcon user={getUser}/> */}
+            {users?.map((user) => (
+              <div key={user.id}>
+                {user?.pets?.map((pet) => (
+                  <Link to="/animals/{id}" className="swiper-slide" key={pet.id}>
+                    <p>{pet}</p>
+                  </Link>
+                ))}
+              </div>
+            ))}
+              {/* <Link to="/animals/{id}" className="swiper-slide">
+                <img src={animal.image} alt={animal._id} />
+                <p>{animal.especie[0]}</p>
+              </Link> */}
           </div>
           <Slider />
         </div>

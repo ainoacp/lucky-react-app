@@ -1,27 +1,31 @@
 import React from 'react';
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
-import iconHome from '../../assets/Primarios/nav-bar/home/home.png';
-import iconUbi from '../../assets/Primarios/nav-bar/ubicaciones/locate.png';
-import iconAdop from '../../assets/Primarios/nav-bar/adopcion/mascota.png';
+import iconHome from '../../assets/Primarios/nav-bar/home/homeDesactive/home.png';
+import iconUbi from '../../assets/Primarios/nav-bar/ubicaciones/mapaDesactive/mapa.png';
+import iconAdop from '../../assets/Primarios/nav-bar/adopcion/mascotaDesactive/mascota.png';
 //import iconMain from '../../assets/Primarios/nav-bar/menu/desactive.png';  <img className='icon' alt=''/>
 //import iconPict from '../../assets/Primarios/nav-bar/home/home.png';
 import  usu from '../../assets/usuario/neutro-50.png'
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-
+  const { token } = useSelector((state) => state.auth)
 
   return (
     <>
     <div className='container'>  
      <nav className='navbar'>
-          <Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
-          <Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
-          <Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
-          <Link to='/profile' className='profile'>
-            <div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div>
-          </Link>
-          <Link to='/plus' className='plus'><p className='plus' >...</p></Link>  
+      {/* {!token &&<Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>}
+      {!token &&<Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>}
+      {!token &&<Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>}
+      {!token &&<Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>}
+      {!token &&<Link to='/plus' className='plus'><p className='plus' >...</p></Link>}  */}
+      <Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
+      <Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
+      <Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
+      <Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>
+      <Link to='/plus' className='plus'><p className='plus' >...</p></Link>
       </nav>
     </div>
     </>

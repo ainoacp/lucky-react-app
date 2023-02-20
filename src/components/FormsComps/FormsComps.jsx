@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import "./FormComponentsStyle.scss";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { useRef, useState } from "react";
 import { Pagination, Navigation } from "swiper";
@@ -18,7 +17,6 @@ export default function FomsComponents() {
       dispatch(registerForm(formData, navigate))
       console.log(JSON.stringify( formData));
   }
-
 
   function btonSubmit(e) {
     e.preventDefault();

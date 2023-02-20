@@ -60,6 +60,18 @@ function App() {
             element={<AuthComponent component={<PlusPage />} />}
           />
           <Route
+            path="adoptionStatus"
+            element={<AuthComponent component={<StatusPage />} />}
+          />
+          <Route
+            path="status"
+            element={<AuthComponent component={<StatusPage />} />}
+          />
+          <Route
+            path="forms"
+            element={<AuthComponent component={<StatusPage />} />}
+          />
+          <Route
             path=":id"
             element={<AuthComponent component={<HomePage />} />}
           />

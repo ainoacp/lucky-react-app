@@ -1,10 +1,22 @@
 import { useForm } from "react-hook-form";
-import "./FormComponentsStyle.scss";
-// import * as Yup from "yup";
-import { useState } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { useRef, useState } from "react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { registerForm } from '../../redux/auth/auth.actions';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 export default function FomsComponents() {
   const { register, handleSubmit } = useForm();
-  // const schema = Yup;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const registrar = async (formData) => {
+      dispatch(registerForm(formData, navigate))
+      console.log(JSON.stringify( formData));
+  }
 
   function btonSubmit(e) {
     e.preventDefault();
@@ -12,17 +24,26 @@ export default function FomsComponents() {
   const submit = (datos) => {
     console.log(datos);
   };
-  const [radioValue, setReadioValue] = useState("");
 
-  const changeRatio = (e) => {
-    setReadioValue(...e.target.value);
-    console.log("este es el target", e.target);
-  };
+  // const prevRef = useRef(null);
+  // const nextRef = useRef(null);
+  const swiper = useSwiper();
 
   return (
+    
     <div>
-      <div className="box-datosPersonales">
-        <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+    <Swiper
+    pagination={{
+      type: "progressbar",
+      
+      clickable: true,
+    }}
+    navigation={false}
+    modules={[Pagination, Navigation]}
+    className="mySwiper"
+  >
+     <SwiperSlide> <div className="box-datosPersonales">
+        <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
           <h2 className="tittle-forms">Tus Datos</h2>
           <input
             className="datos-input"
@@ -68,14 +89,18 @@ export default function FomsComponents() {
             {...register("city")}
           />
           <div>
-            <input type="checkbox" {...register("conditions")} />
-            <label>Acepto los términos y condiciones de la adopción </label>
+            <input type="checkbox" id="check" {...register("conditions")} />
+            <label for="check" className="check-label">
+              <span className="checked-bton">X</span> Acepto los términos y
+              condiciones de la adopción{" "}
+            </label>
           </div>
-          <button className="btn-foms">continuar</button>
+         
         </form>
-      </div>
-      <div className="box-datosPersonales">
-        <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+        <button className="btn-next"  >continuar</button>
+      </div></SwiperSlide>
+      <SwiperSlide><div className="box-datosPersonales">
+        <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
           <h2 className="tittle-forms">Sobre Las Mascolas</h2>
 
           <div>
@@ -84,25 +109,31 @@ export default function FomsComponents() {
               <p>¿Tienes alguna otra mascota?</p>
             </div>
             <div>
-              <div>
+              <div className="laber-radio">
                 <input
-                  className="datos-input"
+                  className="datos-input-radio"
                   type="radio"
                   value="si"
                   name="si"
+                  id="p1si"
                   {...register("pets")}
                 />
-                <label>si</label>
+                <label className="pets-label" for="p1si">
+                  <span className="radio-bton"></span>si
+                </label>
               </div>
               <div>
                 <input
-                  className="datos-input"
+                  className="datos-input-radio"
                   type="radio"
                   value="no"
                   name="si"
+                  id="p1no"
                   {...register("pets")}
                 />
-                <label>no</label>
+                <label className="pets-label" for="p1no">
+                  <span className="radio-bton"></span>no
+                </label>
               </div>
             </div>
           </div>
@@ -113,6 +144,7 @@ export default function FomsComponents() {
             {...register("which")}
           />
           <input
+            className="datos-input"
             type="text"
             placeholder="¿Se lleva bien con otros animales?"
             {...register("petfrienly")}
@@ -139,11 +171,14 @@ export default function FomsComponents() {
           </div>
           <input className="datos-input" type="text" {...register("food")} />
 
-          <button className="btn-foms">continuar</button>
+          
         </form>
-
+        <button className="btn-next">continuar</button>
+</div>
+</SwiperSlide>
+ <SwiperSlide>
         <div className="box-datosPersonales">
-          <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+          <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
             <h2 className="tittle-forms">Familia y hogar</h2>
 
             <div className="box-family-home">
@@ -168,18 +203,25 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p1"
+                      id="p2si"
                       {...register("rental")}
                     />
-                    <label>si</label>
+                    <label for="p2si">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       name="p1"
                       value="no"
+                      id="p2no"
                       {...register("rental")}
                     />
-                    <label>no</label>
+
+                    <label for="p2no">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -193,18 +235,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p2"
+                      id="p3si"
                       {...register("casero")}
                     />
-                    <label>si</label>
+                    <label for="p3si">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p2"
+                      id="p3no"
                       {...register("casero")}
                     />
-                    <label>no</label>
+                    <label for="p3no">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -219,18 +267,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p3"
+                      id="p4si"
                       {...register("removal")}
                     />
-                    <label>si</label>
+                    <label for="p4si">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p3"
+                      id="p4no"
                       {...register("removal")}
                     />
-                    <label>no</label>
+                    <label for="p4no">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -245,18 +299,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p4"
+                      id="p5si"
                       {...register("garden")}
                     />
-                    <label>si</label>
+                    <label for="p5si">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p4"
+                      id="p5n"
                       {...register("garden")}
                     />
-                    <label>no</label>
+                    <label for="p5n">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -270,18 +330,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p5"
-                      {...register("people")}
+                      id="p6s"
+                      {...register("family")}
                     />
-                    <label>si</label>
+                    <label for="p6s">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p5"
-                      {...register("people")}
+                      id="p6n"
+                      {...register("family")}
                     />
-                    <label>no</label>
+                    <label for="p6n">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -295,18 +361,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p6"
+                      id="p7s"
                       {...register("agreement")}
                     />
-                    <label>si</label>
+                    <label for="p7s">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p6"
+                      id="p7n"
                       {...register("agreement")}
                     />
-                    <label>no</label>
+                    <label for="p7n">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -320,18 +392,24 @@ export default function FomsComponents() {
                       type="radio"
                       value="si"
                       name="p7"
+                      id="p8s"
                       {...register("visit")}
                     />
-                    <label>si</label>
+                    <label for="p8s">
+                      <span className="radio-bton"></span>si
+                    </label>
                   </div>
                   <div className="radio-selection-position">
                     <input
                       type="radio"
                       value="no"
                       name="p7"
+                      id="p8n"
                       {...register("visit")}
                     />
-                    <label>no</label>
+                    <label for="p8n">
+                      <span className="radio-bton"></span>no
+                    </label>
                   </div>
                 </div>
               </div>
@@ -340,7 +418,9 @@ export default function FomsComponents() {
             <button className="btn-foms">continuar</button>
           </form>
         </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
+    
   );
 }

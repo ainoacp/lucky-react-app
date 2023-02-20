@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { FavContext } from "./FavContext/FavContext";
+import { useState } from "react";
+
 import './FavButton.scss'
 
 export default function FavButton({animal}) {

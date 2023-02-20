@@ -13,6 +13,7 @@ import reptilIco from '../../assets/Primarios/filtros-animales-menus/animales/re
 import anfibioIco from '../../assets/Primarios/filtros-animales-menus/animales/anfibios/anfibio.png';
 import aracIco from '../../assets/Primarios/filtros-animales-menus/animales/aracnidos-o-insectos/aracnidos-insectos.png';
 import aveIco from '../../assets/Primarios/filtros-animales-menus/animales/ave/ave.png';
+import Slider from "../SliderComp/Slider";
 
 
 export default function MyPetIcon({user, animal}) {
@@ -46,12 +47,17 @@ export default function MyPetIcon({user, animal}) {
     
     return (
         <div className="c-pet-icon">
-            {user?.pets?.map((pet, index) => (
-                <Link key= {index} to="/animals/{id}" className="swiper-slide">
-                    <IconDisplay type={pet.especie[0]}/>
-                    <p>{pet.nombre}</p>
-                </Link>
-            ))}
+        {user?.pets?.map((pet, index) => (
+            <div className="c-slider swiper" key= {index}>
+                <div className="swiper-wrapper">
+                    <Link to="/animals/{id}" className="swiper-slide">
+                        <IconDisplay type={pet.especie[0]}/>
+                        <p>{pet.nombre}</p>
+                    </Link>
+                </div>
+                <Slider />
+            </div>
+        ))}
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
-import iconHome from '../../assets/Primarios/nav-bar/home/home.png';
-import iconUbi from '../../assets/Primarios/nav-bar/ubicaciones/locate.png';
-import iconAdop from '../../assets/Primarios/nav-bar/adopcion/mascota.png';
+import iconHome from '../../assets/Primarios/nav-bar/home/homeDesactive/home.png';
+import iconUbi from '../../assets/Primarios/nav-bar/ubicaciones/mapaDesactive/mapa.png';
+import iconAdop from '../../assets/Primarios/nav-bar/adopcion/mascotaDesactive/mascota.png';
 //import iconMain from '../../assets/Primarios/nav-bar/menu/desactive.png';  <img className='icon' alt=''/>
 //import iconPict from '../../assets/Primarios/nav-bar/home/home.png';
 import  usu from '../../assets/usuario/neutro-50.png'

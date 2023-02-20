@@ -10,6 +10,7 @@ import PetPage from './pages/PetPage/PetPage';
 import PlusPage from './pages/PlusPage/PlusPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import StatusPage from './pages/StatusPage/StatusPage';
+import StatusAdopPage from './pages/StatusAdopPage/StatusAdopPage';
 import CarrousselPage from './pages/CarrousselPage/CarrousselPage';
 import FormsPage from './pages/FormsPage/FormsPage';
 import AnimalDetail from './pages/AnimalDetail/AnimalDetail';
@@ -17,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { checkSession } from './redux/auth/auth.actions';
 import { useEffect } from 'react';
 import AuthComponent from './components/AuthComponent'
+
 
 
 function App() {
@@ -63,6 +65,7 @@ function App() {
       <Route path='/plus' element={<PlusPage />}/>
       <Route path='/animals/:id' element={<AnimalDetail />}/>
       <Route path='/status' element={<StatusPage />}/>
+      <Route path='/statusAdop' element={<StatusAdopPage />}/>
       <Route path='/forms' element={<FormsPage />}/>
 
     </Routes>

@@ -34,6 +34,11 @@
  width: 24px;
  height: 24px;
  text-decoration: none;
+ background-image:url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
+ &:hover{
+    background-image:url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
+}
+
 }
 
 .map{
@@ -41,6 +46,10 @@
  width: 24px;
  height: 24px;
  text-decoration: none;
+ &:hover{
+    background-image:url('../../assets/Primarios/nav-bar/ubicaciones/mapaActive/mapa.png');
+}
+
 }
 
 .pets{
@@ -48,10 +57,11 @@
  width: 24px;
  height: 24px;
  text-decoration: none;
-
- 
+            
+ &:hover{
+        background-image:url('../../assets/Primarios/nav-bar/adopcion/mascotaActive/mascota.png');
 }
-
+}
 .profile{
  display: flex;   
  width: 24px;

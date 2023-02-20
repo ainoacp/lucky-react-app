@@ -31,6 +31,10 @@ function App() {
 
   return (
     <Routes>
+     <Route 
+          path="/forms"
+          element={<FormsPage></FormsPage>}
+        />
       <Route index element={<LandingPage />} />
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />
@@ -84,6 +88,7 @@ function App() {
             element={<AuthComponent component={<HomePage />} />}
           />
         </Route>
+       
       </Route>
 
       {/* <Route path="/" element={<LandingPage />} />

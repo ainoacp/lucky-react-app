@@ -44,10 +44,17 @@ function App() {
           />
           <Route path="pets">
             <Route index element={<AuthComponent component={<PetPage />} />} />
+            <Route path=":id">
+              <Route index element={<AuthComponent component = {<AnimalDetail/>}/>}/>
+              <Route 
+                path="adoptionForm"
+                element={<AuthComponent component={<FormsPage/>}/>}
+              />
+            </Route>
             <Route
-              path=":id"
-              element={<AuthComponent component={<AnimalDetail />} />}
-            />
+            path="adoptionForm"
+            element={<AuthComponent component={<FormsPage />} />}
+          />
           </Route>
           <Route path="options">
             <Route index element={<AuthComponent component={<ProfilePage />} />} />

@@ -32,10 +32,8 @@ export default function FavButton({animal}) {
         setActive(!active);
         }
 
-    return (
-        <div>
-            <button className={`fav-button ${active?"active":""}`} onClick={handleFavClick} />
-        </div>
-    );
+    return (<>
+        <button className={`fav-button ${active?"active":""}`} onClick={handleFavClick} />
+        </> );
 }
 

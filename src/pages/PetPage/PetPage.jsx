@@ -71,24 +71,8 @@ export default function PetPage() {
           <ButtonAdd />
         </div>
         <p>Accede al perfil de tu mascotas</p>
-        <div className="c-slider swiper">
-          <div className="swiper-wrapper">
-            <MyPetIcon user={user} />
-            {/* {users?.map((user) => (
-              <div key={user.id}>
-                {user?.pets?.map((pet) => (
-                  <Link to="/animals/{id}" className="swiper-slide" key={pet.id}>
-                    <p>{pet}</p>
-                  </Link>
-                ))}
-              </div>
-            ))} */}
-              {/* <Link to="/animals/{id}" className="swiper-slide">
-                <img src={animal.image} alt={animal._id} />
-                <p>{animal.especie[0]}</p>
-              </Link> */}
-          </div>
-          <Slider />
+        <div>
+        <MyPetIcon user={user} />
         </div>
       </header>
       <div className='c-pet-body'>

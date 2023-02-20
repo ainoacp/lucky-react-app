@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
+
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import StartPage from "./pages/StartPage/StartPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -17,7 +17,7 @@ import AnimalDetail from "./pages/AnimalDetail/AnimalDetail";
 import { useDispatch } from "react-redux";
 import { checkSession } from "./redux/auth/auth.actions";
 import { useEffect } from "react";
-import AuthComponent from "./components/AuthComponent";
+//import AuthComponent from "./components/AuthComponent";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -34,7 +34,7 @@ function App() {
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />
         <Route path="start" element={<StartPage />} />
-        <Route path="login" element={<LoginPage />} />
+        
         <Route path="register" element={<RegisterPage />} />
         <Route path="home">
           <Route index element={<AuthComponent component={<HomePage />} />} />

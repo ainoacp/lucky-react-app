@@ -24,11 +24,6 @@ export default function FomsComponents() {
   function btonSubmit(e) {
     e.preventDefault();
   }
-  const submit = (datos) => {
-    console.log(datos);
-  };
-  
-
   return (
     
     <div>

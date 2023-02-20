@@ -65,7 +65,7 @@ function App() {
       <Route path='/plus' element={<PlusPage />}/>
       <Route path='/animals/:id' element={<AnimalDetail />}/>
       <Route path='/status' element={<StatusPage />}/>
-      <Route path='/statusAdop' element={<StatusAdopPage />}/>
+      <Route path='/statusAdoption' element={<StatusAdopPage />}/>
       <Route path='/forms' element={<FormsPage />}/>
 
     </Routes>

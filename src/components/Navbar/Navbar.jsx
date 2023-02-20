@@ -14,19 +14,24 @@ const Navbar = () => {
 
   return (
     <>
+
+
+
     <div className='container'>  
-     <nav className='navbar'>
-      {/* {!token &&<Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>}
-      {!token &&<Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>}
-      {!token &&<Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>}
-      {!token &&<Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>}
-      {!token &&<Link to='/plus' className='plus'><p className='plus' >...</p></Link>}  */}
-      <Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
-      <Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
-      <Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
-      <Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>
-      <Link to='/plus' className='plus'><p className='plus' >...</p></Link>
-      </nav>
+          <nav className='navbar'>
+               {/*!token &&<Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>};
+                {!token &&<Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>};
+                {!token &&<Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>};
+                {!token &&<Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>}
+                {!token &&<Link to='/plus' className='plus'><p className='plus' >...</p></Link>*/ } 
+
+
+                <Link to='/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>
+                <Link to='/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>
+                <Link to='/pet' className='pets'><img src={iconAdop} className='icon' alt='dog '/></Link>
+                <Link to='/profile' className='profile'><div className='profilePicture'><img src={usu} className='usu' alt='profile ' /></div></Link>
+                <Link to='/plus' className='plus'><p className='plus' >...</p></Link>
+            </nav>
     </div>
     </>
   )

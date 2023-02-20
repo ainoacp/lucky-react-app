@@ -50,7 +50,7 @@ const ProfilePage = () => {
                   </NavLink>
             </div>
               <div className='container-end'>
-                  <NavLink to="/adoptionState"  className='box'>
+                  <NavLink to="/Status"  className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>

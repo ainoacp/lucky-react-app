@@ -45,7 +45,7 @@ export default function FomsComponents() {
     className="mySwiper"
   >
      <SwiperSlide> <div className="box-datosPersonales">
-        <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+        <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
           <h2 className="tittle-forms">Tus Datos</h2>
           <input
             className="datos-input"
@@ -93,7 +93,7 @@ export default function FomsComponents() {
           <div>
             <input type="checkbox" id="check" {...register("conditions")} />
             <label for="check" className="check-label">
-              <spam className="checked-bton">X</spam> Acepto los términos y
+              <span className="checked-bton">X</span> Acepto los términos y
               condiciones de la adopción{" "}
             </label>
           </div>
@@ -102,7 +102,7 @@ export default function FomsComponents() {
         <button className="btn-next"  >continuar</button>
       </div></SwiperSlide>
       <SwiperSlide><div className="box-datosPersonales">
-        <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+        <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
           <h2 className="tittle-forms">Sobre Las Mascolas</h2>
 
           <div>
@@ -121,7 +121,7 @@ export default function FomsComponents() {
                   {...register("pets")}
                 />
                 <label className="pets-label" for="p1si">
-                  <spam className="radio-bton"></spam>si
+                  <span className="radio-bton"></span>si
                 </label>
               </div>
               <div>
@@ -134,7 +134,7 @@ export default function FomsComponents() {
                   {...register("pets")}
                 />
                 <label className="pets-label" for="p1no">
-                  <spam className="radio-bton"></spam>no
+                  <span className="radio-bton"></span>no
                 </label>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default function FomsComponents() {
 </SwiperSlide>
  <SwiperSlide>
         <div className="box-datosPersonales">
-          <form className="fom-datosPersonales" onSubmit={handleSubmit(submit)}>
+          <form className="fom-datosPersonales" onSubmit={handleSubmit(registrar)}>
             <h2 className="tittle-forms">Familia y hogar</h2>
 
             <div className="box-family-home">
@@ -209,7 +209,7 @@ export default function FomsComponents() {
                       {...register("rental")}
                     />
                     <label for="p2si">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -222,7 +222,7 @@ export default function FomsComponents() {
                     />
 
                     <label for="p2no">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export default function FomsComponents() {
                       {...register("casero")}
                     />
                     <label for="p3si">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -253,7 +253,7 @@ export default function FomsComponents() {
                       {...register("casero")}
                     />
                     <label for="p3no">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -273,7 +273,7 @@ export default function FomsComponents() {
                       {...register("removal")}
                     />
                     <label for="p4si">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -285,7 +285,7 @@ export default function FomsComponents() {
                       {...register("removal")}
                     />
                     <label for="p4no">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export default function FomsComponents() {
                       {...register("garden")}
                     />
                     <label for="p5si">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -317,7 +317,7 @@ export default function FomsComponents() {
                       {...register("garden")}
                     />
                     <label for="p5n">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export default function FomsComponents() {
                       {...register("family")}
                     />
                     <label for="p6s">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -348,7 +348,7 @@ export default function FomsComponents() {
                       {...register("family")}
                     />
                     <label for="p6n">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -367,7 +367,7 @@ export default function FomsComponents() {
                       {...register("agreement")}
                     />
                     <label for="p7s">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -379,7 +379,7 @@ export default function FomsComponents() {
                       {...register("agreement")}
                     />
                     <label for="p7n">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>
@@ -398,7 +398,7 @@ export default function FomsComponents() {
                       {...register("visit")}
                     />
                     <label for="p8s">
-                      <spam className="radio-bton"></spam>si
+                      <span className="radio-bton"></span>si
                     </label>
                   </div>
                   <div className="radio-selection-position">
@@ -410,7 +410,7 @@ export default function FomsComponents() {
                       {...register("visit")}
                     />
                     <label for="p8n">
-                      <spam className="radio-bton"></spam>no
+                      <span className="radio-bton"></span>no
                     </label>
                   </div>
                 </div>

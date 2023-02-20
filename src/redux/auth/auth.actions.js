@@ -54,10 +54,10 @@ export const logout = (navigate) => async (dispatch) => {
     navigate(["/"]);
   }
 };
-export const registerForm = (formData, navigate) => async (dispatch) => {
+export const registerForm = (formData) => async (dispatch) => {
   dispatch({ type: "register_form" });
   try {
-    const result = await API.post("/forms", formData);
+    const result = await API.post("/form/register", formData);
     dispatch({ type: "register_forms_ok", payload: result.data });
     
   } catch (error) {

@@ -59,7 +59,7 @@ const comparate =(data)=>  data === undefined
     
     <div className="div-dad">
     {popUp !== true && <div className="div-form-back-btom"> 
-    <button className="bton-back"><h2>{"<"}</h2></button>
+    <button className="bton-back back"><h2>{"<"}</h2></button>
      <div className="p-form-back"><p>Formulario de adopción</p></div>
      </div>}
     <Swiper
@@ -68,7 +68,8 @@ const comparate =(data)=>  data === undefined
       clickable: true,
     }}
     navigation={{   
-      nextEl: ".next"
+      nextEl: ".next",
+      prevEl:".back"
         }}
     className="mySwiper"
   >

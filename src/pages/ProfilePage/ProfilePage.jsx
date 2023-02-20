@@ -28,21 +28,21 @@ const ProfilePage = () => {
                       <img src={icono} className='ico'  alt="m"/>
                   </NavLink>   
                   
-                  <NavLink to="/lucky/map"  className='box'>
+                  <NavLink to="/lucky/home/options/map"  className='box'>
                       <div className='box-start'>
                             <img src={iconandress} className='picture-main' alt="d"/>Direcciones
                       </div>
                         <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
 
-                  <NavLink to="/lucky/pets/fav"  className='box'>
+                  <NavLink to="/lucky/home/options/favPets"  className='box'>
                       <div className='box-start'>
                         <img src={iconfavor} className='picture-main' alt="f"/>Favoritos
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
 
-                  <NavLink to="/lucky/notifications"  className='box'> 
+                  <NavLink to="/lucky/home/options/notifications"  className='box'> 
                         <div className='box-start'>
                             <img src={iconnotf} className='picture-main' alt="n"/>Notificaciones
                         </div>  
@@ -50,20 +50,20 @@ const ProfilePage = () => {
                   </NavLink>
             </div>
               <div className='container-end'>
-                  <NavLink to="/lucky/adoptionState"  className='box'>
+                  <NavLink to="/lucky/home/options/adoptionStatus"  className='box'>
                       <div className='box-start'>
                            <img src={iconstatu} className='picture-main' alt="e"/>Estado de la adopción
                         </div>
                         <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
-                  <NavLink to="/lucky/sponsoring"  className='box'>
+                  <NavLink to="/lucky/home/options/sponsoring"  className='box'>
                       <div className='box-start'>
                           <img src={iconspons} className='picture-main' alt="ap"/>Apadrinar
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
                     </NavLink>
 
-                  <NavLink href="/lucky/donate"  className='box'>
+                  <NavLink href="/lucky/home/options/donate"  className='box'>
                         <div className='box-start'>
                             <img src={icondonat} className='picture-main' alt="d"/>Donar
                         </div>

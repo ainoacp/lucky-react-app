@@ -48,7 +48,7 @@ const StatusPages = () => {
             <a href onClick={() => cambiarEstadoFilter(!estadoFilter)}  className='filter' alt='filtros'></a>
         </div>
 
-        <Link to='/statusAdop' href className='container-boxStatus'>
+        <Link to='/lucky/home/options/adoptionStatus/status' href className='container-boxStatus'>
 
               <div className='box-nameStatus'>
                       <p className='textname'>Adopción de Blue</p>

@@ -17,7 +17,6 @@ export default function HomePage() {
     
     return (
         <div className='c-home-container'>
-        <p>{user?._id}</p>
             <div className='c-home-header'>
                 <p className='c-home-header_title'>¡Hola {user?.name || 'User'}!</p>
                 <div className="c-slider swiper">

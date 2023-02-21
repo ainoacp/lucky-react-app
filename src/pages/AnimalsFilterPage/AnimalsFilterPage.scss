@@ -1,0 +1,101 @@
+.c-filter-button__submit {
+    text-align: center;
+    margin: 0.5rem;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 0;
+    color: rgb(255, 255, 255);
+    background-color: #f8897f;
+    font-size: 1rem;
+  }
+
+  .c-filter-button__delete {
+    text-align: center;
+    margin: 0.5rem;
+    width: 90%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid;
+    background-color: rgb(255, 255, 255);
+    color: #f8897f;
+    border-color: #f8897f;
+    font-size: 1rem;
+  }
+
+  .c-filter-container__icon {
+    text-align: center;
+    margin: 1rem;
+    size: 6rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid;
+    background-color: rgb(255, 255, 255);
+    color: --color--primary;
+    border-color: --color--primary;
+    font-size: 0.75rem;
+  }
+
+  .c-filter {
+    width: 100%;
+
+    &__display {
+      outline: none;
+      border-radius: 0.8rem;
+      
+      background: transparent;
+      background-image: url("../../assets/Arrow/Desplegable/arrow.png");
+      background-repeat: no-repeat;
+      background-position-x: 98%;
+      background-position-y: 0.7rem;
+      border-bottom: 0.3rem solid #dfdfdf;
+      border-radius: 0.2rem;
+      margin-right: 2rem;
+      padding: 0.5rem;
+      padding-right: 2rem;
+      width: 90%;
+      font-size: 1rem;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      background-color: transparent;
+      color: rgb(85, 85, 85);
+      border-bottom: 0.1rem solid rgb(189, 210, 214);
+      margin-left: 4%;
+      &:focus {
+        border-bottom: 0.1rem solid black;
+      }
+
+      &:active {
+        border: none;
+      }
+    }
+
+    &__p {
+      margin-top: 0;
+      color: var(--color--primary);
+    }
+
+    &-image {
+      height: 50%;
+      width: 50%;
+      margin-top: 10%;
+      object-fit: contain;
+
+      &__pequeño {
+        height: 30%;
+        width: 30%;
+        margin-top: 30%;
+      }
+
+      &__mediano {
+        height: 45%;
+        width: 45%;
+        margin-top: 20%;
+      }
+
+      &__grande {
+        height: 60%;
+        width: 60%;
+        margin-top: 10%;
+      }
+    }} 

@@ -19,6 +19,8 @@ import { checkSession } from "./redux/auth/auth.actions";
 import { useEffect } from "react";
 import AuthComponent from "./components/AuthComponent";
 import FavPetsPage from "./pages/FavPetsPage/FavPetsPage";
+import AnimalsFilterPage from "./pages/AnimalsFilterPage/AnimalsFilterPage";
+// import FilteredAnimals from "./pages/FilteredAnimals/FilteredAnimals";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -49,6 +51,14 @@ function App() {
           />
           <Route path="pets">
             <Route index element={<AuthComponent component={<PetPage />} />} />
+            <Route 
+              path="filter"
+              element={<AuthComponent component={<AnimalsFilterPage />} />}
+            />
+            {/* <Route 
+              path="yourFilteredAnimals"
+              element={<AuthComponent component={<FilteredAnimals />} />}
+            /> */}
             <Route path=":id">
               <Route index element={<AuthComponent component = {<AnimalDetail/>}/>}/>
               <Route 

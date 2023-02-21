@@ -17,6 +17,12 @@ export default function FavButton({animal}) {
     //     setIsFav(fav.includes(animal._id));
     // }, [fav, animal]);
 
+
+    //     const newFavs = isFav
+    //     ? fav.filter((fav) => fav !== animal._id)
+    //     : [...fav, animal._id];
+    // setFav(newFavs);             Todo esto va en la funcion de abajo.
+
     function handleFavClick() {
     const newData = 'hola ainoa'; // replace with your new data
     dispatch(saveUserFavPets(newData, token));

@@ -1,0 +1,95 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    // position: relative;
+    // width: 500px;
+    // height: 300px;
+    background: white;
+    margin: 33px auto 0;
+    word-break: break-all;
+    // border: 1px solid rgba(0, 0, 0, 0.274);
+    box-shadow: 0px -20px 20px 0px white;
+  }
+  
+  .bloc-tabs {
+    display: flex;
+    width:100%;
+  }
+  .tabs {
+  
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    width: 50%;
+    background: white;
+    cursor: pointer;
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    box-sizing: content-box;
+    position: relative;
+    outline: none;
+  }
+  .tabs:not(:last-child){
+    // border-right: 1px solid rgba(0, 0, 0, 0.274);
+  }
+  
+  .active-tabs  {
+    background: white;
+    border-bottom: 1px solid transparent;
+    font-weight: 600;
+    color: rgb(1, 116, 142)
+  }
+  
+  .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 2px;
+    background: rgb(250, 156, 147);
+  }
+  
+  
+  
+  button {
+    border: none;
+    
+  }
+  .content-tabs {
+    flex-grow : 1;
+  }
+  .content {
+    background: white;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .content h2 {
+    padding: 0px 0 5px 0px;
+  }
+  .content hr {
+    width: 100px;
+    height: 2px;
+    background: white;
+    margin-bottom: 5px;
+  }
+  .content p {
+    width: 100%;
+    height: 100%;
+  }
+  .active-content {
+    display: block;
+  }

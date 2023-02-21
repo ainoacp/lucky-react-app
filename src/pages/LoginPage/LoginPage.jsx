@@ -7,9 +7,10 @@ import { loginUser } from '../../redux/auth/auth.actions';
 import './LoginPage.scss';
 
 export default function LoginPage() {
-    const {register, handleSubmit, formState:{errors} } = useForm();
 
     const [passwordType, setPasswordType] = useState("password");
+    
+    const {register, handleSubmit, formState:{errors} } = useForm();
     
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -64,8 +65,8 @@ export default function LoginPage() {
                         <button>¿Has olvidado tu contraseña?</button>
                     </div>
                     <div className='c-login-form_button'>
-                        <NavLink to="/home" className='c-login-form_button-blue'>Iniciar sesión</NavLink>
-                        <NavLink to="/register" className='c-login-form_button-white'>Crear cuenta</NavLink>
+                        <button className='c-login-form_button-blue'>Iniciar sesión</button>
+                        <NavLink to="/lucky/register" className='c-login-form_button-white'>Crear cuenta</NavLink>
                     </div>
                 </form>
             </div>

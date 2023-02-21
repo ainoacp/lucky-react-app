@@ -9,9 +9,9 @@ export default function StartPage() {
                 <p>¿Cómo quieres entrar?</p>
             </div>
             <div className="c-start-buttons">
-                <NavLink to="/register">Usuario</NavLink>
-                <NavLink to="/register">Asociación</NavLink>
-                <NavLink to="/login" className="button">Ya estoy registrado</NavLink>
+                <NavLink to="/lucky/register">Usuario</NavLink>
+                <NavLink to="/lucky/register">Asociación</NavLink>
+                <NavLink to="/lucky/login" className="button">Ya estoy registrado</NavLink>
             </div>
         </div>
     )

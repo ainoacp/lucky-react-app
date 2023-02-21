@@ -5,15 +5,15 @@ const INITIAL_STATE = {
   isLoading: false,
 };
 
-export default function authReducer (state = INITIAL_STATE, action) {
+const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "login_user":
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true }; 
     case "login_user_ok":
       return {
         ...state,
         isLoading: false,
-        user: action.payload.user,
+        user: action.payload.myUser,
         token: action.payload.token,
       };
     case "login_user_ko":
@@ -45,8 +45,32 @@ export default function authReducer (state = INITIAL_STATE, action) {
     case "logout_user_ko":
       return { ...state, isLoading: false, error: action.payload };
 
+    case "register_fav":
+      return { ...state, isLoading: true};
+    case "register_fav_ok":
+      return { 
+        ...state, 
+        isLoading: false,
+        user: action.payload,  
+      }
+    case "register_fav_ko":
+      return { ...state, isLoading: false, error: action.payload };
+
+    case "register_adoption":
+      return { ...state, isLoading: true};
+    case "register_adoption_ok":
+      return { 
+        ...state, 
+        isLoading: false,
+        user: action.payload,  
+      }
+    case "register_adoption_ko":
+      return { ...state, isLoading: false, error: action.payload };
+      
     default: {
       return state;
     }
   }
 };
+
+export default authReducer;

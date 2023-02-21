@@ -1,0 +1,110 @@
+.c-pet-container {
+    font-family: 'Barlow', sans-serif;
+
+    .c-pet-header {
+        max-height: 50vh;
+
+        .c-pet-form-container {
+            margin: 20px;
+        }
+
+        .c-pet-header_title {
+            display: flex;
+            align-items: center;
+
+            margin: 0;
+            height: 30px;
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                color: rgb(1 116 142);
+                margin-right: 0;
+            }
+        }
+        p {
+            font-size: 12px;
+
+            margin: 0 20px;
+        }
+        
+    }
+
+    .c-pet-body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 20px;
+        max-width: 90vw;
+
+        font-family: 'Barlow', sans-serif;
+
+        .line{
+            border-top: 1px solid rgba(189, 210, 214, 0.583);
+            
+            width: 100%;
+        }
+        .c-pet-button {
+            display: flex;  
+            align-items: center;
+            justify-content: space-between;
+            
+            border: 1px solid rgb(189, 210, 214);
+            border-radius: 5px;
+            
+            margin: 20px;
+            margin-bottom: 0;    
+            width:90vw;
+            height: 50px;
+                
+            text-decoration: none;
+
+            p {
+                margin: 10px;
+
+                font-size: 16px;
+                color: rgb(1, 116, 142);
+
+                &:hover{
+                    color: rgb(250 156 147);
+                }
+            }
+            img {
+                margin: 20px;
+            }
+        }
+        .c-pet-adoption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                margin: 20px;  
+                margin-bottom: 0;  
+                width:90vw;
+                height: 50px;
+
+                p {
+                    margin: 10px;
+
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: rgb(1, 116, 142);
+                }
+                a {
+
+                }
+
+            }
+            &_gallery {
+                margin: 0;    
+            }
+        }
+    }
+}

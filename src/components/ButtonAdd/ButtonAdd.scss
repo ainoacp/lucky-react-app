@@ -1,0 +1,71 @@
+.c-button-container{
+    margin: 10px;
+
+    button {
+        background-color:white;
+        border: none;
+    }
+    .c-button-popUp{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position:absolute;
+        z-index: 4;
+
+        width: -webkit-fill-available;
+        height: fit-content;
+
+        background-color: rgb(189, 210, 214, 0.8);
+
+        &_close{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 25px;
+            height: 25px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            color:rgb(115, 172, 184);
+            background-color: white;
+
+            border: 2px solid rgb(115, 172, 184);
+            border-radius: 50%;
+            margin: 5px;
+
+            position: relative;
+            top: 10px;
+            left: 100px;
+        }
+
+        &_white{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+
+            width: 80%;
+            height: fit-content;
+            margin: 30px;
+            
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.837);
+            
+            .c-animal-img{
+                margin: 10px;
+
+                img{
+                    width: 150px;
+                    height: 130px;
+
+                    border: 2px solid rgb(115, 172, 184);
+                    border-radius: 10%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__logo{
+        padding:10px;
+    }
+
+    .icon{
+        border-radius: "50%";
+    }
+}

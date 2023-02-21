@@ -1,28 +1,38 @@
 
+
 .container-profile{
     display: flex;  
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;  
+    
     width: 100%;
     height: 615px;   
+
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
 }
 
 
 .profile-picture{
-    display: flex;  
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
     width: 71px;
     height: 71px;
-    border: 4px solid #01748E;
-    border-radius: 50%;
-    margin:70px 0px 10px 0px;
-}
 
-.picture-profile{
-    display: flex; 
-    width: 69px;
-    height: 65px;
-    
+    margin:70px 0px 10px 0px;
+
+    .picture-profile{
+
+        width: 71px;
+        height: 71px;
+
+        border: 4px solid #01748E;
+        border-radius: 50%;
+        
+    }
 }
 
 .container-start{
@@ -83,4 +93,5 @@
 .ico{
     display: flex;
     justify-content: end;
+    margin: 10px;
 }

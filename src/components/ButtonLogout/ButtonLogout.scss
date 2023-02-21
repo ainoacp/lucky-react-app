@@ -1,0 +1,47 @@
+.box{
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    
+    border: 1px solid rgb(189, 210, 214);
+    border-radius: 3px;
+    margin-top: 5px;
+    margin: 3px;
+    
+    width: 90%;
+    height: 45px;
+
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(1, 116, 142);
+
+    background-color: transparent;
+    
+    &:hover{
+        color: orange;
+}
+}
+
+
+.box-start{
+    display:flex; 
+    justify-items: start;
+    align-items: center;    
+    
+    margin: 10px;
+
+
+}
+.picture-main{
+    display: flex;  
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.ico{
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+}

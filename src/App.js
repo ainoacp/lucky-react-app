@@ -32,7 +32,7 @@ function App() {
   return (
     <Routes>
      <Route 
-          path="/forms"
+        path="/forms"
           element={<FormsPage></FormsPage>}
         />
       <Route index element={<LandingPage />} />
@@ -67,7 +67,7 @@ function App() {
               <Route index element={<AuthComponent component={<StatusPage />} />} />
               <Route  
                 path="status" 
-                element={<AuthComponent component={<StatusAdopPage />} />}
+                element={<StatusAdopPage />} 
               />
             </Route>
             <Route 

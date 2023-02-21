@@ -33,10 +33,7 @@ function App() {
 
   return (
     <Routes>
-     <Route 
-          path="/forms"
-          element={<FormsPage></FormsPage>}
-        />
+      <Route path="/forms" element={<FormsPage></FormsPage>} />
       <Route index element={<LandingPage />} />
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />
@@ -51,32 +48,41 @@ function App() {
           />
           <Route path="pets">
             <Route index element={<AuthComponent component={<PetPage />} />} />
-            <Route 
+            <Route
               path="filter"
               element={<AuthComponent component={<AnimalsFilterPage />} />}
             />
             <Route path=":id">
-              <Route index element={<AuthComponent component = {<AnimalDetail/>}/>}/>
-              <Route 
+              <Route
+                index
+                element={<AuthComponent component={<AnimalDetail />} />}
+              />
+              <Route
                 path="adoptionForm"
-                element={<AuthComponent component={<FormsPage/>}/>}
+                element={<AuthComponent component={<FormsPage />} />}
               />
             </Route>
             <Route
-            path="adoptionForm"
-            element={<AuthComponent component={<FormsPage />} />}
-          />
+              path="adoptionForm"
+              element={<AuthComponent component={<FormsPage />} />}
+            />
           </Route>
           <Route path="options">
-            <Route index element={<AuthComponent component={<ProfilePage />} />} />
+            <Route
+              index
+              element={<AuthComponent component={<ProfilePage />} />}
+            />
             <Route path="adoptionStatus">
-              <Route index element={<AuthComponent component={<StatusPage />} />} />
-              <Route  
-                path=":id" 
+              <Route
+                index
+                element={<AuthComponent component={<StatusPage />} />}
+              />
+              <Route
+                path=":id"
                 element={<AuthComponent component={<StatusAdopPage />} />}
               />
             </Route>
-            <Route 
+            <Route
               path="favPets"
               element={<AuthComponent component={<FavPetsPage />} />}
             />
@@ -94,25 +100,24 @@ function App() {
             element={<AuthComponent component={<HomePage />} />}
           />
         </Route>
-       
       </Route>
-
-      {/* <Route path="/" element={<LandingPage />} />
-      <Route path="/info" element={<CarrousselPage />} />
-      <Route path='/start' element={<StartPage />}/>
-      <Route path='/login' element={<LoginPage />}/>
-      <Route path='/register' element={<RegisterPage />}/>
-      <Route path='/home' element={<HomePage />}/>
-      <Route path='/map' element={<MapPage />}/>
-      <Route path='/pet' element={<PetPage />}/>
-      <Route path='/profile' element={<ProfilePage />}/>
-      <Route path='/plus' element={<PlusPage />}/>
-      <Route path='/animals/:id' element={<AnimalDetail />}/>
-      <Route path='/status' element={<StatusPage />}/>
-      <Route path='/statusAdop' element={<StatusAdopPage />}/>
-      <Route path='/forms' element={<FormsPage />}/> */}
     </Routes>
   );
 }
 
 export default App;
+
+// {/* <Route path="/" element={<LandingPage />} />
+//       <Route path="/info" element={<CarrousselPage />} />
+//       <Route path='/start' element={<StartPage />}/>
+//       <Route path='/login' element={<LoginPage />}/>
+//       <Route path='/register' element={<RegisterPage />}/>
+//       <Route path='/home' element={<HomePage />}/>
+//       <Route path='/map' element={<MapPage />}/>
+//       <Route path='/pet' element={<PetPage />}/>
+//       <Route path='/profile' element={<ProfilePage />}/>
+//       <Route path='/plus' element={<PlusPage />}/>
+//       <Route path='/animals/:id' element={<AnimalDetail />}/>
+//       <Route path='/status' element={<StatusPage />}/>
+//       <Route path='/statusAdop' element={<StatusAdopPage />}/>
+//       <Route path='/forms' element={<FormsPage />}/> */}

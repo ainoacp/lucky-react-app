@@ -19,13 +19,6 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 
 export default function FomsComponents({petDate,personalDate,fandHomeDate}) {
 
-  const {user} = useSelector((state) => state.auth)
-  const { id } = useParams()
-
-  const [animal, setAnimal] = useState({});
-  const [myUser, setMyUser] = useState([]);
-  const [popUp, setPopUp] = useState(false);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,53 +29,13 @@ export default function FomsComponents({petDate,personalDate,fandHomeDate}) {
   const [pag2, setPag2] = useState(true);
   const [pag3, setPag3] = useState(true);
   
-const totaldate={...dataPet,...datepersonal,...dateFandHome}
-console.log("total",totaldate);
+  const totaldate={...dataPet,...datepersonal,...dateFandHome}
+  console.log("total",totaldate);
 
-  const getUser = async () => {
-    const res = await axios.get(`http://localhost:5001/users/${user._id}`);
-    setMyUser(res.data);
+  const registrar = async () => {
+      await totaldate 
+      dispatch(registerForm(totaldate, navigate))
   }
-
-  const getAnimals = async () => {
-    const res = await axios.get(`http://localhost:5001/animals/${id}`);
-    setAnimal(res.data); 
-    console.log("esto esta bien", res.data);
-  }
-
-  const registrar = async (formData) => {
-      dispatch(registerForm(formData, navigate))
-      console.log(JSON.stringify( formData));
-  }
-
-  const openPopUp = () => {
-    console.log("esto es el myuser", myUser)
-    if(myUser.inProcessPets.includes(animal._id)) {
-        console.log("entrandoooo", animal._id)
-        const newFavPets = myUser.inProcessPets.filter((pet) => pet !== animal._id)
-        console.log("new fav pets", newFavPets)
-        myUser.inProcessPets = [...newFavPets]
-    } else {
-        myUser.inProcessPets = [...myUser.inProcessPets, animal._id]
-    }
-    console.log("hola", myUser)
-    dispatch(registerAdoption(myUser))
-    setPopUp(true);
-  }
-  const closePopUp = () => {
-    setPopUp(false);
-  }
-  const [cambio,setCambio]=useState() 
-
-useEffect(() => {
-  getAnimals();
-  getUser(); 
-        // console.log("esto es el user", user)
-        // console.log("esto", animal)
-        // // if(user?.inProccesPets.find((pet) => pet._id === animal._id)) {
-        // //     setPopUp(true);
-        // }
-    }, []);
 
   return (
     

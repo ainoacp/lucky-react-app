@@ -1,25 +1,60 @@
 import { useForm } from "react-hook-form";
 
-import { Link} from "react-router-dom";
-import {  useState } from "react";
+import { Link, useNavigate, useParams} from "react-router-dom";
+import {  useEffect, useState } from "react";
 import  imgCat from "../../../assets/Primarios/playfulcat/PlayfulCatRchv.png"
 import "./FandHomeStyle.scss"
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { registerAdoption } from "../../../redux/auth/auth.actions";
  
 
 export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,setPag3}){
-    const [popUp, setPopUp] = useState(false);
+    const {user} = useSelector((state) => state.auth)
+    const { id } = useParams()
+
     const [fandHomeDate,setfandHomeDAte]=useState(false) 
+    const [animal, setAnimal] = useState({});
+    const [myUser, setMyUser] = useState([]);
+    const [popUp, setPopUp] = useState(false);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const { register, handleSubmit,formState:{errors,isValid}   } = useForm();
     const onSubmitfandHome = (data) => {
         
         setfandHomeDAte(data)
     }
-   
-setDateFandHome(fandHomeDate)
-    const onError = (errors, e) => console.log("este es error",errors, e);
-    const openPopUp = () => {
+
+    setDateFandHome(fandHomeDate)
+      const onError = (errors, e) => console.log("este es error",errors, e);
+    
+      const getUser = async () => {
+        const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+        setMyUser(res.data);
+      }
+    
+      const getAnimals = async () => {
+        const res = await axios.get(`http://localhost:5001/animals/${id}`);
+        setAnimal(res.data); 
+        console.log("esto esta bien", res.data);
+      }
+      
+      const openPopUp = () => {
+        console.log("esto es el myuser", myUser)
+        if(myUser.inProcessPets.includes(animal._id)) {
+            console.log("entrandoooo", animal._id)
+            const newFavPets = myUser.inProcessPets.filter((pet) => pet !== animal._id)
+            console.log("new fav pets", newFavPets)
+            myUser.inProcessPets = [...newFavPets]
+        } else {
+            myUser.inProcessPets = [...myUser.inProcessPets, animal._id]
+        }
+        console.log("hola", myUser)
+        dispatch(registerAdoption(myUser))
         setPopUp(true);
-        registrar()
+        registrar();
       }
       const closePopUp = () => {
         setPopUp(false);
@@ -28,7 +63,11 @@ setDateFandHome(fandHomeDate)
         setPag2(false)
         setPag3(true)
       }
-    
+      useEffect(() => {
+        getAnimals();
+        getUser(); 
+      }, []);
+
     return(
         <div>
      <div className="div-dad2">

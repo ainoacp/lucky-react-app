@@ -19,6 +19,13 @@ export default function PetPage() {
   const [animals, setAnimals] = useState([])
   const [filteredAnimals, setFilterAnimals] = useState([])
 
+  const [myUser, setMyUser] = useState([])
+
+  const getUser = async () => {
+      const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+      setMyUser(res.data);
+  }
+
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals`);
     const resFiltered = res.data;
@@ -43,7 +50,7 @@ export default function PetPage() {
   
   useEffect(() => {
     getAnimals('');
-    // getAnimal();
+    getUser();
   
   }, [] )
 
@@ -74,7 +81,7 @@ export default function PetPage() {
             <Link to="/lucky/home/pets/filter"><img src={Filter} alt="filter"/></Link>
           </div>
           <div className='c-pet-adoption_gallery'>
-            <GalleryAnimals animals={filteredAnimals}/>
+            <GalleryAnimals animals={filteredAnimals} myUser={myUser}/>
           </div>
         </div>
       </div>

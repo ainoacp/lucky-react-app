@@ -8,26 +8,36 @@ import share from '../../assets/Primarios/Info-like-compartir/compartir/comparti
 import paw from '../../assets/Primarios/Info-like-compartir/huella/pawprint.png';
 import help from '../../assets/Secundarios/usuario/ayuda/ayuda.png';
 import './AnimalDetail.scss';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Slider from '../../components/SliderComp/Slider';
 import HomePage from '../HomePage/HomePage';
+import FavButton from '../../components/FavButton/FavButton'
 import Tabs from '../../components/Tabs/Tabs';
+import { useSelector } from 'react-redux';
+import ShareButton from '../../components/ShareButton/ShareButton';
 
 
 const AnimalDetail = () => {
-
-  const URL = "http://localhost:5001/animals"
-  const [animals, setAnimals] = useState([]);
+  
+  const {user} = useSelector((state) => state.auth)
+  const { id } = useParams()
+  const [animals, setAnimals] = useState({});
   const [popUp, setPopUp] = useState(false);
+  const [info, setInfo] = useState(false);
+  const [apadrinar, setApadrinar] = useState(false);
   const [toggleState, setToggleState] = useState(1);
+  const [images, setImages] = useState([])
+  const [person, setPerson] = useState([])
+  const [myUser, setMyUser] = useState([])
+  const [sharing, setSharing] = useState([])
 
+  
   const boolToWord = (bool) => {
-    if (bool=== true){
+    if (bool === true) {
       return 'Si'
     } else {
       return 'No'
     }
-    
   }
 
   const toggleTab = (index) => {
@@ -41,21 +51,49 @@ const AnimalDetail = () => {
     setPopUp(false);
   }
 
+  const openInfo = () => {
+    setInfo(true);
+  }
+  const closeInfo = () => {
+    setInfo(false);
+  }
+
+  const openApadrinar = () => {
+    setApadrinar(true);
+  }
+  const closeApadrinar = () => {
+    setApadrinar(false);
+  }
+
+  const openShare = () => {
+    setSharing(true);
+  }
+  const closeShare = () => {
+    setSharing(false);
+  }
+
+
+  const getUser = async () => {
+    const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+    setMyUser(res.data);
+  }
+
   const getAnimals = async () => {
-    const res = await axios.get(URL);
-    console.log(res.data);
-    setAnimals(res.data)
+    const res = await axios.get(`http://localhost:5001/animals/${id}`);
+    setAnimals(res.data);
+    setImages(res.data.imagenes);
+    setPerson(res.data.personalidad);   
+    console.log("esto esta bien", res.data);
   }
-
-  useEffect(() => {getAnimals()}, [])
-
-  const navigateTo = () => {
-    return <Link to={<HomePage />} />
-  }
+  
+  useEffect(() => { 
+    getAnimals();
+    getUser(); 
+  }, [id])
 
   return (<>
 
-    {/* // Pop Up here: */}
+    {/* // Pop Up Adopcion */}
 
     {popUp === true && <div className="popUp">
       <div className="popUp__whiteBox">
@@ -68,47 +106,74 @@ const AnimalDetail = () => {
         <div className="popUp__whiteBox--continue"><p>¿Quieres continuar con el proceso de adopción?</p></div>
         <div className="popUp__whiteBox--buttons">
           <button className="popUp__whiteBox--buttons--1" onClick={closePopUp}>Cancelar</button>
-          <button className="popUp__whiteBox--buttons--2" onClick={navigateTo}>Continuar</button>
+          <Link className="popUp__whiteBox--buttons--2" to={`/lucky/home/pets/${animals._id}/adoptionForm`}>Continuar</Link>
         </div>
       </div>
     </div>}
 
-    {/* // Image slider picture */}
+      {/* // Pop Up tasas: */}
 
-    {animals.length > 0 && animals.map((animal, index) => (
-      <div key={animal._id} className="c">
+    {info === true && <div className="popUp">
+      <div className="popUp__whiteBox">
+        <div className="popUp__whiteBox--title"><p>Informacion de las tasas</p></div>
+        <div className="popUp__whiteBox--text"><p>Las tasas de la adopcion van destinadas a las medicinas, comida y tiempo que invierte nuestro personal en el papeleo, realizando esta tasacion que varia en funcion del tiempo que lleve el animal con nosotros. Gracias a este dinero, salvas a muchos otros animalitos. ¡Muchas gracias por tu comprension!</p></div>
+        <button className="popUp__whiteBox--buttons--1" onClick={closeInfo}>Cancelar</button>
+      </div>
+    </div>}
+
+    {/* // Pop Up apadrinar: */}
+
+    {apadrinar === true && <div className="popUp">
+      <div className="popUp__whiteBox">
+        <div className="popUp__whiteBox--title"><p>Seccion en construccion, disculpen las molestias</p></div>
+        <div className="popUp__whiteBox--text"><img src="https://ih1.redbubble.net/image.791520846.5052/st,small,507x507-pad,600x600,f8f8f8.jpg" alt=""/></div>
+        <button className="popUp__whiteBox--buttons--1" onClick={closeApadrinar}>Cancelar</button>
+      </div>
+    </div>}
+
+    {/* // Pop Up compartir: */}
+
+    {sharing === true && <div className="popUp">
+      <div className="popUp__whiteBox">
+        <ShareButton/>
+        <button className="popUp__whiteBox--buttons--1" onClick={closeShare}>Cancelar</button>
+      </div>
+    </div>}
+
+
+    {animals !== null &&
+      <div key={animals._id} className="c">
         <div className="c-slider swiper">
           <div className="swiper-wrapper">
-            <div className="swiper-slide">
+            {images.map((imagenes, index) => 
+              <div key={index} className="swiper-slide">
               <div className="c__image">
-                <div className="c__image--arrow"><Link to=""> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
-                <img className="c__image--picture" src={animal.image} alt="" />
+                <div className="c__image--arrow"><Link to="/lucky/home/pets/"> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
+                <img className="c__image--picture" src={imagenes} alt="puta mierda" />
               </div>
             </div>
-            <div className="swiper-slide">
-              {/* <img className="c__image--picture" src={animal.imagenes[0]} alt=""/> */}
-            </div>
-            <div className="swiper-slide">
-
-            </div>
+            )}
           </div>
           <Slider />
         </div>
 
-    {/* // Whitebox info with hearth and share content */}
+        {/* // Whitebox info with hearth and share content */}
 
         <div className="c__whitebox">
           <div className='c__whitebox--left'>
-            <div className="c__whitebox--left--genre"> {animal.sexo === "Macho" ? <img src={male} alt="" /> : <img src={female} alt="" />}</div>
-            <div className="c__whitebox--left--namecity">  <p>{animal.nombre}</p> <p>{animal.ciudad}</p></div>
+            <div className="c__whitebox--left--genre"> {animals.sexo === "Macho" ? <img src={male} alt="" /> : <img src={female} alt="" />}</div>
+            <div className="c__whitebox--left--namecity">  <p>{animals.nombre}</p> <p>{animals.ciudad}</p></div>
           </div>
 
-          <div className="c__whitebox--right"><img src={hearth} alt="" /><img src={share} alt="" /></div>
+          <div className="c__whitebox--right">
+            <FavButton animal={animals} myUser={myUser}/>
+            <img onClick={openShare} src={share} alt="no va" />
+          </div>
         </div>
 
-    {/* // Body with the NAVIGATION info */}
+        {/* // Body with the NAVIGATION info */}
 
-        <div className="container">
+        <div className="container1">
           <div className="bloc-tabs">
             <button
               className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
@@ -126,31 +191,33 @@ const AnimalDetail = () => {
             </button>
           </div>
 
-      {/* // Body with 1 INFO BLOCK */}
+          {/* // Body with 1 INFO BLOCK */}
 
           <div className="content-tabs">
             <div className={toggleState === 1 ? "content  active-content" : "content"}>
               <div className="c__navbar">
 
                 <div className='c__navbar--data1'>
-                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Especie</span></div> <div><span>{animal.especie}</span></div> </div>
-                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Fecha de nacimiento</span></div> <div><span>{animal.fechaDeNacimiento}</span></div> </div>
-                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sexo</span></div> <div><span>{animal.sexo}</span></div> </div>
-                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Tamaño</span></div> <div><span>{animal.tamaño}</span></div> </div>
-                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Peso</span></div> <div><span>{animal.peso}</span></div> </div>
+                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Especie</span></div> <div><span>{animals.especie}</span></div> </div>
+                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Fecha de nacimiento</span></div> <div><span>{animals.fechaDeNacimiento}</span></div> </div>
+                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sexo</span></div> <div><span>{animals.sexo}</span></div> </div>
+                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Tamaño</span></div> <div><span>{animals.tamaño}</span></div> </div>
+                  <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Peso</span></div> <div><span>{animals.peso}</span></div> </div>
                 </div>
 
                 <div className="c__navbar--data2">
                   <div className='c__navbar--data2--title'><span>Personalidad</span></div>
-                  <div className='c__navbar--data2--personality'>
-                    <span>{animal.personalidad[index]}</span>
+                  <div className='c__navbar--data2--father'>
+                  {person.map((per, index) => <div className='c__navbar--data2--father--personality'>
+                  <span className="" key={index}>{per}</span>
+                  </div>)}
                   </div>
                 </div>
 
                 <div className="c__navbar--data3">
                   <div className='c__navbar--data3--title'><p>Historia</p></div>
                   <div className='c__navbar--data3--text'>
-                    <p>{animal.historia}</p>
+                    <p>{animals.historia}</p>
                   </div>
                 </div>
               </div>
@@ -161,18 +228,18 @@ const AnimalDetail = () => {
 
             <div className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className='c__navbar--data1'>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Vacunado</span></div> <div><span>{boolToWord(animal.vacunado)}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Desparasitado</span></div> <div><span>{boolToWord(animal.desparasitado)}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sano</span></div> <div><span>{boolToWord(animal.sano)}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Esterilizado</span></div> <div><span>{boolToWord(animal.esterilizado)}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Identificado</span></div> <div><span>{boolToWord(animal.identificado)}</span></div> </div>
-                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Microchip</span></div> <div><span>{boolToWord(animal.microchip)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Vacunado</span></div> <div><span>{boolToWord(animals.vacunado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Desparasitado</span></div> <div><span>{boolToWord(animals.desparasitado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Sano</span></div> <div><span>{boolToWord(animals.sano)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Esterilizado</span></div> <div><span>{boolToWord(animals.esterilizado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Identificado</span></div> <div><span>{boolToWord(animals.identificado)}</span></div> </div>
+                <div className="c__navbar--data1--line"> <div><img src={paw} alt="" /> <span>Microchip</span></div> <div><span>{boolToWord(animals.microchip)}</span></div> </div>
               </div>
 
               <div className="c__navbar--data3">
                 <div className='c__navbar--data3--title'><p>Tienes que saber que</p></div>
                 <div className='c__navbar--data3--text'>
-                  <p>{animal.aSaber}</p>
+                  <p>{animals.aSaber}</p>
                 </div>
               </div>
             </div>
@@ -183,21 +250,21 @@ const AnimalDetail = () => {
               <div className="c__navbar--data3">
                 <div className='c__navbar--data3--title'><p>Requisitos adopción</p></div>
                 <div className='c__navbar--data3--text'>
-                  <p>{animal.requisitosAdopcion}</p>
+                  <p>{animals.requisitosAdopcion}</p>
                 </div>
               </div>
 
               <div className="c__navbar--data3">
-                <div className='c__navbar--data3--title'><span>Tasa de adopción</span> <img src={help} alt="" /></div>
+                <div className='c__navbar--data3--title'><span>Tasa de adopción</span> <img onClick={openInfo} src={help} alt="" /></div>
                 <div className='c__navbar--data3--text'>
-                  <p>{animal.tasaAdopcion}€</p>
+                  <p>{animals.tasaAdopcion}€</p>
                 </div>
               </div>
 
               <div className="c__navbar--data3">
                 <div className='c__navbar--data3--title'><p>¿Se envía a otra ciudad?</p></div>
                 <div className='c__navbar--data3--text'>
-                  <p>{animal.seEnvia}</p>
+                  <p>{animals.seEnvia}</p>
                 </div>
               </div>
 
@@ -207,13 +274,23 @@ const AnimalDetail = () => {
 
         {/* // Footer with BUTTONS */}
 
-        <div className="c__buttons">
-          <div className="c__buttons--container"><button className="c__buttons--container-1"> Apadrinar </button></div>
-          <div className="c__buttons--container"><button onClick={openPopUp} className="c__buttons--container-2"> Adoptar </button></div>
+        <div className="c__buttonsAnimals">
+          <div className="c__buttonsAnimals--coso"><button onClick={openApadrinar} className="c__buttonsAnimals--coso-1"> Apadrinar </button></div>
+          <div className="c__buttonsAnimals--coso"><button onClick={openPopUp} className="c__buttonsAnimals--coso-2"> Adoptar </button></div>
         </div>
-      </div>))}
+
+      </div>}
+
+
 
   </>)
 }
+
+// { animals.length > 0 && animals.imagenes.map((imagenes) => {<div className="swiper-slide">
+// <div className="c__image">
+//   <div className="c__image--arrow"><Link to="/lucky/home/pets/"> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
+//   <img className="c__image--picture" src={imagenes} alt="" />
+// </div>
+// </div>})}
 
 export default AnimalDetail

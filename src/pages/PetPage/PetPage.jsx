@@ -1,11 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Searcher from "../../components/Searcher/Searcher";
-import Slider from '../../components/SliderComp/Slider';
 import Icon from '../../assets/Primarios/arrow/arrow.png'
 import Filter from '../../assets/Primarios/filtros-animales-menus/filter-bton/filtros.png';
-import Print from '../../assets/Primarios/filtros-animales-menus/animales/perro/perrop.png'
 import GalleryAnimals from '../../components/GalleryAnimals/GalleryAnimals';
 import Navbar from '../../components/Navbar/Navbar';
 import ButtonAdd from '../../components/ButtonAdd/ButtonAdd';
@@ -14,16 +12,19 @@ import "./PetPage.scss";
 import MyPetIcon from '../../components/MyPetIcon/MyPetIcon';
 import { useSelector } from 'react-redux';
 
-
-
 export default function PetPage() {
 
   const {user} = useSelector((state) => state.auth)
-  let { id } = useParams();
 
   const [animals, setAnimals] = useState([])
-  // const [animal, setAnimal] = useState([])
   const [filteredAnimals, setFilterAnimals] = useState([])
+
+  const [myUser, setMyUser] = useState([])
+
+  const getUser = async () => {
+      const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+      setMyUser(res.data);
+  }
 
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals`);
@@ -39,24 +40,17 @@ export default function PetPage() {
       (animal) => 
         animal.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ciudad.toLowerCase().includes(searchText.toLowerCase()) ||
-        animal.especie[0].toLowerCase().includes(searchText.toLowerCase()) ||
+        animal.especie.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.sexo.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.tamaño.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ubicacion.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilterAnimals(newAnimals);
   }
-
-  // const getAnimal = async (animal) => {
-  // const res = await axios.get(`http://localhost:5001/animals/${id}`);
-  // console.log(res.data);
-  // // console.log(res.data[0].especie[0])
-  // setAnimal(res.data);
-  // }
-      
+  
   useEffect(() => {
     getAnimals('');
-    // getAnimal();
+    getUser();
   
   }, [] )
 
@@ -77,17 +71,17 @@ export default function PetPage() {
       </header>
       <div className='c-pet-body'>
         <div className='line'/>
-        <Link to="/adoptionState" className='c-pet-button'>
+        <Link to="/lucky/home/options/adoptionStatus" className='c-pet-button'>
           <p>Estado de la adopción</p>
           <img src={Icon} alt="icon" />
         </Link>
         <div className='c-pet-adoption'>
           <div className='c-pet-adoption_title'>
             <p>Animales en adopción</p>
-            <Link to="/filter"><img src={Filter} alt="filter"/></Link>
+            <Link to="/lucky/home/pets/filter"><img src={Filter} alt="filter"/></Link>
           </div>
           <div className='c-pet-adoption_gallery'>
-            <GalleryAnimals animals={filteredAnimals} />
+            <GalleryAnimals animals={filteredAnimals} myUser={myUser}/>
           </div>
         </div>
       </div>

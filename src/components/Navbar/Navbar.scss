@@ -26,53 +26,55 @@
 
 .usu{
     width: 24px;
-    height: 21px;
+    height: 24px;
+    border-radius: 50%;
 }
 
 .home{
- display: flex;
- width: 24px;
- height: 24px;
- text-decoration: none;
- background-image:url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
- &:hover{
-    background-image:url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
-}
+    display: flex;
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+    background-image: url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
+    &:active{
+        background-image: url('../../assets/Primarios/nav-bar/home/homeDesactive/home.png');
+    }
 
 }
 
 .map{
- display: flex;
- width: 24px;
- height: 24px;
- text-decoration: none;
- &:hover{
-    background-image:url('../../assets/Primarios/nav-bar/ubicaciones/mapaActive/mapa.png');
-}
+    display: flex;
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+    &:hover{
+        background-image:url('../../assets/Primarios/nav-bar/ubicaciones/mapaActive/mapa.png');
+    }
 
 }
 
 .pets{
- display: flex;
- width: 24px;
- height: 24px;
- text-decoration: none;
-            
- &:hover{
-        background-image:url('../../assets/Primarios/nav-bar/adopcion/mascotaActive/mascota.png');
-}
+    display: flex;
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+                
+    &:hover{
+            background-image:url('../../assets/Primarios/nav-bar/adopcion/mascotaActive/mascota.png');
+    }
 }
 .profile{
- display: flex;   
- width: 24px;
- height: 24px;
- border-radius: 50%;
- border: 1px solid  rgb(1, 116, 142);
- text-decoration: none;
+    display: flex;   
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid  rgb(1, 116, 142);
+    text-decoration: none;
 
-   &:hover{
-    border: 1px solid  rgb(245, 162, 18);
-  }
+    &:active{
+        border: 1px solid  rgb(245, 162, 18);
+        color: rgb(250 156 147);
+    }
 }
 
 .plus{
@@ -80,10 +82,13 @@
     width: 25px;
     height: 70px;
     text-decoration: none;    
-    font-size: 40px;
+    font-size: 45px;
+    color: rgb(1 116 142);
+    letter-spacing: -2px;
+    margin-bottom: 10px;
 
-    &:hover{
-        color: orange;
+    &:active{
+        color: rgb(250 156 147);
+        margin-bottom: 10px;
     }
 }
-

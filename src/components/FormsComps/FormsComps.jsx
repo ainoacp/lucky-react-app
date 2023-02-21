@@ -1,4 +1,3 @@
-
 import { registerForm } from '../../redux/auth/auth.actions';
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,13 +6,34 @@ import {   useState } from "react";
 import FomPersonalDate from "./FormPersonalDate/FormPerson";
 import FormPet from "./FormPet/FormPet";
 import FormFandH from "./FormFandH/FormFandH";
+import { useForm } from "react-hook-form";
+import { Swiper, SwiperSlide, } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+// import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import  imgCat from "../../assets/Primarios/playfulcat/PlayfulCatRchv.png"
+// import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { registerAdoption, registerForm } from '../../redux/auth/auth.actions';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import './FormComponentsStyle.scss'
+import {  useEffect, useState } from "react";
+import axios from "axios";
+// import { useRef } from "react";
+SwiperCore.use([Navigation, Pagination, A11y]);
 
+export default function FomsComponents() {
+  const {user} = useSelector((state) => state.auth)
+  const { id } = useParams()
 
-
-export default function FomsComponents({petDate,personalDate,fandHomeDate}) {
+  const [animal, setAnimal] = useState({});
+  const [myUser, setMyUser] = useState([]);
+  const [popUp, setPopUp] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [dataPet,setDataPet]=useState() 
   const [datepersonal,setDatepersonal]=useState() 
   const [dateFandHome,setDateFandHome]=useState() 
@@ -30,6 +50,70 @@ export default function FomsComponents({petDate,personalDate,fandHomeDate}) {
   
 const totaldate={...dataPet,...datepersonal,...dateFandHome}
 console.log("total",totaldate);
+
+  const getUser = async () => {
+    const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+    setMyUser(res.data);
+  }
+
+  const getAnimals = async () => {
+    const res = await axios.get(`http://localhost:5001/animals/${id}`);
+    setAnimal(res.data); 
+    console.log("esto esta bien", res.data);
+  }
+
+  const registrar = async (formData) => {
+      dispatch(registerForm(formData, navigate))
+      console.log(JSON.stringify( formData));
+  }
+
+  const openPopUp = () => {
+    console.log("esto es el myuser", myUser)
+    if(myUser.inProcessPets.includes(animal._id)) {
+        console.log("entrandoooo", animal._id)
+        const newFavPets = myUser.inProcessPets.filter((pet) => pet !== animal._id)
+        console.log("new fav pets", newFavPets)
+        myUser.inProcessPets = [...newFavPets]
+    } else {
+        myUser.inProcessPets = [...myUser.inProcessPets, animal._id]
+    }
+    console.log("hola", myUser)
+    dispatch(registerAdoption(myUser))
+    setPopUp(true);
+  }
+  const closePopUp = () => {
+    setPopUp(false);
+  }
+  const [cambio,setCambio]=useState() 
+ const prueba=[
+  errors.name,
+  errors.email,
+  errors.telf,
+  errors.dni,
+  errors.direction,
+  errors.postal,
+  errors.city,
+  errors.conditions,
+ ]
+ const lolero = ()=>{
+  setCambio( prueba.every(comparate))
+  console.log("esto es cambio",cambio );
+ }
+
+//  console.log("esto es cambio",cambio );
+console.log("esto es error", prueba);
+const comparate =(data)=>  data === undefined
+// console.log("esto es lolo", prueba.every(comparate));
+
+useEffect(() => {
+  getAnimals();
+  getUser(); 
+        // console.log("esto es el user", user)
+        // console.log("esto", animal)
+        // // if(user?.inProccesPets.find((pet) => pet._id === animal._id)) {
+        // //     setPopUp(true);
+        // }
+    }, []);
 
   return (
     

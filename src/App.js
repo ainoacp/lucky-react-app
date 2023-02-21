@@ -21,6 +21,8 @@ import AuthComponent from "./components/AuthComponent";
 import FomPersonalDate from "./components/FormsComps/FormPersonalDate/FormPerson";
 import FormFandH from "./components/FormsComps/FormFandH/FormFandH";
 import FormPet from "./components/FormsComps/FormPet/FormPet";
+import FavPetsPage from "./pages/FavPetsPage/FavPetsPage";
+import AnimalsFilterPage from "./pages/AnimalsFilterPage/AnimalsFilterPage";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -33,23 +35,6 @@ function App() {
 
   return (
     <Routes>
-     <Route 
-          path="/forms"
-          element={<FormsPage></FormsPage>}
-        />
-           <Route 
-          path="/forms/pdata"
-          element={<FomPersonalDate></FomPersonalDate>}
-        />
-            <Route 
-          path="/forms/fh"
-          element={<FormFandH></FormFandH>}
-        />
-                 <Route 
-          path="/forms/pet"
-          element={<FormPet></FormPet>}
-        />
-      
       <Route index element={<LandingPage />} />
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />
@@ -62,47 +47,78 @@ function App() {
             path="map"
             element={<AuthComponent component={<MapPage />} />}
           />
-          <Route
-            path="pets"
-            element={<AuthComponent component={<PetPage />} />}
-          >
+          <Route path="pets">
+            <Route index element={<AuthComponent component={<PetPage />} />} />
             <Route
-              path="detail"
-              element={<AuthComponent component={<AnimalDetail />} />}
+              path="filter"
+              element={<AuthComponent component={<AnimalsFilterPage />} />}
+            />
+            <Route path=":id">
+              <Route
+                index
+                element={<AuthComponent component={<AnimalDetail />} />}
+              />
+              <Route
+                path="adoptionForm"
+                element={<AuthComponent component={<FormsPage />} />}
+              />
+            </Route>
+            <Route
+              path="adoptionForm"
+              element={<AuthComponent component={<FormsPage />} />}
+            />
+          </Route>
+          <Route path="options">
+            <Route
+              index
+              element={<AuthComponent component={<ProfilePage />} />}
+            />
+            <Route path="adoptionStatus">
+              <Route
+                index
+                element={<AuthComponent component={<StatusPage />} />}
+              />
+              <Route
+                path=":id"
+                element={<AuthComponent component={<StatusAdopPage />} />}
+              />
+            </Route>
+            <Route
+              path="favPets"
+              element={<AuthComponent component={<FavPetsPage />} />}
             />
           </Route>
           <Route
-            path="options"
-            element={<AuthComponent component={<ProfilePage />} />}
-          />
-          <Route
             path="more"
             element={<AuthComponent component={<PlusPage />} />}
+          />
+          <Route
+            path="adoptionForm"
+            element={<AuthComponent component={<FormsPage />} />}
           />
           <Route
             path=":id"
             element={<AuthComponent component={<HomePage />} />}
           />
         </Route>
-       
       </Route>
-
-      {/* <Route path="/" element={<LandingPage />} />
-      <Route path="/info" element={<CarrousselPage />} />
-      <Route path='/start' element={<StartPage />}/>
-      <Route path='/login' element={<LoginPage />}/>
-      <Route path='/register' element={<RegisterPage />}/>
-      <Route path='/home' element={<HomePage />}/>
-      <Route path='/map' element={<MapPage />}/>
-      <Route path='/pet' element={<PetPage />}/>
-      <Route path='/profile' element={<ProfilePage />}/>
-      <Route path='/plus' element={<PlusPage />}/>
-      <Route path='/animals/:id' element={<AnimalDetail />}/>
-      <Route path='/status' element={<StatusPage />}/>
-      <Route path='/statusAdop' element={<StatusAdopPage />}/>
-      <Route path='/forms' element={<FormsPage />}/> */}
     </Routes>
   );
 }
 
 export default App;
+
+// {/* <Route path="/" element={<LandingPage />} />
+//       <Route path="/info" element={<CarrousselPage />} />
+//       <Route path='/start' element={<StartPage />}/>
+//       <Route path='/login' element={<LoginPage />}/>
+//       <Route path='/register' element={<RegisterPage />}/>
+//       <Route path='/home' element={<HomePage />}/>
+//       <Route path='/map' element={<MapPage />}/>
+//       <Route path='/pet' element={<PetPage />}/>
+//       <Route path='/profile' element={<ProfilePage />}/>
+//       <Route path='/plus' element={<PlusPage />}/>
+//       <Route path='/animals/:id' element={<AnimalDetail />}/>
+//       <Route path='/status' element={<StatusPage />}/>
+//       <Route path='/statusAdop' element={<StatusAdopPage />}/>
+//       <Route path='/forms' element={<FormsPage />}/> */}

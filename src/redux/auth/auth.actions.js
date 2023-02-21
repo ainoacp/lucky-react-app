@@ -6,6 +6,7 @@ export const loginUser = (formData, navigate) => async (dispatch) => {
   try {
     const result = await API.post("/users/login", formData);
     localStorage.setItem("token", result.data.token);
+    localStorage.setItem("user", JSON.stringify(result.data.myUser));
     dispatch({ type: "login_user_ok", payload: result.data });
     navigate("/lucky/home"); //aqui hay que poner la pagina del perfil
   } catch (error) {
@@ -36,6 +37,7 @@ export const checkSession = (token, navigate) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: "checksession_user_ko", payload: error.message});
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate(["/lucky/login"]);
   }
 };
@@ -56,6 +58,7 @@ export const logout = (navigate) => async (dispatch) => {
     navigate(["/lucky/start"]);
   }
 };
+
 export const registerForm = (formData) => async (dispatch) => {
   dispatch({ type: "register_form" });
   try {
@@ -65,5 +68,30 @@ export const registerForm = (formData) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch({ type: "register_form_ko", payload: error.message });
+  }
+};
+
+//se recibe un usuario 
+export const registerFav = (user) => async (dispatch) => {
+  dispatch({ type: "register_fav" });
+  try {
+    const result = await API.post("/users/addfav", user);
+    dispatch({ type: "register_fav_ok", payload: result.data });
+    
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "register_fav_ko", payload: error.message });
+  }
+};
+
+export const registerAdoption = (user) => async (dispatch) => {
+  dispatch({ type: "register_adoption" });
+  try {
+    const result = await API.post("/users/addadoption", user);
+    dispatch({ type: "register_adoption_ok", payload: result.data });
+    
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "register_adoption_ko", payload: error.message });
   }
 };

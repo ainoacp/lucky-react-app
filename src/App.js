@@ -55,10 +55,6 @@ function App() {
               path="filter"
               element={<AuthComponent component={<AnimalsFilterPage />} />}
             />
-            {/* <Route 
-              path="yourFilteredAnimals"
-              element={<AuthComponent component={<FilteredAnimals />} />}
-            /> */}
             <Route path=":id">
               <Route index element={<AuthComponent component = {<AnimalDetail/>}/>}/>
               <Route 
@@ -76,7 +72,7 @@ function App() {
             <Route path="adoptionStatus">
               <Route index element={<AuthComponent component={<StatusPage />} />} />
               <Route  
-                path="status" 
+                path=":id" 
                 element={<AuthComponent component={<StatusAdopPage />} />}
               />
             </Route>

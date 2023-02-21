@@ -83,3 +83,15 @@ export const registerFav = (user) => async (dispatch) => {
     dispatch({ type: "register_fav_ko", payload: error.message });
   }
 };
+
+export const registerAdoption = (user) => async (dispatch) => {
+  dispatch({ type: "register_adoption" });
+  try {
+    const result = await API.post("/users/addadoption", user);
+    dispatch({ type: "register_adoption_ok", payload: result.data });
+    
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "register_adoption_ko", payload: error.message });
+  }
+};

@@ -18,9 +18,11 @@ import { useDispatch } from "react-redux";
 import { checkSession } from "./redux/auth/auth.actions";
 import { useEffect } from "react";
 import AuthComponent from "./components/AuthComponent";
+import FomPersonalDate from "./components/FormsComps/FormPersonalDate/FormPerson";
+import FormFandH from "./components/FormsComps/FormFandH/FormFandH";
+import FormPet from "./components/FormsComps/FormPet/FormPet";
 import FavPetsPage from "./pages/FavPetsPage/FavPetsPage";
 import AnimalsFilterPage from "./pages/AnimalsFilterPage/AnimalsFilterPage";
-// import FilteredAnimals from "./pages/FilteredAnimals/FilteredAnimals";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -33,7 +35,6 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/forms" element={<FormsPage></FormsPage>} />
       <Route index element={<LandingPage />} />
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />

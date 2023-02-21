@@ -1,0 +1,42 @@
+.div-menu-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+.p-form-personal{
+    width: 100%;
+    text-align: center;
+}
+.p-fom-navigate{
+    margin: 0;
+    padding: 0;
+}
+.progres-bar-gray{
+    width: 90%;
+    background-color:rgb(236,155,148,0.5); 
+  
+    height: 10px;
+    border-radius: 10px;
+}
+.progres-bar-ping{
+    width: 25%;
+    background-color:#EC9B94; 
+    height: 10px;
+    border-radius: 10px;
+    
+    
+}
+.div-dad2{
+    
+}
+.btn-foms1{
+    width: 100%;
+    padding: 15px;
+    background-color: #EC9B94;
+    border-radius: 4px;
+    color:white;
+    border: #EC9B94 1px solid ;
+}

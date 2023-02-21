@@ -18,6 +18,9 @@ import { useDispatch } from "react-redux";
 import { checkSession } from "./redux/auth/auth.actions";
 import { useEffect } from "react";
 import AuthComponent from "./components/AuthComponent";
+import FomPersonalDate from "./components/FormsComps/FormPersonalDate/FormPerson";
+import FormFandH from "./components/FormsComps/FormFandH/FormFandH";
+import FormPet from "./components/FormsComps/FormPet/FormPet";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -34,6 +37,19 @@ function App() {
           path="/forms"
           element={<FormsPage></FormsPage>}
         />
+           <Route 
+          path="/forms/pdata"
+          element={<FomPersonalDate></FomPersonalDate>}
+        />
+            <Route 
+          path="/forms/fh"
+          element={<FormFandH></FormFandH>}
+        />
+                 <Route 
+          path="/forms/pet"
+          element={<FormPet></FormPet>}
+        />
+      
       <Route index element={<LandingPage />} />
       <Route path="lucky">
         <Route path="info" element={<CarrousselPage />} />

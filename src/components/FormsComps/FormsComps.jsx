@@ -1,29 +1,24 @@
-import { registerForm } from '../../redux/auth/auth.actions';
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
 import './FormComponentsStyle.scss'
-import {   useState } from "react";
 import FomPersonalDate from "./FormPersonalDate/FormPerson";
 import FormPet from "./FormPet/FormPet";
 import FormFandH from "./FormFandH/FormFandH";
 import { useForm } from "react-hook-form";
 import { Swiper, SwiperSlide, } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
-// import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import  imgCat from "../../assets/Primarios/playfulcat/PlayfulCatRchv.png"
-// import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { registerAdoption, registerForm } from '../../redux/auth/auth.actions';
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import './FormComponentsStyle.scss'
 import {  useEffect, useState } from "react";
 import axios from "axios";
 // import { useRef } from "react";
 SwiperCore.use([Navigation, Pagination, A11y]);
 
-export default function FomsComponents() {
+export default function FomsComponents({petDate,personalDate,fandHomeDate}) {
+
   const {user} = useSelector((state) => state.auth)
   const { id } = useParams()
 
@@ -40,13 +35,6 @@ export default function FomsComponents() {
   const [pag1, setPag1] = useState(true);
   const [pag2, setPag2] = useState(true);
   const [pag3, setPag3] = useState(true);
-
-
-  const registrar = async () => {
-    await totaldate
-      dispatch(registerForm(totaldate, navigate))
- 
-  }
   
 const totaldate={...dataPet,...datepersonal,...dateFandHome}
 console.log("total",totaldate);
@@ -85,25 +73,6 @@ console.log("total",totaldate);
     setPopUp(false);
   }
   const [cambio,setCambio]=useState() 
- const prueba=[
-  errors.name,
-  errors.email,
-  errors.telf,
-  errors.dni,
-  errors.direction,
-  errors.postal,
-  errors.city,
-  errors.conditions,
- ]
- const lolero = ()=>{
-  setCambio( prueba.every(comparate))
-  console.log("esto es cambio",cambio );
- }
-
-//  console.log("esto es cambio",cambio );
-console.log("esto es error", prueba);
-const comparate =(data)=>  data === undefined
-// console.log("esto es lolo", prueba.every(comparate));
 
 useEffect(() => {
   getAnimals();
@@ -117,9 +86,8 @@ useEffect(() => {
 
   return (
     
- 
-<div className='div-dad'>
-   
+    <div className='div-dad'>
+
       {pag1 === true && <FomPersonalDate setDatepersonal={setDatepersonal} personalDateQuestion={personalDate}
       setPag1={setPag1}
       setPag2={setPag2}
@@ -137,8 +105,6 @@ useEffect(() => {
       setPag3={setPag3}
       ></FormFandH>}
      
-
-
     </div>
     
   );

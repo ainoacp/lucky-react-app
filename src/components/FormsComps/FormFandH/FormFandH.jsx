@@ -24,14 +24,10 @@ setDateFandHome(fandHomeDate)
       const closePopUp = () => {
         setPopUp(false);
       }
-      const nextPag=()=>{
-        setPag1(false)
-        setPag2(false)
-            }
       const backPag3=()=>{
         setPag2(false)
         setPag3(true)
-                       }
+      }
     
     return(
         <div>

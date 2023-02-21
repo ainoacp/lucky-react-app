@@ -33,9 +33,9 @@ return(
      <div className="p-form-back"><p>Formulario de adopción</p></div>
      </div>
      <div className="progres-bar-box">
-     <di className="progres-bar-pets-gray">
+     <div className="progres-bar-pets-gray">
       <div className="progres-bar-pets-ping"></div>
-     </di>   
+     </div>   
      </div> 
 <div className="box-datosPersonales">
         <form className="fom-datosPersonales" onSubmit={handleSubmit(onSubmitpet,onError)}>

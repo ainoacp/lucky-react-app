@@ -4,7 +4,7 @@ import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
 // import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import  imgCat from "../../assets/Primarios/playfulcat/PlayfulCatRchv.png"
-import "swiper/css/pagination";
+// import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { registerForm } from '../../redux/auth/auth.actions';
 import { useDispatch } from "react-redux";

@@ -1,27 +1,39 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+
+import { useEffect, useState } from "react";
+
+import "./PersonalDateStyle.scss"
 
 
-
-export default function FomPersonalDate({setDatepersonal}){
+export default function FomPersonalDate({setDatepersonal,setPag1,setPag2,setPag3,totaldate}){
   const [personalDate,setPersonalDate]=useState() 
 
-    const { register, handleSubmit,formState:{errors} } = useForm();
+    const { register, handleSubmit,formState:{errors, isValid} } = useForm();
 
     const onSubmitpd = (data) => {
         // console.log("este es data",data);
         setPersonalDate(data)
     }
+
+    
     // console.log("personal",personalDate);
 setDatepersonal(personalDate)
     const onError = (errors, e) => console.log("este es error",errors, e);
+    const nextPag=()=>{
+      setTimeout(() => {
+        setPag1(false)
+  setPag2(false)
+      }, 1000);
+      }
+   
     return(
         <div>
-          <div className="div-dad">
-     <div className="div-form-back-btom"> 
-     <div className="p-form-back"><p>Formulario de adopción</p></div>
+          <div className="div-dad2">
+     <div className="div-menu-form"> 
+     <div className="p-form-personal"><p className="p-fom-navigate">Formulario de adopción</p></div>
+     <div className="progres-bar-gray">
+      <div className="progres-bar-ping"></div>
+     </div>
     </div>
     
     
@@ -51,6 +63,7 @@ setDatepersonal(personalDate)
             className="datos-input"
             type="number"
             placeholder="Telefono"
+            
             {...register("telf",{required:"El telf es requerido"})}
             onChange={onSubmitpd}
        
@@ -74,9 +87,7 @@ setDatepersonal(personalDate)
             placeholder="Calle, número, piso"
             {...register("direction" ,{required:"La direccion es requerida"})}
             onChange={onSubmitpd}
-        
-
-          />
+        />
           {errors.direction && <p className="erros-input">{errors.direction.message}</p>}
           <input
             className="datos-input"
@@ -92,7 +103,7 @@ setDatepersonal(personalDate)
             className="datos-input"
             type="text"
             placeholder="Ciudad"
-            {...register("city",{required:"La Ciudad  es requerida"})}
+            {...register("city",{required:"La Ciudad  es requerida",})}
             onChange={onSubmitpd}
         
 
@@ -111,7 +122,8 @@ setDatepersonal(personalDate)
             </label>
             {errors.conditions && <p className="erros-input">{errors.conditions.message}</p>}
           </div>
-          <button    className="btn-next ">continuar</button>
+          <button   onClick={nextPag} disabled={!isValid}
+            className="btn-foms1">continuar</button>
         </form>
         
       </div>

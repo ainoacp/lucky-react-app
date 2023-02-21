@@ -1,30 +1,42 @@
 import { useForm } from "react-hook-form";
-import { Link} from "react-router-dom";
 import {   useState } from "react";
+import "./PetsDataStyle.scss"
 
 
-
-export default function FormPet({setDataPet}){
-    const { register, handleSubmit,formState:{errors}   } = useForm();
+export default function FormPet({setDataPet,setPag1,setPag2,setPag3}){
+    const { register, handleSubmit,formState:{errors,isValid}   } = useForm();
     const [petDate,setPetDate]=useState() 
+setDataPet(petDate)
    
-
+  
+          const nextPag=()=>{
+            setTimeout(() => {
+              setPag3(false)
+              setPag2(true)
+            }, 2000);
+            }
+    const backPag2=()=>{
+       setPag2(true)
+        setPag1(true)
+                }
     const onSubmitpet = (data) => {
-        // console.log("este es data pet",data);
+    
         setPetDate(data)
     }
-    // console.log("pet data",petDate);
-setDataPet(petDate)
+    
     const onError = (errors, e) => console.log("este es error",errors, e);
 return(
     <div>
             <div className="div-dad">
      <div className="div-form-back-btom"> 
-     <button className="bton-back back"><h2>{"<"}</h2></button>
+     <button onClick={backPag2} className="bton-back">{"<"}</button>
      <div className="p-form-back"><p>Formulario de adopción</p></div>
-    </div>
-   
-
+     </div>
+     <div className="progres-bar-box">
+     <di className="progres-bar-pets-gray">
+      <div className="progres-bar-pets-ping"></div>
+     </di>   
+     </div> 
 <div className="box-datosPersonales">
         <form className="fom-datosPersonales" onSubmit={handleSubmit(onSubmitpet,onError)}>
           <h2 className="tittle-forms">Sobre Las Mascolas</h2>
@@ -127,7 +139,7 @@ return(
           {errors.food && <p className="erros-input">{errors.food.message}</p>}
 
 
-          <button  className= "btn-next next" 
+          <button disabled={!isValid} onClick={nextPag} className= "btn-foms"  
           >continuar</button>
         </form>
         

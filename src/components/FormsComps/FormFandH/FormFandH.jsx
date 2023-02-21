@@ -1,20 +1,20 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link} from "react-router-dom";
 import {  useState } from "react";
 import  imgCat from "../../../assets/Primarios/playfulcat/PlayfulCatRchv.png"
-
+import "./FandHomeStyle.scss"
  
 
-export default function FormFandH({setDateFandHome,registrar}){
+export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,setPag3}){
     const [popUp, setPopUp] = useState(false);
     const [fandHomeDate,setfandHomeDAte]=useState(false) 
-    const { register, handleSubmit,formState:{errors}   } = useForm();
+    const { register, handleSubmit,formState:{errors,isValid}   } = useForm();
     const onSubmitfandHome = (data) => {
-        // console.log("este es data home",data);
+        
         setfandHomeDAte(data)
     }
-    // console.log("home data",fandHomeDate);
+   
 setDateFandHome(fandHomeDate)
     const onError = (errors, e) => console.log("este es error",errors, e);
     const openPopUp = () => {
@@ -24,14 +24,27 @@ setDateFandHome(fandHomeDate)
       const closePopUp = () => {
         setPopUp(false);
       }
+      const nextPag=()=>{
+        setPag1(false)
+        setPag2(false)
+            }
+      const backPag3=()=>{
+        setPag2(false)
+        setPag3(true)
+                       }
     
     return(
         <div>
-     <div className="div-dad">
+     <div className="div-dad2">
      <div className="div-form-back-btom"> 
-     <button className="bton-back back"><h2>{"<"}</h2></button>
-     <div className="p-form-back"><p>Formulario de adopción</p></div>
+     <button onClick={backPag3} className="bton-back">{"<"}</button>
+     <div  className="p-form-back"><p>Formulario de adopción</p></div>
     </div>
+    <div className="progres-bar-box">
+     <di className="progres-bar-FH-gray">
+      <div className="progres-bar-FH-ping"></div>
+     </di>   
+     </div> 
     <div className="box-datosPersonales">
           <form className="fom-datosPersonales" onSubmit={handleSubmit(onSubmitfandHome,onError)}>
             <h2 className="tittle-forms">Familia y hogar</h2>
@@ -318,10 +331,9 @@ setDateFandHome(fandHomeDate)
               </div>
             </div>
 
-            <button onClick={openPopUp} className="btn-foms">continuar</button>
+            <button disabled={!isValid} onClick={openPopUp} className="btn-foms">Enviar</button>
           </form>
-        </div>
-      {popUp === true && <div className="popUp1">
+          {popUp === true && <div className="popUp1">
       <div className="popUp1__whiteBox1">
       <button className="popUpwhiteBox--buttons--1" onClick={closePopUp}><Link to={"/lucky/home"}> X</Link></button>
 <div className="popUpBox-information">
@@ -333,12 +345,16 @@ setDateFandHome(fandHomeDate)
 
         <div className="popUpwhiteBox--buttons">
         </div>
-         {/* <button className="popUp__whiteBox--buttons--2" >Continuar</button> */}
+    
         </div>
       </div>
     </div>}
-            
         </div>
+        
+      
+            
+    </div>
+ 
         </div>
     )
     

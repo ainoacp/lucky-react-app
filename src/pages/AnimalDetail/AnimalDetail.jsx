@@ -171,7 +171,7 @@ const AnimalDetail = () => {
           </div>
         </div>
 
-        {/* // Body with the NAVIGATION info */}
+        {/* // Body with the NAVIGATION tab */}
 
         <div className="container1">
           <div className="bloc-tabs">

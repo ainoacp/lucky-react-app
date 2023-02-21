@@ -18,7 +18,8 @@ export default function FavButton({animal, myUser}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // console.log("esto es el user", user)
+        console.log("esto es el user", user)
+        console.log("esto", animal)
         if(user?.favPets.find((pet) => pet._id === animal._id)) {
             setFav(true);
         }

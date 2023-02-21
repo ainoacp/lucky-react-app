@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { saveUserFavPets } from '../../redux/auth/auth.actions';
 import './FavButton.scss'
 
 export default function FavButton({animal}) {
     const {user} = useSelector((state) => state.auth)
+    const dispatch = useDispatch();
+    const { token, favPets } = useSelector((state) => state.auth);
  
     // const [isFav, setIsFav] = useState(false);
 
@@ -15,10 +18,8 @@ export default function FavButton({animal}) {
     // }, [fav, animal]);
 
     function handleFavClick() {
-    //     const newFavs = isFav
-    //     ? fav.filter((fav) => fav !== animal._id)
-    //     : [...fav, animal._id];
-    // setFav(newFavs);
+    const newData = 'hola ainoa'; // replace with your new data
+    dispatch(saveUserFavPets(newData, token));
     setFav(!fav);
     setActive(!active);
     }

@@ -69,3 +69,25 @@ export const registerForm = (formData) => async (dispatch) => {
     dispatch({ type: "register_form_ko", payload: error.message });
   }
 };
+
+
+export const saveUserFavPets = (favPets, token) => async (dispatch) => {
+  try {
+    const res = await API.post('/users/addfav', {
+      body: JSON.stringify({ favPets })
+    });
+    if (res.ok) {
+      dispatch({
+        type: "SAVE_USER_FAVPETS_SUCCESS",
+        payload: favPets
+      });
+    } else {
+      throw new Error(res.statusText);
+    }
+  } catch (error) {
+    dispatch({
+      type: "SAVE_USER_FAVPETS_FAILURE",
+      payload: error.message
+    });
+  }
+};

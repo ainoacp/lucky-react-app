@@ -2,6 +2,7 @@ const INITIAL_STATE = {
   user: null,
   token: null,
   error: null,
+  favPets: null,
   isLoading: false,
 };
 
@@ -44,6 +45,12 @@ const authReducer = (state = INITIAL_STATE, action) => {
       return {...INITIAL_STATE};
     case "logout_user_ko":
       return { ...state, isLoading: false, error: action.payload };
+
+    case "SAVE_USER_FAVPETS_SUCCESS":
+      return {
+        ...state,
+        favPets: action.payload
+      };
 
     default: {
       return state;

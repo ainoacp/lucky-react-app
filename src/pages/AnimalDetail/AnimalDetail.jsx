@@ -13,9 +13,12 @@ import Slider from '../../components/SliderComp/Slider';
 import HomePage from '../HomePage/HomePage';
 import FavButton from '../../components/FavButton/FavButton'
 import Tabs from '../../components/Tabs/Tabs';
+import { useSelector } from 'react-redux';
 
 
-const AnimalDetail = () => {
+const AnimalDetail = ({animal}) => {
+  
+  const {user} = useSelector((state) => state.auth)
   const { id } = useParams()
   const [animals, setAnimals] = useState({});
   const [popUp, setPopUp] = useState(false);
@@ -23,7 +26,9 @@ const AnimalDetail = () => {
   const [toggleState, setToggleState] = useState(1);
   const [images, setImages] = useState([])
   const [person, setPerson] = useState([])
+  const [myUser, setMyUser] = useState([])
 
+  
   const boolToWord = (bool) => {
     if (bool === true) {
       return 'Si'
@@ -50,6 +55,11 @@ const AnimalDetail = () => {
     setInfo(false);
   }
 
+  const getUser = async () => {
+    const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+    setMyUser(res.data);
+  }
+
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals/${id}`);
     setAnimals(res.data);
@@ -58,7 +68,10 @@ const AnimalDetail = () => {
     console.log("esto esta bien", res.data);
   }
   
-  useEffect(() => { getAnimals() }, [id])
+  useEffect(() => { 
+    getAnimals();
+    getUser(); 
+  }, [id])
 
   return (<>
 
@@ -121,7 +134,10 @@ const AnimalDetail = () => {
             <div className="c__whitebox--left--namecity">  <p>{animals.nombre}</p> <p>{animals.ciudad}</p></div>
           </div>
 
-          <div className="c__whitebox--right"><FavButton /><img src={share} alt="" /></div>
+          <div className="c__whitebox--right">
+            {/* <FavButton  /> */}
+            <img src={share} alt="" />
+          </div>
         </div>
 
         {/* // Body with the NAVIGATION info */}

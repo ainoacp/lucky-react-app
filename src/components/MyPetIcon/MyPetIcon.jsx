@@ -15,7 +15,7 @@ export default function MyPetIcon() {
         {user?.pets?.map((pet) => (
             <div className="c-slider swiper" key= {pet._id}>
                 <div className="swiper-wrapper">
-                    <Link to="/animals/{id}" className="swiper-slide">
+                    <Link to={`/lucky/home/pets/${pet._id}`} className="swiper-slide">
                         <IconDisplay type={pet.especie || Default} />
                         <p>{pet.nombre}</p>
                     </Link>

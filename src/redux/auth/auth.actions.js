@@ -71,10 +71,11 @@ export const registerForm = (formData) => async (dispatch) => {
   }
 };
 
-export const registerFav = (favData) => async (dispatch) => {
+//se recibe un usuario 
+export const registerFav = (user) => async (dispatch) => {
   dispatch({ type: "register_fav" });
   try {
-    const result = await API.post("/users/addfav", favData);
+    const result = await API.post("/users/addfav", user);
     dispatch({ type: "register_fav_ok", payload: result.data });
     
   } catch (error) {

@@ -55,6 +55,17 @@ const authReducer = (state = INITIAL_STATE, action) => {
       }
     case "register_fav_ko":
       return { ...state, isLoading: false, error: action.payload };
+
+    case "register_adoption":
+      return { ...state, isLoading: true};
+    case "register_adoption_ok":
+      return { 
+        ...state, 
+        isLoading: false,
+        user: action.payload,  
+      }
+    case "register_adoption_ko":
+      return { ...state, isLoading: false, error: action.payload };
       
     default: {
       return state;

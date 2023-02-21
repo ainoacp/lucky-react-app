@@ -11,12 +11,9 @@ const StatusEnd = ({children, estado, cambiarestado}) => {
         {estado &&
             <Overlay >
                     <Container className='context'>
-
-                           <h2 className='tittle-Finis'>¡Enviado!</h2>
-                           <p className='textFinis'></p>
-                           <image className='picture-Finis'/>
-                            
-                      
+                        <h2 className='tittle-Finis'>¡Enviado!</h2>
+                        <p className='textFinis'></p>
+                        <img className='picture-Finis'/>
                     </Container>            
             </Overlay>
         }

@@ -13,17 +13,25 @@ import Slider from '../../components/SliderComp/Slider';
 import HomePage from '../HomePage/HomePage';
 import FavButton from '../../components/FavButton/FavButton'
 import Tabs from '../../components/Tabs/Tabs';
+import { useSelector } from 'react-redux';
+import ShareButton from '../../components/ShareButton/ShareButton';
 
 
 const AnimalDetail = () => {
+  
+  const {user} = useSelector((state) => state.auth)
   const { id } = useParams()
   const [animals, setAnimals] = useState({});
   const [popUp, setPopUp] = useState(false);
   const [info, setInfo] = useState(false);
+  const [apadrinar, setApadrinar] = useState(false);
   const [toggleState, setToggleState] = useState(1);
   const [images, setImages] = useState([])
   const [person, setPerson] = useState([])
+  const [myUser, setMyUser] = useState([])
+  const [sharing, setSharing] = useState([])
 
+  
   const boolToWord = (bool) => {
     if (bool === true) {
       return 'Si'
@@ -50,6 +58,26 @@ const AnimalDetail = () => {
     setInfo(false);
   }
 
+  const openApadrinar = () => {
+    setApadrinar(true);
+  }
+  const closeApadrinar = () => {
+    setApadrinar(false);
+  }
+
+  const openShare = () => {
+    setSharing(true);
+  }
+  const closeShare = () => {
+    setSharing(false);
+  }
+
+
+  const getUser = async () => {
+    const res = await axios.get(`http://localhost:5001/users/${user._id}`);
+    setMyUser(res.data);
+  }
+
   const getAnimals = async () => {
     const res = await axios.get(`http://localhost:5001/animals/${id}`);
     setAnimals(res.data);
@@ -58,11 +86,14 @@ const AnimalDetail = () => {
     console.log("esto esta bien", res.data);
   }
   
-  useEffect(() => { getAnimals() }, [id])
+  useEffect(() => { 
+    getAnimals();
+    getUser(); 
+  }, [id])
 
   return (<>
 
-    {/* // Pop Up here: */}
+    {/* // Pop Up Adopcion */}
 
     {popUp === true && <div className="popUp">
       <div className="popUp__whiteBox">
@@ -80,6 +111,7 @@ const AnimalDetail = () => {
       </div>
     </div>}
 
+      {/* // Pop Up tasas: */}
 
     {info === true && <div className="popUp">
       <div className="popUp__whiteBox">
@@ -88,6 +120,26 @@ const AnimalDetail = () => {
         <button className="popUp__whiteBox--buttons--1" onClick={closeInfo}>Cancelar</button>
       </div>
     </div>}
+
+    {/* // Pop Up apadrinar: */}
+
+    {apadrinar === true && <div className="popUp">
+      <div className="popUp__whiteBox">
+        <div className="popUp__whiteBox--title"><p>Seccion en construccion, disculpen las molestias</p></div>
+        <div className="popUp__whiteBox--text"><img src="https://ih1.redbubble.net/image.791520846.5052/st,small,507x507-pad,600x600,f8f8f8.jpg" alt=""/></div>
+        <button className="popUp__whiteBox--buttons--1" onClick={closeApadrinar}>Cancelar</button>
+      </div>
+    </div>}
+
+    {/* // Pop Up compartir: */}
+
+    {sharing === true && <div className="popUp">
+      <div className="popUp__whiteBox">
+        <ShareButton/>
+        <button className="popUp__whiteBox--buttons--1" onClick={closeShare}>Cancelar</button>
+      </div>
+    </div>}
+
 
     {animals !== null &&
       <div key={animals._id} className="c">
@@ -101,14 +153,6 @@ const AnimalDetail = () => {
               </div>
             </div>
             )}
-            {/* <div className="swiper-slide">
-              <div className="c__image--arrow"><Link to="/lucky/home/pets/"> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
-              <img className="c__image--picture" src={animals.imagenes} alt="hola" />
-            </div>
-            <div className="swiper-slide">
-              <div className="c__image--arrow"><Link to="/lucky/home/pets/"> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
-              <img className="c__image--picture" src={animals.imagenes} alt="" />
-            </div> */}
           </div>
           <Slider />
         </div>
@@ -121,7 +165,10 @@ const AnimalDetail = () => {
             <div className="c__whitebox--left--namecity">  <p>{animals.nombre}</p> <p>{animals.ciudad}</p></div>
           </div>
 
-          <div className="c__whitebox--right"><FavButton /><img src={share} alt="" /></div>
+          <div className="c__whitebox--right">
+            <FavButton animal={animals} myUser={myUser}/>
+            <img onClick={openShare} src={share} alt="no va" />
+          </div>
         </div>
 
         {/* // Body with the NAVIGATION info */}
@@ -228,7 +275,7 @@ const AnimalDetail = () => {
         {/* // Footer with BUTTONS */}
 
         <div className="c__buttonsAnimals">
-          <div className="c__buttonsAnimals--coso"><button className="c__buttonsAnimals--coso-1"> Apadrinar </button></div>
+          <div className="c__buttonsAnimals--coso"><button onClick={openApadrinar} className="c__buttonsAnimals--coso-1"> Apadrinar </button></div>
           <div className="c__buttonsAnimals--coso"><button onClick={openPopUp} className="c__buttonsAnimals--coso-2"> Adoptar </button></div>
         </div>
 

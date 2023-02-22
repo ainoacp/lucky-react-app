@@ -23,6 +23,7 @@ import FormFandH from "./components/FormsComps/FormFandH/FormFandH";
 import FormPet from "./components/FormsComps/FormPet/FormPet";
 import FavPetsPage from "./pages/FavPetsPage/FavPetsPage";
 import AnimalsFilterPage from "./pages/AnimalsFilterPage/AnimalsFilterPage";
+import BuildingPage from "./pages/BuildingPage/BuildingPage";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -41,6 +42,7 @@ function App() {
         <Route path="start" element={<StartPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="building" element={<BuildingPage />} />
         <Route path="home">
           <Route index element={<AuthComponent component={<HomePage />} />} />
           <Route

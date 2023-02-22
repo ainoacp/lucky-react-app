@@ -28,7 +28,7 @@ const ProfilePage = () => {
                       <img src={icono} className='ico'  alt="m"/>
                   </NavLink>   
                   
-                  <NavLink to="/lucky/home/options/map"  className='box'>
+                  <NavLink to="/lucky/building"  className='box'>
                       <div className='box-start'>
                             <img src={iconandress} className='picture-main' alt="d"/>Direcciones
                       </div>
@@ -42,7 +42,7 @@ const ProfilePage = () => {
                       <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
 
-                  <NavLink to="/lucky/home/options/notifications"  className='box'> 
+                  <NavLink to="/lucky/building"  className='box'> 
                         <div className='box-start'>
                             <img src={iconnotf} className='picture-main' alt="n"/>Notificaciones
                         </div>  
@@ -56,14 +56,14 @@ const ProfilePage = () => {
                         </div>
                         <img src={icono} className='ico'  alt="m"/>
                   </NavLink>
-                  <NavLink to="/lucky/home/options/sponsoring"  className='box'>
+                  <NavLink to="/lucky/building"  className='box'>
                       <div className='box-start'>
                           <img src={iconspons} className='picture-main' alt="ap"/>Apadrinar
                       </div>
                       <img src={icono} className='ico'  alt="m"/>
                     </NavLink>
 
-                  <NavLink href="/lucky/home/options/donate"  className='box'>
+                  <NavLink href="/lucky/building"  className='box'>
                         <div className='box-start'>
                             <img src={icondonat} className='picture-main' alt="d"/>Donar
                         </div>

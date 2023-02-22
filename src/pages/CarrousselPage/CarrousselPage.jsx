@@ -1,37 +1,53 @@
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swiper, { Pagination } from "swiper";
 import "swiper/css";
-import Cross from "../../assets/Primarios/ubtitled-section/X.png";
+import "swiper/css/pagination";
+// import Cross from "../../SlidersImage/X.png";
 import "./CarrousselPage.scss";
-import Adopt from "../../assets/Primarios/ubtitled-section/adopta-movil/imagen2.png";
-import Asoci from "../../assets/Primarios/ubtitled-section/asociacion/undrawPetAdoption2Qkw.png";
-import Serv from "../../assets/Primarios/ubtitled-section/Encuentra-servicios/undrawGoodDoggy4Wfq.png";
-import Slider from "../../components/SliderComp/Slider";
+import SlideP1 from "../../assets/Primarios/ubtitled-section/Encuentra-servicios/undrawGoodDoggy4Wfq.png";
+import SlideP2 from "../../assets/Primarios/ubtitled-section/adopta-movil/imagen2.png";
+import SlideP3 from "../../assets/Primarios/ubtitled-section/asociacion/undrawPetAdoption2Qkw.png";
 
-export default function CarrousselPage() {
 
-return (
-    <div className="c-carroussel-container">
+const Slider = () => {
+  useEffect(() => {
+    const swiper = new Swiper(".swiper", {
+      modules: [Pagination],
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  }, []);
+
+  return (
+    <>
       <Link to="/lucky/start">
-        <img src={Cross} alt="cross" className="x" />
+        {/* <img src={Cross} alt="cross" className="x" /> */}
+        <p className="x">x</p>
       </Link>
       <div className="c-slider swiper">
         <div className="swiper-wrapper">
           <div className="swiper-slide">
-            <img className="c-slider-carroussel_img" src={Serv} alt="serv" />
-            <h3 className="c-slider_title c-slider_title--first">Encuentra todo tipo de servicios que tienes cerca de ti</h3>
+            <img className="c-slider__img" src={SlideP1} alt="slide1" />
+            <h3 className="c-slider__title c-slider__title--first">Encuentra todo tipo de servicios que tienes cerca de ti</h3>
           </div>
           <div className="swiper-slide">
-            <img className="c-slider-carroussel_img" src={Adopt} alt="adopt" />
-            <h3 className="c-slider_title">Adopta desde tu móvil</h3>
-            <p className="c-slider_p">Puedes acceder al perfil de muchos animales que estan en adopcion y filtrarlos para encontrar el que mejor se adapte a ti</p>
+            <img className="c-slider__img" src={SlideP2} alt="slide2" />
+            <h3 className="c-slider__title">Adopta desde tu móvil</h3>
+            <p className="c-slider__p">Puedes acceder al perfil de muchos animales que estan en adopcion y filtrarlos para encontrar el que mejor se adapte a ti</p>
           </div>
           <div className="swiper-slide">
-            <img className="c-slider-carroussel_img" src={Asoci} alt="asoci" />
-            <h3 className="c-slider_title c-slider_title--first">Si eres una asociación sube a tus peludos para darles más difusión</h3>
+            <img className="c-slider__img" src={SlideP3} alt="slide3" />
+            <h3 className="c-slider__title c-slider__title--first">Si eres una asociación sube a tus peludos para darles más difusión</h3>
           </div>
         </div>
-        <Slider/>
+
+        <div className="swiper-pagination"></div>
       </div>
-    </div>
+    </>
   );
 };
+
+export default Slider;

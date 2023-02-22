@@ -2,13 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./TarjetAdopDetail.scss";
+
 const TarjetAdopDetail = ({animal}) => {
+
   const { user } = useSelector((state) => state.auth);
   console.log("hisacn", animal)
+
   return (
     <div>
       <div className="container-boxStatus_completada">
-        
           {user?.pets?.map((pet, index) => (
             <Link to={`/lucky/home/options/adoptionStatus/${pet._id}`} key={index}>
               <div className="box-nameStatus">

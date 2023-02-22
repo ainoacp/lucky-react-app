@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import TarjetAdopDetail from "../../components/TarjetAdopDetail/TarjetAdopDetail";
 
 const StatusPages = () => {
-  
+
 
   const [estadoFilter, cambiarEstadoFilter] = useState(false);
 
@@ -42,19 +42,17 @@ const StatusPages = () => {
   }, []);
 
   return (
-    <div className="containerStatus">
-      <div className="containerStatusNavbar">
-        <Link to="/lucky/home/options" className="return"></Link>
-        <div>
-          <Searcher search={filterAnimals} />
+    <div className="c5">
+      <div className="c5__page">
+        <div className="c5__page--navbar">
+          <Link to="/lucky/home/options" className="return"></Link>
+          {/* <div className="c5__page--navbar--filter"> */}
+            <Searcher search={filterAnimals} />
+          
         </div>
-        {/* <a
-          href
-          onClick={() => cambiarEstadoFilter(!estadoFilter)}
-          className="filter"
-          alt="filtros"
-        ></a> */}
-        <TarjetAdopDetail />
+        <div>
+          <TarjetAdopDetail />
+        </div>
       </div>
 
       <StatusFilter

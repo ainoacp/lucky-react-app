@@ -1,0 +1,19 @@
+.bton-large{
+    
+    width: 90%;
+    height: 70px;
+    background-color: orange;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border:2px solid orange;
+    border-radius: 3px;
+    margin: 15px 10px 15px 10px;
+   
+
+       &:active{
+        background-color: white;
+        color:orange; 
+        border:2px solid orange;
+       }
+}

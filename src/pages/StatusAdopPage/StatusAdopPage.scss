@@ -1,0 +1,170 @@
+.containerAdopStatusNavbar {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+.container-boxes-AdopStatus {
+  display: flex;
+  width: 100%;
+}
+
+.returnAdop {
+  display: flex;
+
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/Arrow/Atras/atras.png");
+  margin-left: 20px;
+}
+
+.title-statusAdopnav {
+  display: flex;
+  margin: auto;
+}
+
+.containerAdopStatus {
+  display: flex;
+  flex-direction: column;
+}
+
+///////////////////////////////////////////////-------CAJAS
+
+.container-boxAdopStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+////////////////////////////////////
+///
+
+.box-profile {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 40vh;
+  border: 2px solid rgb(179, 200, 203);
+  border-radius: 5px;
+
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(1, 116, 142);
+}
+
+.box-nameAdopStatus {
+  display: flex;
+  flex-direction: column;
+}
+
+.textnam-bicha {
+  display: flex;
+  font-size: 16px;
+  text-decoration: solid;
+  color: rgb(1, 116, 142);
+  
+}
+
+.box-bicha {
+  display: flex;
+}
+
+
+.bicharraco {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgb(189, 210, 214);
+  border-radius: 50%;
+}
+
+.bicharraco-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 60px;
+  height: 80px;
+}
+
+.text-data_bicha {
+  color: black;
+}
+
+///////////////////////////////////////
+
+.asoLine {
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.box-adop-map {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.box-adop-aso {
+  display: flex;
+  flex-direction: row;
+}
+
+.box-adop-map__img {
+  display: flex;
+  width: 80px;
+  height: 80px;
+}
+
+.box-adop-mapAsoc {
+  display: flex;
+  flex-direction: column;
+}
+.box-adop-map_A {
+  display: flex;
+}
+
+.box-adop-map_B {
+  display: flex;
+  flex-direction: column;
+}
+.asocdir {
+  width: 30px;
+  height: 30px;
+}
+
+.box-adop-map__img {
+  display: flex;
+}
+
+.box-adop-mapAsoc {
+  display: flex;
+}
+
+//////////////////
+.box-adop-map-contact {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+.contact {
+  margin: 10px;
+}
+
+
+
+///////////////////////////
+/// 
+.boxtextinfo2{
+   display: flex;
+   flex-direction: column;
+    width: 90%;
+
+    margin: 25px;
+}
+
+.subefoto{
+    width: 90%;
+    height:150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-image: url();
+}

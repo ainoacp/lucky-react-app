@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Searcher from "../../components/Searcher/Searcher";
 import "./StatusPage.scss";
 
-import axios from "axios";
+
+import  axios from "axios";
 import { useEffect, useStatte } from "react";
 import { useSelector } from "react-redux";
 import TarjetAdopDetail from "../../components/TarjetAdopDetail/TarjetAdopDetail";
@@ -44,7 +45,7 @@ const StatusPages = () => {
   return (
     <div className="containerStatus">
       <div className="containerStatusNavbar">
-        <Link to="/lucky/home/options" className="return"></Link>
+        <Link to="/lucky/home/options" className="return"><img /> </Link>
         <div>
           <Searcher search={filterAnimals} />
         </div>

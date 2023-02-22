@@ -44,54 +44,54 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="home">
-          <Route index element={<AuthComponent component={<HomePage />} />} />
+          <Route index element={<HomePage />} />
           <Route
             path="map"
-            element={<AuthComponent component={<MapPage />} />}
+            element={<MapPage />} 
           />
           <Route path="pets">
-            <Route index element={<AuthComponent component={<PetPage />} />} />
+            <Route index element={<PetPage />} /> 
             <Route 
               path="filter"
-              element={<AuthComponent component={<AnimalsFilterPage />} />}
+              element={<AnimalsFilterPage />}
             />
             <Route path=":id">
-              <Route index element={<AuthComponent component = {<AnimalDetail/>}/>}/>
+              <Route index element={<AnimalDetail/>}/>
               <Route 
                 path="adoptionForm"
-                element={<AuthComponent component={<FormsPage/>}/>}
+                element={<FormsPage/>}
               />
             </Route>
             <Route
             path="adoptionForm"
-            element={<AuthComponent component={<FormsPage />} />}
+            element={<FormsPage />}
           />
           </Route>
           <Route path="options">
-            <Route index element={<AuthComponent component={<ProfilePage />} />} />
+            <Route index element={<ProfilePage />} />
             <Route path="adoptionStatus">
-              <Route index element={<AuthComponent component={<StatusPage />} />} />
+              <Route index element={<StatusPage />} />
               <Route  
                 path=":id" 
-                element={<AuthComponent component={<StatusAdopPage />} />}
+                element={<StatusAdopPage />}
               />
             </Route>
             <Route 
               path="favPets"
-              element={<AuthComponent component={<FavPetsPage />} />}
+              element={<FavPetsPage />}
             />
           </Route>
           <Route
             path="more"
-            element={<AuthComponent component={<PlusPage />} />}
+            element={<PlusPage />}
           />
           <Route
             path="adoptionForm"
-            element={<AuthComponent component={<FormsPage />} />}
+            element={<FormsPage />}
           />
           <Route
             path=":id"
-            element={<AuthComponent component={<HomePage />} />}
+            element={<HomePage />}
           />
         </Route>
        

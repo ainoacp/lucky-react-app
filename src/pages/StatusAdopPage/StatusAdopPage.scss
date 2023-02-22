@@ -27,6 +27,7 @@
 
     &__card{
         border-color: rgb(189 210 214);
+        border: 2px solid;
         border-width: thin;
         display: flex;
         justify-content: center;
@@ -40,6 +41,7 @@
         &--text{
             display: flex;
             justify-content: flex-start;
+            margin-left: -10px;
             p{
                 color: rgb(1 116 142);
                 font-weight: 500;

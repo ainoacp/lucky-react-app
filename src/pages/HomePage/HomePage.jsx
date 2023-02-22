@@ -21,7 +21,7 @@ export default function HomePage() {
                 <p className='c-home-header_title'>¡Hola {user?.name || 'User'}!</p>
                 <div className="c-slider swiper">
                     <div className="swiper-wrapper">
-                        <Link to="/lucky/home/options/sponsoring" className="swiper-slide">
+                        <Link to="/lucky/building" className="swiper-slide">
                             <img className="c-slider_img" src={SlideP2} alt="slide2" />
                             <div>
                                 <h5>Apadrina un animal</h5>
@@ -35,7 +35,7 @@ export default function HomePage() {
                                     <p>Revisa el proceso de tus adopciones en curso</p>
                                 </div>
                         </Link>
-                        <Link to="/lucky/home/options/donate" className="swiper-slide">
+                        <Link to="/lucky/building" className="swiper-slide">
                             <img className="c-slider_img" src={SlideP3} alt="slide3" />
                             <div>
                                 <h5>Dona y ayuda</h5>

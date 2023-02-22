@@ -7,7 +7,7 @@ import "./FandHomeStyle.scss"
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { registerAdoption } from "../../../redux/auth/auth.actions";
- 
+
 
 export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,setPag3}){
     const {user} = useSelector((state) => state.auth)
@@ -218,7 +218,7 @@ export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,set
               <div className="radio-question">
                 <div className="question-p">
                   {" "}
-                  <p>¿Tienes jadin?</p>
+                  <p>¿Tienes jardín?</p>
           {errors.garden && <p className="erros-input">{errors.garden.message}</p>}
 
                 </div>
@@ -292,7 +292,7 @@ export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,set
               </div>
               <div className="radio-question">
                 <div className="question-p">
-                  <p>¿Estan todos de acurdo con la adopción?</p>
+                  <p>¿Estan todos de acuerdo con la adopción?</p>
           {errors.agreement && <p className="erros-input">{errors.agreement.message}</p>}
 
                 </div>
@@ -370,13 +370,13 @@ export default function FormFandH({setDateFandHome,registrar,setPag1,setPag2,set
           </form>
           {popUp === true && <div className="popUp1">
       <div className="popUp1__whiteBox1">
-      <button className="popUpwhiteBox--buttons--1" onClick={closePopUp}><Link to={"/lucky/home"}> X</Link></button>
+      <button className="popUpwhiteBox--buttons--1" onClick={closePopUp}><Link to={`/lucky/home/options/adoptionStatus/${animal._id}`}>X</Link></button>
 <div className="popUpBox-information">
               <div className="popUpwhiteBox--title"><h2>¡Enviado!</h2></div>
         <div className="popUpwhiteBox--text"><p>Hemos enviado tu formulario a la protectora. Si quieres ponerte en contacto con ellos puedes hacerlo vía email o whatsapp</p></div>
         <div className="popUpwhiteBox--text"><p>Recuerda que la protectora se pondrá en contacto contigo para poder hacer la entrevista personal</p></div>
 
-        <div className="popUpwhiteBox--video"><img  src={imgCat} alt=""/></div>
+        <div className="popUpwhiteBox--video"><img src={imgCat} alt=""/></div>
 
         <div className="popUpwhiteBox--buttons">
         </div>

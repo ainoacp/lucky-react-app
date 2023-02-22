@@ -149,7 +149,7 @@ const AnimalDetail = () => {
               <div key={index} className="swiper-slide">
               <div className="c__image">
                 <div className="c__image--arrow"><Link to="/lucky/home/pets/"> <img className="c__image--arrow-img" src={arrow} alt="" /></Link></div>
-                <img className="c__image--picture" src={imagenes} alt="puta mierda" />
+                <img className="c__image--picture" src={imagenes} alt="holiiiis" />
               </div>
             </div>
             )}

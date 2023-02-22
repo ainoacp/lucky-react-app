@@ -27,20 +27,21 @@ export default function PetPage() {
   }
 
   const getAnimals = async () => {
-    const res = await axios.get(`http://localhost:5001/animals`);
+    const res = await axios.get(`http://localhost:5001/animals/`);
     const resFiltered = res.data;
-    console.log(resFiltered);
+    console.log("Los filtrados", resFiltered);
     setAnimals(resFiltered);
     setFilterAnimals(resFiltered);
   }
 
   const filterAnimals = async (searchText) => {
-    // console.log(animals)
+    console.log(animals)
     let newAnimals = animals.filter(
       (animal) => 
-        animal.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ciudad.toLowerCase().includes(searchText.toLowerCase()) ||
-        animal.especie.toLowerCase().includes(searchText.toLowerCase()) ||
+        animal.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
+        animal.edad.toLowerCase().includes(searchText.toLowerCase()) ||
+        animal.especie[0].toLowerCase().includes(searchText.toLowerCase()) ||
         animal.sexo.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.tamaño.toLowerCase().includes(searchText.toLowerCase()) ||
         animal.ubicacion.toLowerCase().includes(searchText.toLowerCase())

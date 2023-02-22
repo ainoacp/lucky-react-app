@@ -1,39 +1,145 @@
-.c-filter-button__submit {
-    text-align: center;
-    margin: 0.5rem;
-    width: 90%;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    border: 0;
-    color: rgb(255, 255, 255);
-    background-color: #f8897f;
-    font-size: 1rem;
-  }
+.c-filter {
+  font-family: 'Barlow', sans-serif;
+  color: rgb(1 116 142);
 
-  .c-filter-button__delete {
-    text-align: center;
-    margin: 0.5rem;
-    width: 90%;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    border: 0.2rem solid;
-    background-color: rgb(255, 255, 255);
-    color: #f8897f;
-    border-color: #f8897f;
-    font-size: 1rem;
-  }
+  .c-filter_header {
+    display: flex;
+    justify-content: center;
 
-  .c-filter-container__icon {
-    text-align: center;
-    margin: 1rem;
-    size: 6rem;
-    border-radius: 0.5rem;
-    border: 0.2rem solid;
-    background-color: rgb(255, 255, 255);
-    color: --color--primary;
-    border-color: --color--primary;
-    font-size: 0.75rem;
+    margin-left: 15vh;
+    margin-top: 8vh;
+    a{
+      margin-left: 40px;
+      .cross {
+  
+      }
+    }
+    .c-filter__title {
+      font-size: 20px;
+      font-weight: 500;
+  
+      margin: 0 65px 0 40px;
+    }
   }
+  
+  &__content {
+    margin: 20px;
+    .c-filter-div__top {
+      // margin: 10px;
+      .c-filter__category {
+        font-size: 16px;
+        font-weight: 400;
+
+        margin: 10px 0;
+      }
+      .c-filter__display {
+          outline: none;
+          border-radius: 0.8rem;
+
+          background: transparent;
+          // background-image: url("../../assets/Arrow/Desplegable/arrow.png");
+          background-repeat: no-repeat;
+          background-position-x: 98%;
+          background-position-y: 0.7rem;
+          border-bottom: 0.3rem solid #dfdfdf;
+          border-radius: 0.2rem;
+          margin-right: 2rem;
+          padding: 6px 0;
+          padding-right: 2rem;
+          width: 90%;
+          font-size: 12px;
+          border-top: 0;
+          border-left: 0;
+          border-right: 0;
+          background-color: transparent;
+          color: rgb(85, 85, 85);
+          border-bottom: 2px solid rgba(189, 210, 214, 0.476);
+          margin-left: 0;
+          &:focus {
+            border-bottom: 0.1rem solid black;
+          }
+
+          &:active {
+            border: none;
+          }
+        option{
+
+        }
+      }
+      .c-filter-div-just {
+        display: flex;
+        flex-wrap: wrap;
+  
+      }
+    }
+  }
+  &__content {
+    margin: 20px;
+    .c-filter__category {
+        font-size: 16px;
+        font-weight: 400;
+
+        margin: 10px 0;
+    }
+    .c-filter-div {
+      display: flex;
+      flex-wrap: wrap;
+
+      .c-filter-container__icon {
+        width: 67px;
+        height: 73px;
+
+        text-align: center;
+        margin: 0.5rem;
+        size: 6rem;
+        border-radius: 0.5rem;
+        border: 0.2rem solid;
+        background-color: rgb(255, 255, 255);
+        color: rgb(1 116 142);
+        border: 2px solid rgba(189, 210, 214, 0.526);
+        font-size: 12px;
+        .c-filter-image {
+
+        }
+        .c-filter__p {
+
+        }
+      }
+    }
+  }
+  .c-filter__btns {
+    display: flex;
+    justify-content: center;
+
+    .c-filter-button__submit {
+      text-align: center;
+      margin: 0.5rem;
+      width: 30%;
+      height: 2.3rem;
+      border-radius: 0.5rem;
+      border: 0;
+      color: rgb(255, 255, 255);
+      background-color: #f8897f;
+      font-size: 1rem;
+    }
+  
+    .c-filter-button__delete {
+      text-align: center;
+      margin: 0.5rem;
+      width: 30%;
+      height: 2.3rem;
+      border-radius: 0.5rem;
+      border: 0.13rem solid;
+      background-color: rgb(255, 255, 255);
+      color: #f8897f;
+      border-color: #f8897f;
+      font-size: 1rem;
+    }
+  }
+}
+
+
+
 
   .c-filter {
     width: 100%;
@@ -43,7 +149,7 @@
       border-radius: 0.8rem;
       
       background: transparent;
-      background-image: url("../../assets/Arrow/Desplegable/arrow.png");
+      // background-image: url("../../assets/Arrow/Desplegable/arrow.png");
       background-repeat: no-repeat;
       background-position-x: 98%;
       background-position-y: 0.7rem;

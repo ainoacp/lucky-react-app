@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-    <div className='container'>  
+    <div className='container2'>  
       <nav className='navbar'>
         {/* {!token &&<Link to='/lucky/home' className='home'><img src={iconHome} className='icon' alt='home'/></Link>}
         {!token &&<Link to='/lucky/map' className='map'><img src={iconUbi} className='icon' alt='map'/></Link>}
